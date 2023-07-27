@@ -1,0 +1,14 @@
+{
+	"langs": [
+		{
+			"name": "English",
+			"code": "en",
+			"flag": ""
+		},
+		{
+			"name": "Español",
+			"code": "es",
+			"flag": ""
+		}
+	]
+}

@@ -1,0 +1,81 @@
+{
+  "general": {
+    "yes": "Si",
+    "no": "No",
+    "close": "Cerrar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "search": "Buscar",
+    "all": "Todos",
+    "table":{
+      "paginator":{
+        "lastpage":"Última página",
+        "firstpage":"Primera página",
+        "nextpage":"Siguiente página",
+        "previouspage":"Página anterior",
+        "range":"de",
+        "pages":"Registros por página"
+      }
+    },
+    "operation": {
+      "add": "Agregar",
+      "new": "Nuevo",
+      "edit": "Editar",
+      "update": "Actualizar",
+      "delete": "Eliminar",
+      "remove": "Quitar",
+      "search": "Buscar"
+    },
+    "status": {
+      "active": "Activo",
+      "inactive": "Suspendido",
+      "suspended": "Suspendido",
+      "cancelated": "Cancelado",
+      "finalized": "Finalizado",
+      "all": "Todos"
+    }
+  },
+  "shared":{
+    "asignacion":{
+      "cantidad":"Cantidad",
+      "asignar":"Asignar",
+      "asignados":"Asignados",
+      "columnas": {
+        "nombre": "Nombre",
+        "codigo": "Código",
+        "estado": "Estado",
+        "cantidad": "Cantidad",
+        "operaciones": "Operaciones"
+      },
+      "messages": {
+        "info": {
+          "delete": "Está seguro que desea quitar esta asignación?",
+          "noentidades": "No existen asignaciones",
+          "asignacionexistente": "Este elemento ya ha sido asignado"
+        }
+      }
+    }
+  },
+  "features":{
+    "perfil":{
+      "titulo":"Perfil",
+      "lenguaje":"Lenguaje",
+      "tema":"Tema",
+      "lenguaje-opciones":{
+        "es":"Español",
+        "en":"Inglés"
+      }
+    }
+  },
+  "menu": {
+    "home": "Home",
+    "usuarios": "Usuarios",
+    "laboratorios": "Laboratorios",
+    "turnos": "Turnos",
+    "perfil": "Perfil",
+    "dashboard": "Tablero"
+  },
+  "footer": {
+    "title": "Universidad Nacional Arturo Jauretche"
+  }
+}

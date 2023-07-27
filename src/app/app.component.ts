@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'LabsUnaj';
+  userIsLogged = true;
+  title = 'UNAJ Labs';
+  isDarkTheme = false; // Puedes ajustar esta variable según tus necesidades para alternar entre el tema light y dark
+
+  constructor() {}
+
+  openLogout(){}
+  openLogin(){}
 }

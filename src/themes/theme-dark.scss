@@ -1,0 +1,17 @@
+// theme-light.scss
+@import '@angular/material/theming';
+
+// Definir los colores personalizados
+$primary-color: mat-palette($mat-grey, 700); // #212121 es un tono de gris, por lo que utilizamos la paleta de grises de Angular Material
+$accent-color: mat-palette($mat-light-blue, 500); // #0081cc es un tono de azul, por lo que utilizamos la paleta de azules de Angular Material
+
+// Definir el tema dark
+$theme-dark: mat-dark-theme($primary-color, $accent-color);
+
+// // Incluir el tema lightdark en todos los componentes
+// @include angular-material-theme($dark-light);
+
+// // Estilos adicionales para el tema light
+// .dark-theme {
+//   background-color: #f5f5f5;
+// }

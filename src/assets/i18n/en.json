@@ -1,0 +1,122 @@
+{
+  "general": {
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "search": "Search",
+    "all": "All",
+    "table":{
+      "paginator":{
+        "lastpage":"Last page",
+        "firstpage":"Firs page",
+        "nextpage":"Next page",
+        "previouspage":"Previous page",
+        "range":"of",
+        "pages":"Items per page"
+      }
+    },
+    "operation": {
+      "add": "Add",
+      "new": "New",
+      "edit": "Edit",
+      "update": "Update",
+      "delete": "Delete",
+      "remove": "Remove",
+      "search": "Search"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "suspended": "Suspended",
+      "cancelated": "Cancelated",
+      "finalized": "Finalized",
+      "all": "All"
+    }
+  },
+  "menu": {
+    "home": "Home",
+    "usuarios": "Users",
+    "laboratorios": "Laboratories",
+    "turnos": "Schedules",
+    "perfil": "Profile",
+    "dashboard": "Dashboard"
+  },
+  "features":{
+    "perfil":{
+      "titulo":"Profile",
+      "lenguaje":"Language",
+      "tema":"Theme",
+      "lenguaje-opciones":{
+        "es":"Spanish",
+        "en":"English"
+      }
+    }
+  },
+  "shared":{
+    "asignacion":{
+      "cantidad":"Quantity",
+      "asignar":"Assign",
+      "asignados":"Assigned",
+      "columnas": {
+        "nombre": "Name",
+        "codigo": "Code",
+        "estado": "Status",
+        "cantidad": "Quantity",
+        "operaciones": "Operations"
+      },
+      "messages": {
+        "info": {
+          "delete": "Are you sure you want to delete?",
+          "noentidades": "There is not exists assignments",
+          "asignacionexistente": "This element it is already assigned"
+        }
+      }
+    }
+  },
+  "login": {
+    "title": "Sign In",
+    "button": "Login",
+    "user": "Username",
+    "password": "Password",
+    "signup": "Sign up",
+    "forgotpassword": "Forgot your password?",
+    "messages": {
+      "info": {},
+      "error": {
+        "login-problem": "Problem with login",
+        "NotAuthorizedException": "Incorrect username or password."
+      }
+    }
+  },
+  "logout": {
+    "title": "Sign out",
+    "legend": "¿Are you sure you want to leave?"
+  },
+  "register": {
+    "title": "Sign up",
+    "username": "Username",
+    "password": "Password",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "project": "Project",
+    "type": "Type",
+    "button": "Confirm",
+    "messages": {
+      "info": {
+        "register-success": "Register successfully",
+        "email-sended": "An email has been sent to your mailbox to validate the user"
+      },
+      "error": {
+        "register-problem": "Problem with registration",
+        "UsernameExistsException": "Username already exists",
+        "InvalidPasswordException": "Password not long enough"
+      }
+    }
+  },
+  "footer": {
+    "title": "National University of Arturo Jauretche"
+  }
+}

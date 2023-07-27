@@ -1,0 +1,9 @@
+@use '@angular/material' as mat;
+
+@mixin perfil-theme($theme) {
+  $accent: map-get($theme, accent);
+  
+  .accent {
+    color: mat.get-color-from-palette($accent);
+  }
+}
