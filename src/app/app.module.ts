@@ -2,7 +2,7 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import es from '@angular/common/locales/es';
 import pt from '@angular/common/locales/pt';
-import { Provider, NgModule } from '@angular/core';
+import { Provider, NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
@@ -56,6 +56,8 @@ export const interceptors: Provider[]=  [
   providers: [
     // AuthService,
     ...interceptors,
+    { provide: LOCALE_ID, useValue: 'es' },
+    { provide: LOCALE_ID, useValue: 'en' },
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 3000}},
     {provide: MAT_DATE_LOCALE, useValue: locale}
   ],

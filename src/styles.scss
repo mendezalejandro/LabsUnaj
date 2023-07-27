@@ -20,6 +20,7 @@
 // default style
 @include mat.all-component-themes($theme-light);
 @include custom-components-theme($theme-light);
+
 .dark-theme {
   @include mat.all-component-colors($theme-dark);
   @include custom-components-theme($theme-dark);

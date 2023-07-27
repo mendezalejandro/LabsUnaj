@@ -8,7 +8,7 @@
                   <div class="d-flex flex-column ms-3">
                       <h3 matListItemTitle>{{'features.perfil.lenguaje' | translate}}</h3>
                       <p matListItemLine>
-                        <span>Español</span>
+                        <span>{{'features.perfil.lenguaje-opciones.'+ profile.lang | translate}}</span>
                       </p>
                   </div>
                 </div>
@@ -26,13 +26,14 @@
                   <div class="d-flex flex-column ms-3">
                       <h3 matListItemTitle>{{'features.perfil.tema' | translate}}</h3>
                       <p matListItemLine>
-                        <span>Claro</span>
+                        <span>{{'features.perfil.tema-opciones.'+profile.theme | translate}}</span>
                       </p>
                   </div>
                 </div>
                 <div>
-                  <button mat-icon-button>
-                    <mat-icon>light_mode</mat-icon>
+                  <button mat-icon-button (click)="changeTheme()">
+                    <mat-icon *ngIf="profile.theme==='light'">light_mode</mat-icon>
+                    <mat-icon *ngIf="profile.theme==='dark'">dark_mode</mat-icon>
                   </button>
                 </div>
             </div>
@@ -42,6 +43,6 @@
 
 
 <mat-menu #lenguajeOpciones="matMenu">
-    <button mat-menu-item>{{'features.perfil.lenguaje-opciones.es' | translate}}</button>
-    <button mat-menu-item>{{'features.perfil.lenguaje-opciones.en' | translate}}</button>
+    <button mat-menu-item (click)="changeLanguage('es')">{{'features.perfil.lenguaje-opciones.es' | translate}}</button>
+    <button mat-menu-item (click)="changeLanguage('en')">{{'features.perfil.lenguaje-opciones.en' | translate}}</button>
 </mat-menu>

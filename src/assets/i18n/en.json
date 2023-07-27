@@ -48,9 +48,17 @@
       "titulo":"Profile",
       "lenguaje":"Language",
       "tema":"Theme",
+      "tema-opciones":{
+        "light":"Light",
+        "dark":"Dark"
+      },
       "lenguaje-opciones":{
         "es":"Spanish",
         "en":"English"
+      },
+      "mensajes":{
+        "lenguaje-cambiado":"Language changed to",
+        "tema-cambiado":"Theme changed to"
       }
     }
   },
