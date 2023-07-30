@@ -28,6 +28,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatTooltipModule, MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions } from '@angular/material/tooltip';
 
 /** List of components from Material Design */
 const components = [
@@ -58,7 +59,8 @@ const components = [
 	MatAutocompleteModule,
 	MatGridListModule,
 	MatProgressBarModule,
-	MatButtonToggleModule
+	MatButtonToggleModule,
+	MatTooltipModule
 ]
 
 
@@ -74,6 +76,14 @@ const components = [
 		CommonModule,
 		...components
 	],
-	providers: [MatDialogModule]
+	providers: [
+		MatDialogModule,
+		{ // configuracion global para tooltips
+		  provide: MAT_TOOLTIP_DEFAULT_OPTIONS,
+		  useValue: {
+			showDelay: 700,
+		  } as MatTooltipDefaultOptions,
+		}
+	  ]
 })
 export class MaterialModule {}

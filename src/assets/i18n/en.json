@@ -7,6 +7,14 @@
     "confirm": "Confirm",
     "search": "Search",
     "all": "All",
+    "titulo": "Title",
+    "name": "Name",
+    "id": "Id",
+    "imagen": "Image",
+    "estado": "Status",
+    "disponible": "Available",
+    "descripcion": "Description",
+    "acciones": "Actions",
     "table":{
       "paginator":{
         "lastpage":"Last page",
@@ -24,7 +32,9 @@
       "update": "Update",
       "delete": "Delete",
       "remove": "Remove",
-      "search": "Search"
+      "search": "Search",
+      "add-aria-label": "Button to add new element",
+      "add-tooltip": "Add operation"
     },
     "status": {
       "active": "Active",
@@ -44,6 +54,33 @@
     "dashboard": "Dashboard"
   },
   "features":{
+    "usuarios": {
+      "titulo": "Users",
+      "columnas": {
+        "nombre": "Name",
+        "apellido": "Lastname",
+        "email": "Email",
+        "telefono": "Phone",
+        "estado": "Status",
+        "operaciones": "Operations"
+      },
+      "messages": {
+        "info": {
+          "delete": "Are you sure you want to delete?",
+          "noentidades": "There is not exists users"
+        }
+      }
+    },
+    "laboratorios": {
+      "titulo": "Laboratories",
+      "acciones": "Actions",
+      "messages": {
+        "info": {
+          "delete": "Are you sure you want to delete?",
+          "noentidades": "There is not exists laboratories"
+        }
+      }
+    },
     "perfil":{
       "titulo":"Profile",
       "lenguaje":"Language",

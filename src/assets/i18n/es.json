@@ -7,6 +7,14 @@
     "confirm": "Confirmar",
     "search": "Buscar",
     "all": "Todos",
+    "titulo": "Título",
+    "name": "Nombre",
+    "id": "Id",
+    "imagen": "Imagen",
+    "estado": "Estado",
+    "disponible": "Disponible",
+    "descripcion": "Descripción",
+    "acciones": "Acciones",
     "table":{
       "paginator":{
         "lastpage":"Última página",
@@ -19,6 +27,8 @@
     },
     "operation": {
       "add": "Agregar",
+      "add-aria-label": "Botón para agregar un nuevo elemento",
+      "add-tooltip": "Agregar registro",
       "new": "Nuevo",
       "edit": "Editar",
       "update": "Actualizar",
