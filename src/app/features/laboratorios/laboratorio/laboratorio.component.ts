@@ -7,11 +7,19 @@ import { ILaboratorio } from 'src/app/shared/models/laboratorio.model';
   styleUrls: ['./laboratorio.component.scss']
 })
 export class LaboratorioComponent {
+  /* laboratorio a mostrar */
   @Input() laboratorio!: ILaboratorio;
+  /* evento para notificar cambios */
   @Output() laboratorioChange: EventEmitter<ILaboratorio> = new EventEmitter<ILaboratorio>();
+  /* indicador de solo lectura */
   @Input() readOnly: boolean = false;
-  constructor() { }
-
+  /* indicador de deshabilitado */
+  @Input() disabled: boolean = false;
+  
+  /**
+   * procesa el archivo seleccionado
+   * @param event evento de seleccion de archivo
+   */
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input?.files && input.files.length > 0) {
@@ -20,6 +28,10 @@ export class LaboratorioComponent {
     }
   }
 
+  /**
+   * muestra la imagen seleccionada
+   * @param file archivo seleccionado
+   */
   previewImage(file: File): void {
     const reader = new FileReader();
     reader.onload = () => {

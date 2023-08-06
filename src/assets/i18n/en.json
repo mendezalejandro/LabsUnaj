@@ -93,10 +93,8 @@
         "edit-success":"Laboratory edited successfully",
         "add-success":"Laboratory added successfully",
         "delete-success":"Laboratory deleted successfully",
-        "info": {
-          "delete": "Are you sure you want to delete?",
-          "noentidades": "There is not exists laboratories"
-        }
+        "delete-title": "Delete laboratory",
+        "delete-message": "Are you sure you want to delete this laboratory?"
       }
     },
     "perfil":{

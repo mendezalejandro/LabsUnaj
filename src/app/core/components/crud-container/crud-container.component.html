@@ -14,5 +14,8 @@
         <ng-content select="[footer]">
             
         </ng-content>
+        <div class="row" style="height: 10px;">
+          <mat-progress-bar class="pt-3" mode="indeterminate" *ngIf="showLoading" color="accent"></mat-progress-bar>
+        </div>
       </div>
   </div>

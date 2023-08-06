@@ -3,9 +3,9 @@
         <div class="row">
             <mat-form-field>
                 <mat-label>{{ 'general.titulo' | translate }}</mat-label>
-                <input [(ngModel)]="laboratorio.titulo" matInput
+                <input [(ngModel)]="laboratorio.titulo" [readonly]="readOnly" [disabled]="disabled" matInput
                     placeholder="{{ 'general.titulo-placeholder' | translate }}" name="titulo" autocomplete="off"
-                    required [readonly]="readOnly">
+                    required>
                 <mat-error *ngIf="form.controls['titulo']?.invalid && form.controls['titulo']?.touched">
                     {{ 'general.titulo-error' | translate }}
                 </mat-error>
@@ -14,9 +14,9 @@
         <div class="row">
             <mat-form-field>
                 <mat-label>{{ 'general.nombre' | translate }}</mat-label>
-                <input [(ngModel)]="laboratorio.nombre" matInput
+                <input [(ngModel)]="laboratorio.nombre" [disabled]="disabled" [readonly]="readOnly" matInput
                     placeholder="{{ 'general.nombre-placeholder' | translate }}" name="nombre" autocomplete="off"
-                    required [readonly]="readOnly">
+                    required>
                 <mat-error *ngIf="form.controls['nombre']?.invalid && form.controls['nombre']?.touched">
                     {{ 'general.nombre-error' | translate }}
                 </mat-error>
@@ -25,7 +25,7 @@
         <div class="row">
             <mat-form-field>
                 <mat-label>{{ 'general.descripcion' | translate }}</mat-label>
-                <textarea [(ngModel)]="laboratorio.descripcion" [readonly]="readOnly" name="descripcion" matInput
+                <textarea [(ngModel)]="laboratorio.descripcion" [readonly]="readOnly" [disabled]="disabled" name="descripcion" matInput
                     placeholder="{{ 'general.descripcion-placeholder' | translate }}"></textarea>
                 <mat-error *ngIf="form.controls['descripcion']?.invalid && form.controls['descripcion']?.touched">
                     {{ 'general.descripcion-error' | translate }}
@@ -34,17 +34,17 @@
             <!-- Otros campos del formulario y botón de envío -->
         </div>
         <div class="row d-flex">
-            <div class="col d-flex justify-content-center"><mat-slide-toggle [disabled]="readOnly"
+            <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent" [disabled]="readOnly || disabled"
                     [(ngModel)]="laboratorio.disponible" name="disponible">{{ 'general.disponible' | translate
                     }}</mat-slide-toggle></div>
-            <div class="col d-flex justify-content-center"><mat-slide-toggle [disabled]="readOnly"
+            <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent" [disabled]="readOnly || disabled"
                     [(ngModel)]="laboratorio.estado" name="estado">{{ 'general.estado' | translate }}</mat-slide-toggle>
             </div>
         </div>
         <ng-container *ngIf="!readOnly; else imageOnly">
             <div class="row mt-4">
                 <mat-label>{{ 'general.imagen-load' | translate }}</mat-label>
-                <input ngModel [ngModelOptions]="{standalone:true}" name="imagen" type="file"
+                <input ngModel [disabled]="disabled" [ngModelOptions]="{standalone:true}" name="imagen" type="file"
                     (change)="onFileSelected($event)" accept=".jpg,.png" required>
                 <mat-error *ngIf="form.controls['imagen']?.invalid && form.controls['imagen']?.touched">
                     {{ 'general.imagen-error' | translate }}

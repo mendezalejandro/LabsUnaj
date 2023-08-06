@@ -10,6 +10,7 @@ export class CrudContainerComponent {
   /** calculated height */
   calculatedHeight: number = 100;
   @Input() title!: string;
+  @Input() showLoading: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,0 +1,9 @@
+<h2 color="primary" mat-dialog-title>{{ title }}</h2>
+<mat-dialog-content class="mat-typography">
+  {{ message }}
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button *ngIf="showCancel" (click)="cancel()" color="warn" mat-button mat-dialog-close>{{ "general.cancel" | translate }}</button>
+  <button *ngIf="showConfirm" (click)="confirm()" color="accent" mat-button [mat-dialog-close]="true" cdkFocusInitial>{{ "general.confirm" | translate }}</button>
+  <button *ngIf="showClose" (click)="close()" mat-button mat-dialog-close>{{ "general.close" | translate }}</button>
+</mat-dialog-actions>

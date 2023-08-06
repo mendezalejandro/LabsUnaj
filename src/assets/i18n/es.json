@@ -105,10 +105,8 @@
         "edit-success": "Laboratorio editado correctamente",
         "add-success": "Laboratorio agregado correctamente",
         "delete-success": "Laboratorio eliminado correctamente",
-        "info": {
-          "delete": "Está que desea eliminar este laboratorio?",
-          "noentidades": "No existen laboratorios"
-        }
+        "delete-title": "Eliminar laboratorio",
+        "delete-message": "Está que desea eliminar este laboratorio?"
       }
     }
   },
