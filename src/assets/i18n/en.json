@@ -8,12 +8,22 @@
     "search": "Search",
     "all": "All",
     "titulo": "Title",
-    "name": "Name",
+    "titulo-placeholder": "Write a title",
+    "titulo-error": "You must enter a name",
+    "nombre": "Name",
+    "nombre-placeholder": "Write a name",
+    "nombre-error": "You must enter a name",
     "id": "Id",
     "imagen": "Image",
+    "imagen-load": "Select a file:",
+    "imagen-error": "Please select a valid file",
     "estado": "Status",
     "disponible": "Available",
+    "no-disponible": "Unavailable",
     "descripcion": "Description",
+    "descripcion-placeholder": "You must enter a description",
+    "descripcion-error": "You must enter a description",
+    "filtro-placeholder":"Type to filter elements",
     "acciones": "Actions",
     "table":{
       "paginator":{
@@ -100,25 +110,7 @@
     }
   },
   "shared":{
-    "asignacion":{
-      "cantidad":"Quantity",
-      "asignar":"Assign",
-      "asignados":"Assigned",
-      "columnas": {
-        "nombre": "Name",
-        "codigo": "Code",
-        "estado": "Status",
-        "cantidad": "Quantity",
-        "operaciones": "Operations"
-      },
-      "messages": {
-        "info": {
-          "delete": "Are you sure you want to delete?",
-          "noentidades": "There is not exists assignments",
-          "asignacionexistente": "This element it is already assigned"
-        }
-      }
-    }
+
   },
   "login": {
     "title": "Sign In",
