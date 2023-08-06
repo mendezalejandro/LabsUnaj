@@ -93,6 +93,46 @@
         "tema-cambiado":"Tema cambiado a"
       }
     },
+    "usuarios": {
+      "titulo": "Usuarios",
+      "nombre": "Nombre",
+      "nombre-error": "El nombre es requerido",
+      "nombre-placeholder":"Ingrese el nombre",
+      "apellido": "Apellido",
+      "apellido-error": "El apellido es requerido",
+      "apellido-placeholder":"Ingrese el apellido",
+      "usuario": "Usuario",
+      "usuario-error": "El nombre de usuario es requerido",
+      "usuario-placeholder":"Ingrese el nombre usuario",
+      "password": "Contraseña",
+      "password-error": "La contraseña es requerida",
+      "password-placeholder":"Ingrese una contraseña",
+      "email": "Email",
+      "email-error": "El email es requerido",
+      "email-placeholder":"Ingrese el email",
+      "telefono": "Teléfono",
+      "telefono-error": "El teléfono es requerido",
+      "telefono-placeholder":"Ingrese el teléfono",
+      "estado": "Estado",
+      "rol": "Rol",
+      "rols": {
+        "admin": "Administrador",
+        "alumno": "Alumno"
+      },
+      "acciones": "Acciones",
+      "form": {
+        "add": "Nuevo usuario",
+        "edit": "Editar usuario",
+        "view": "Detalle de usuario"
+      },
+      "mensajes": {
+        "edit-success":"Usuario editado correctamente",
+        "add-success":"Usuario agregado correctamente",
+        "delete-success":"Usuario eliminado correctamente",
+        "delete-title": "Eliminar usuario",
+        "delete-message": "Está seguro que desea eliminar este usuario?"
+      }
+    },
     "laboratorios": {
       "titulo": "Laboratorios",
       "acciones": "Acciones",

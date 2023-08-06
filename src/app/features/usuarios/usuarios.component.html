@@ -1,53 +1,134 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
+<div class="main-container">
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #snav mode="over" position="end" [opened]="opened" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <app-crud-container [title]="formTitle" *ngIf="opened" [showLoading]="processing">
+          <ng-container content>
+            <app-usuario [(usuario)]="usuario" [readOnly]="oper=='view'" [disabled]="processing"></app-usuario>
+          </ng-container>
+          <ng-container footer>
+            <div class="d-flex justify-content-around" *ngIf="oper!=='view'; else onlyCloseFooter">
+              <button mat-stroked-button color="warn" (click)="cancel()">{{'general.cancel' | translate}}</button>
+              <button mat-raised-button color="accent" (click)="confirm()">{{'general.confirm' | translate}}</button>
+            </div>
+            <ng-template #onlyCloseFooter>
+              <div class="d-flex justify-content-center">
+                <button mat-stroked-button color="warn" (click)="cancel()">{{'general.close' | translate}}</button>
+              </div>
+            </ng-template>
+          </ng-container>
+          
+        </app-crud-container>
+  
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <div class="h-100 d-flex flex-column">
+          <mat-toolbar color="accent" class="mat-h3 mb-0 mat-elevation-z8">
+            <mat-toolbar-row>
+              <span>{{'features.usuarios.titulo'|translate}}</span>
+              <span class="toolbar-spacer"></span>
+              <div>
+                <button mat-icon-button (click)="add()" [ariaLabel]="'general.operation.add-aria-label'|translate"
+                  [matTooltip]="'general.operation.add-tooltip'|translate">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </mat-toolbar-row>
+  
+          </mat-toolbar>
+          <div class="content-container d-flex flex-column overflow-auto p-2">
+            <div class="filter-container">
+              <mat-form-field appearance="fill" class="mat-caption px-0">
+                <input #filterInput matInput placeholder="{{'general.filtro-placeholder'|translate}}" name="test"
+                  [autocomplete]="false" value="" (input)="filter(filterInput.value)">
+                <mat-icon matPrefix>search</mat-icon>
+                <mat-icon matSuffix (click)="filterInput.value=''; filter('');">close</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="overflow-auto">
+              <ng-container *ngIf="isMobile | async; else desktop">
+                <ng-container *ngTemplateOutlet="mobile"></ng-container>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+  
+        <ng-template #mobile>
+          <mat-card *ngFor="let item of filteredDataSource" class="my-2">
+            <mat-card-header>
+              <mat-card-title>{{item.lastname}} {{item.firstname}}</mat-card-title>
+              <mat-card-subtitle>{{item.rol}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <span>
+                <b>{{'features.usuarios.email'| translate}}</b> {{item.email}}
+              </span>
+              <br>
+              <span>
+                <b>{{'features.usuarios.telefono'| translate}}</b> {{item.phone}}
+              </span>
+            </mat-card-content>
+            <mat-card-actions align="end">
+              <button mat-icon-button (click)="view(item)"><mat-icon>visibility</mat-icon></button>
+              <button mat-icon-button (click)="edit(item)"><mat-icon>edit</mat-icon></button>
+              <button mat-icon-button (click)="delete(item)" color="warn"><mat-icon>delete</mat-icon></button>
+            </mat-card-actions>
+          </mat-card>
+        </ng-template>
+  
+        <ng-template #desktop>
+          <table mat-table [dataSource]="filteredDataSource" class="mat-elevation-z8">
+  
+            <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+  
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+  
+            <!-- Nombre Column -->
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef> {{'general.nombre'|translate}} </th>
+              <td mat-cell *matCellDef="let element">
+                <div class="d-flex flex-column">
+                  <span class="mat-h2 mb-1">{{element.lastname}} {{element.firstname}}</span>
+                  <span class="mat-body">{{element.email}}</span>
+                  <span class="mat-caption">{{element.phone}}</span>
+                </div>
+              </td>
+            </ng-container>
 
-    <!-- Nombre Column -->
-    <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-    </ng-container>
-
-    <!-- Titulo Column -->
-    <ng-container matColumnDef="titulo">
-        <th mat-header-cell *matHeaderCellDef> Titulo </th>
-        <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
-    </ng-container>
-
-    <!-- Disponible Column -->
-    <ng-container matColumnDef="disponible">
-        <th mat-header-cell *matHeaderCellDef> Disponible </th>
-        <td mat-cell *matCellDef="let element">
-            <button mat-icon-button>
-                <mat-icon>{{element.disponible ? 'toggle_on' : 'toggle_off'}}</mat-icon>
-            </button>
-        </td>
-    </ng-container>
-
-    <!-- Estado Column -->
-    <ng-container matColumnDef="estado">
-        <th mat-header-cell *matHeaderCellDef> Estado </th>
-        <td mat-cell *matCellDef="let element">
-            <button mat-icon-button>
-                <mat-icon>{{element.estado ? 'toggle_on' : 'toggle_off'}}</mat-icon>
-            </button>
-        </td>
-    </ng-container>
-
-    <!-- Acciones Column -->
-    <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element">
-            <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
-        </td>
-    </ng-container>
-
-
-    <mat-header-row *matHeaderRowDef="columnsToDisplay; sticky:true"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
-</table>
-
-
+            <!-- Rol Column -->
+            <ng-container matColumnDef="rol">
+              <th mat-header-cell *matHeaderCellDef> {{'features.usuarios.rol'|translate}} </th>
+              <td mat-cell *matCellDef="let element">
+                <span class="mat-body">{{element.rol}}</span>
+              </td>
+            </ng-container>
+  
+            <!-- Estado Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> {{'general.estado'|translate}} </th>
+              <td mat-cell *matCellDef="let element">
+                <mat-slide-toggle [checked]="element.status" (click)="changeEstado(element)" color="accent"></mat-slide-toggle>
+              </td>
+            </ng-container>
+  
+            <!-- Más Column -->
+            <ng-container matColumnDef="acciones">
+              <th mat-header-cell *matHeaderCellDef> </th>
+              <td mat-cell *matCellDef="let element" class="text-end">
+                <button mat-icon-button (click)="view(element)"><mat-icon>visibility</mat-icon></button>
+                <button mat-icon-button (click)="edit(element)"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button (click)="delete(element)" color="warn"><mat-icon>delete</mat-icon></button>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </ng-template>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>

@@ -66,19 +66,30 @@
   "features":{
     "usuarios": {
       "titulo": "Users",
-      "columnas": {
-        "nombre": "Name",
-        "apellido": "Lastname",
-        "email": "Email",
-        "telefono": "Phone",
-        "estado": "Status",
-        "operaciones": "Operations"
+      "nombre": "Name",
+      "usuario": "Username",
+      "password": "Password",
+      "apellido": "Lastname",
+      "email": "Email",
+      "telefono": "Phone",
+      "estado": "Status",
+      "acciones": "Actions",
+      "rol": "Rol",
+      "rols": {
+        "admin": "Administrator",
+        "alumno": "Student"
       },
-      "messages": {
-        "info": {
-          "delete": "Are you sure you want to delete?",
-          "noentidades": "There is not exists users"
-        }
+      "form": {
+        "add": "Add new user",
+        "edit": "Edit user",
+        "view": "User detail"
+      },
+      "mensajes": {
+        "edit-success":"User edited successfully",
+        "add-success":"User added successfully",
+        "delete-success":"User deleted successfully",
+        "delete-title": "Delete user",
+        "delete-message": "Are you sure you want to delete this user?"
       }
     },
     "laboratorios": {
