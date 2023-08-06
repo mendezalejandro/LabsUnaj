@@ -1,7 +1,7 @@
-import { Laboratorio } from "src/app/shared/models/laboratorio.model";
+import { ILaboratorio, Laboratorio } from "src/app/shared/models/laboratorio.model";
 
 // Mock de 5 registros de laboratorios
-export const mockLaboratorios: Laboratorio[] = [
+export const mockLaboratorios: ILaboratorio[] = [
     new Laboratorio(
       1,
       'Laboratorio de Fisica',
@@ -53,4 +53,6 @@ export const mockLaboratorios: Laboratorio[] = [
       true
     ),
   ];
-  
+
+// Mock de un registro de laboratorio
+export const mockLaboratorio: ILaboratorio = new Laboratorio(1, "Laboratorio 1", "Titulo 1", "https://www.google.com", "https://th.bing.com/th/id/OIP.19n7McAwF8deW9DiCgdInQHaH_?pid=ImgDet&rs=1", "Descripcion 1", true, true);

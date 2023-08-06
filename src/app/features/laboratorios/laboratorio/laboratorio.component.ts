@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ILaboratorio } from 'src/app/shared/models/laboratorio.model';
 
 @Component({
   selector: 'app-laboratorio',
@@ -6,15 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./laboratorio.component.scss']
 })
 export class LaboratorioComponent {
+  @Input() laboratorio!: ILaboratorio;
+  @Output() laboratorioChange: EventEmitter<ILaboratorio> = new EventEmitter<ILaboratorio>();
+  @Input() readOnly: boolean = false;
+  constructor() { }
 
   onFileSelected(event: Event): void {
-    const inputElement = event.target as HTMLInputElement;
-    const file = inputElement?.files?.[0]; // Obtiene el primer archivo seleccionado (si hay alguno)
-
-    if (file) {
-      // Realiza cualquier acción que necesites con el archivo seleccionado,
-      // como mostrar su nombre o enviarlo a través de una solicitud HTTP.
-      console.log('Archivo seleccionado:', file.name);
+    const input = event.target as HTMLInputElement;
+    if (input?.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.previewImage(file);
     }
+  }
+
+  previewImage(file: File): void {
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.laboratorio.imagen = reader.result as string;
+    };
+    reader.readAsDataURL(file);
   }
 }

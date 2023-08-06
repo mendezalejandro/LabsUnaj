@@ -21,7 +21,7 @@
     "disponible": "Available",
     "no-disponible": "Unavailable",
     "descripcion": "Description",
-    "descripcion-placeholder": "You must enter a description",
+    "descripcion-placeholder": "Write a description",
     "descripcion-error": "You must enter a description",
     "filtro-placeholder":"Type to filter elements",
     "acciones": "Actions",
@@ -84,7 +84,15 @@
     "laboratorios": {
       "titulo": "Laboratories",
       "acciones": "Actions",
-      "messages": {
+      "form": {
+        "add": "Add new laboratory",
+        "edit": "Edit laboratory",
+        "view": "Laboratory detail"
+      },
+      "mensajes": {
+        "edit-success":"Laboratory edited successfully",
+        "add-success":"Laboratory added successfully",
+        "delete-success":"Laboratory deleted successfully",
         "info": {
           "delete": "Are you sure you want to delete?",
           "noentidades": "There is not exists laboratories"

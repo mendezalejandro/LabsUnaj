@@ -1,49 +1,65 @@
 <form #form="ngForm">
-    <div class="row">
-        <mat-form-field>
-            <mat-label>{{ 'general.titulo' | translate }}</mat-label>
-            <input ngModel matInput placeholder="{{ 'general.titulo-placeholder' | translate }}" name="titulo"
-                autocomplete="off" required>
-            <mat-error *ngIf="form.controls['titulo']?.invalid && form.controls['titulo']?.touched">
-                {{ 'general.titulo-error' | translate }}
-            </mat-error>
-        </mat-form-field>
-    </div>
-    <div class="row">
-        <mat-form-field>
-            <mat-label>{{ 'general.nombre' | translate }}</mat-label>
-            <input ngModel matInput placeholder="{{ 'general.nombre-placeholder' | translate }}" name="nombre"
-                autocomplete="off" required>
-            <mat-error *ngIf="form.controls['nombre']?.invalid && form.controls['nombre']?.touched">
-                {{ 'general.nombre-error' | translate }}
-            </mat-error>
-        </mat-form-field>
-    </div>
-    <div class="row">
-        <mat-form-field>
-            <mat-label>{{ 'general.descripcion' | translate }}</mat-label>
-            <textarea ngModel name="descripcion" matInput
-                placeholder="{{ 'features.general-placeholder' | translate }}"></textarea>
-            <mat-error *ngIf="form.controls['descripcion']?.invalid && form.controls['descripcion']?.touched">
-                {{ 'general.descripcion-error' | translate }}
-            </mat-error>
-        </mat-form-field>
-        <!-- Otros campos del formulario y botón de envío -->
-    </div>
-    <div class="row d-flex">
-        <div class="col"><mat-slide-toggle>{{ 'general.disponible' | translate }}</mat-slide-toggle></div>
-        <div class="col"><mat-slide-toggle>{{ 'general.estado' | translate }}</mat-slide-toggle></div>
-    </div>
+    <div class="container">
+        <div class="row">
+            <mat-form-field>
+                <mat-label>{{ 'general.titulo' | translate }}</mat-label>
+                <input [(ngModel)]="laboratorio.titulo" matInput
+                    placeholder="{{ 'general.titulo-placeholder' | translate }}" name="titulo" autocomplete="off"
+                    required [readonly]="readOnly">
+                <mat-error *ngIf="form.controls['titulo']?.invalid && form.controls['titulo']?.touched">
+                    {{ 'general.titulo-error' | translate }}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>{{ 'general.nombre' | translate }}</mat-label>
+                <input [(ngModel)]="laboratorio.nombre" matInput
+                    placeholder="{{ 'general.nombre-placeholder' | translate }}" name="nombre" autocomplete="off"
+                    required [readonly]="readOnly">
+                <mat-error *ngIf="form.controls['nombre']?.invalid && form.controls['nombre']?.touched">
+                    {{ 'general.nombre-error' | translate }}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>{{ 'general.descripcion' | translate }}</mat-label>
+                <textarea [(ngModel)]="laboratorio.descripcion" [readonly]="readOnly" name="descripcion" matInput
+                    placeholder="{{ 'general.descripcion-placeholder' | translate }}"></textarea>
+                <mat-error *ngIf="form.controls['descripcion']?.invalid && form.controls['descripcion']?.touched">
+                    {{ 'general.descripcion-error' | translate }}
+                </mat-error>
+            </mat-form-field>
+            <!-- Otros campos del formulario y botón de envío -->
+        </div>
+        <div class="row d-flex">
+            <div class="col d-flex justify-content-center"><mat-slide-toggle [disabled]="readOnly"
+                    [(ngModel)]="laboratorio.disponible" name="disponible">{{ 'general.disponible' | translate
+                    }}</mat-slide-toggle></div>
+            <div class="col d-flex justify-content-center"><mat-slide-toggle [disabled]="readOnly"
+                    [(ngModel)]="laboratorio.estado" name="estado">{{ 'general.estado' | translate }}</mat-slide-toggle>
+            </div>
+        </div>
+        <ng-container *ngIf="!readOnly; else imageOnly">
+            <div class="row mt-4">
+                <mat-label>{{ 'general.imagen-load' | translate }}</mat-label>
+                <input ngModel [ngModelOptions]="{standalone:true}" name="imagen" type="file"
+                    (change)="onFileSelected($event)" accept=".jpg,.png" required>
+                <mat-error *ngIf="form.controls['imagen']?.invalid && form.controls['imagen']?.touched">
+                    {{ 'general.imagen-error' | translate }}
+                </mat-error>
+            </div>
+            <div class="row pt-2" *ngIf="laboratorio.imagen">
+                <img [src]="laboratorio.imagen" alt="Imagen subida">
+            </div>
+        </ng-container>
 
-    <div class="row mt-4">
-        <mat-label>{{ 'general.imagen-load' | translate }}</mat-label>
-        <input ngModel [ngModelOptions]="{standalone:true}" name="imagen" type="file" (change)="onFileSelected($event)"
-            accept=".jpg,.png,.pdf" required>
-        <mat-error *ngIf="form.controls['imagen']?.invalid && form.controls['imagen']?.touched">
-            {{ 'general.imagen-error' | translate }}
-        </mat-error>
-    </div>
-    <div class="row">
-        <img [src]="" alt="Imagen de laboratorio" class="img-fluid">
+        <ng-template #imageOnly>
+            <div class="row pt-2" *ngIf="laboratorio.imagen">
+                <mat-label class="pb-2">{{ 'general.imagen' | translate }}</mat-label>
+                <img [src]="laboratorio.imagen" alt="Imagen subida">
+            </div>
+        </ng-template>
     </div>
 </form>

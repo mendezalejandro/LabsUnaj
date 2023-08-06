@@ -16,8 +16,8 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     UILibraryModule,
     LaboratoriosRoutingModule
   ],
-  providers: [
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { subscriptSizing: 'dynamic' } }
-  ]
+  // providers: [
+  //   { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { subscriptSizing: 'dynamic' } }
+  // ]
 })
 export class LaboratoriosModule { }
