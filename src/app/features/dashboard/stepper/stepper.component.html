@@ -1,0 +1,26 @@
+<div class="container d-flex flex-column h-100">
+    <div class="row stepper-header pt-3 mat-elevation-z6">
+        <span class="mat-headline-5"><b>Seleccione el laboratorio</b></span>
+    </div>
+    <div class="row flex-grow-1">
+        <div [ngTemplateOutlet]="selected ? selected.content : null"></div>
+    </div>
+    <div class="row stepper-footer">
+    <footer>
+        <div class="d-flex justify-content-around">
+            <button mat-stroked-button color="accent" cdkStepperPrevious>{{'general.back' | translate}}</button>
+            <button mat-stroked-button color="accent" cdkStepperNext>{{'general.next' | translate}}</button>
+        </div>
+      <!-- <button class="example-nav-button" >Back</button> -->
+      <!-- <button
+        class="example-step"
+        [class.example-active]="selectedIndex === i"
+        *ngFor="let step of steps; let i = index;"
+        (click)="selectStepByIndex(i, step)"
+      >
+        Step {{ step.label }}
+      </button> -->
+      <!-- <button class="example-nav-button" cdkStepperNext>Next</button> -->
+    </footer>
+    </div>
+</div>
