@@ -91,9 +91,9 @@ export class UsuariosComponent {
    */
   filter(value: string) {
     this.filteredDataSource = this.dataSource.filter(usuario =>
-      usuario.firstname.toLowerCase().includes(value.toLowerCase())
-      || usuario.lastname?.toLowerCase().includes(value.toLowerCase())
-      || usuario.email.toLowerCase().includes(value.toLowerCase())
+      usuario.nombre.toLowerCase().includes(value.toLowerCase())
+      || usuario.apellido?.toLowerCase().includes(value.toLowerCase())
+      || usuario.mail.toLowerCase().includes(value.toLowerCase())
     );
   }
   //#endregion
@@ -134,7 +134,7 @@ export class UsuariosComponent {
    */
   delete(item: IUsuario) {
     this.usuario = { ...item };
-    this.usuario.status = false;
+    this.usuario.estado = false;
 
     const dialogMessage = this.dialog.open(MessageComponent, {
       data: {
@@ -155,7 +155,7 @@ export class UsuariosComponent {
    */
   changeEstado(item: IUsuario) {
     this.usuario = { ...item };
-    this.usuario.status = !item.status;
+    this.usuario.estado = !item.estado;
     this.processEdit(this.usuario, true);
   }
 

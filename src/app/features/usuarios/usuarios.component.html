@@ -56,16 +56,16 @@
         <ng-template #mobile>
           <mat-card *ngFor="let item of filteredDataSource" class="my-2">
             <mat-card-header>
-              <mat-card-title>{{item.lastname}} {{item.firstname}}</mat-card-title>
-              <mat-card-subtitle>{{item.rol}}</mat-card-subtitle>
+              <mat-card-title>{{item.nombre}} {{item.apellido}}</mat-card-title>
+              <mat-card-subtitle>{{item.id_rol}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
               <span>
-                <b>{{'features.usuarios.email'| translate}}</b> {{item.email}}
+                <b>{{'features.usuarios.email'| translate}}</b> {{item.mail}}
               </span>
               <br>
               <span>
-                <b>{{'features.usuarios.telefono'| translate}}</b> {{item.phone}}
+                <b>{{'features.usuarios.telefono'| translate}}</b> {{item.telefono}}
               </span>
             </mat-card-content>
             <mat-card-actions align="end">
@@ -93,9 +93,9 @@
               <th mat-header-cell *matHeaderCellDef> {{'general.nombre'|translate}} </th>
               <td mat-cell *matCellDef="let element">
                 <div class="d-flex flex-column">
-                  <span class="mat-h2 mb-1">{{element.lastname}} {{element.firstname}}</span>
-                  <span class="mat-body">{{element.email}}</span>
-                  <span class="mat-caption">{{element.phone}}</span>
+                  <span class="mat-h2 mb-1">{{element.nombre}} {{element.apellido}}</span>
+                  <span class="mat-body">{{element.mail}}</span>
+                  <span class="mat-caption">{{element.telefono}}</span>
                 </div>
               </td>
             </ng-container>
@@ -104,7 +104,7 @@
             <ng-container matColumnDef="rol">
               <th mat-header-cell *matHeaderCellDef> {{'features.usuarios.rol'|translate}} </th>
               <td mat-cell *matCellDef="let element">
-                <span class="mat-body">{{element.rol}}</span>
+                <span class="mat-body">{{element.id_rol}}</span>
               </td>
             </ng-container>
   
@@ -112,7 +112,7 @@
             <ng-container matColumnDef="status">
               <th mat-header-cell *matHeaderCellDef> {{'general.estado'|translate}} </th>
               <td mat-cell *matCellDef="let element">
-                <mat-slide-toggle [checked]="element.status" (click)="changeEstado(element)" color="accent"></mat-slide-toggle>
+                <mat-slide-toggle [checked]="element.estado" (click)="changeEstado(element)" color="accent"></mat-slide-toggle>
               </td>
             </ng-container>
   

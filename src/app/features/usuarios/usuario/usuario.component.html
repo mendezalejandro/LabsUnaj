@@ -3,7 +3,7 @@
         <div class="row">
             <mat-form-field>
                 <mat-label>{{ 'features.usuarios.nombre' | translate }}</mat-label>
-                <input [(ngModel)]="usuario.firstname" [readonly]="readOnly" [disabled]="disabled" matInput
+                <input [(ngModel)]="usuario.nombre" [readonly]="readOnly" [disabled]="disabled" matInput
                     placeholder="{{ 'features.usuarios.nombre-placeholder' | translate }}" name="nombre" autocomplete="off"
                     required>
                 <mat-error *ngIf="form.controls['nombre']?.invalid && form.controls['nombre']?.touched">
@@ -14,7 +14,7 @@
         <div class="row">
             <mat-form-field>
                 <mat-label>{{ 'features.usuarios.apellido' | translate }}</mat-label>
-                <input [(ngModel)]="usuario.lastname" [readonly]="readOnly" [disabled]="disabled" matInput
+                <input [(ngModel)]="usuario.apellido" [readonly]="readOnly" [disabled]="disabled" matInput
                     placeholder="{{ 'features.usuarios.apellido-placeholder' | translate }}" name="apellido" autocomplete="off"
                     required>
                 <mat-error *ngIf="form.controls['apellido']?.invalid && form.controls['apellido']?.touched">
@@ -25,7 +25,7 @@
         <div class="row">
             <mat-form-field>
                 <mat-label>{{ 'features.usuarios.email' | translate }}</mat-label>
-                <input [(ngModel)]="usuario.email" type="email" [readonly]="readOnly" [disabled]="disabled" matInput
+                <input [(ngModel)]="usuario.mail" type="email" [readonly]="readOnly" [disabled]="disabled" matInput
                     placeholder="{{ 'features.usuarios.email-placeholder' | translate }}" name="email" autocomplete="off"
                     required>
                 <mat-error *ngIf="form.controls['email']?.invalid && form.controls['email']?.touched">
@@ -36,7 +36,7 @@
         <div class="row">
             <mat-form-field>
                 <mat-label>{{ 'features.usuarios.telefono' | translate }}</mat-label>
-                <input [(ngModel)]="usuario.phone" type="phone" [readonly]="readOnly" [disabled]="disabled" matInput
+                <input [(ngModel)]="usuario.telefono" type="phone" [readonly]="readOnly" [disabled]="disabled" matInput
                     placeholder="{{ 'features.usuarios.telefono-placeholder' | translate }}" name="telefono" autocomplete="off"
                     required>
                 <mat-error *ngIf="form.controls['telefono']?.invalid && form.controls['telefono']?.touched">
@@ -48,7 +48,7 @@
         <div class="row">
             <mat-form-field>
                 <mat-label>{{ 'features.usuarios.usuario' | translate }}</mat-label>
-                <input [(ngModel)]="usuario.username" [readonly]="readOnly" [disabled]="disabled" matInput
+                <input [(ngModel)]="usuario.nombre_usuario" [readonly]="readOnly" [disabled]="disabled" matInput
                     placeholder="{{ 'features.usuarios.usuario-placeholder' | translate }}" name="usuario" autocomplete="off"
                     required>
                 <mat-error *ngIf="form.controls['usuario']?.invalid && form.controls['usuario']?.touched">
@@ -59,7 +59,7 @@
         <div class="row">
             <mat-form-field>
                 <mat-label>{{ 'features.usuarios.password' | translate }}</mat-label>
-                <input [(ngModel)]="usuario.password" [readonly]="readOnly" type="password" [disabled]="disabled" matInput
+                <input [(ngModel)]="usuario.contrasena" [readonly]="readOnly" type="password" [disabled]="disabled" matInput
                     placeholder="{{ 'features.usuarios.password-placeholder' | translate }}" name="password" autocomplete="off"
                     required>
                 <mat-error *ngIf="form.controls['password']?.invalid && form.controls['password']?.touched">
@@ -70,7 +70,7 @@
         <div class="row">
             <mat-form-field>
                 <mat-label>{{ 'features.usuarios.rol' | translate }}</mat-label>
-                <mat-select placeholder="{{ 'features.usuarios.rol-placeholder' | translate }}" [disabled]="disabled" [(ngModel)]="usuario.rol" name="rol" required>
+                <mat-select placeholder="{{ 'features.usuarios.rol-placeholder' | translate }}" [disabled]="disabled" [(ngModel)]="usuario.id_rol" name="rol" required>
                     <mat-option value="admin">{{ 'features.usuarios.rols.admin' | translate }}</mat-option>
                     <mat-option value="alumno">{{ 'features.usuarios.rols.alumno' | translate }}</mat-option>
                 </mat-select>
@@ -78,7 +78,7 @@
         </div>
         <div class="row d-flex">
             <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent" [disabled]="readOnly || disabled"
-                    [(ngModel)]="usuario.status" name="estado">{{ 'general.estado' | translate }}</mat-slide-toggle>
+                    [(ngModel)]="usuario.estado" name="estado">{{ 'general.estado' | translate }}</mat-slide-toggle>
             </div>
         </div>
     </div>
