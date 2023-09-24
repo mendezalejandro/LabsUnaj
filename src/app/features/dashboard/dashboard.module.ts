@@ -7,6 +7,8 @@ import { TurnoComponent } from './turno/turno.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StepperComponent } from './stepper/stepper.component';
 import { CdkStepperModule } from '@angular/cdk/stepper';
+import { MatRippleModule } from '@angular/material/core';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 
@@ -19,6 +21,8 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
     CdkStepperModule,
     ReactiveFormsModule,
     DashboardRoutingModule,
+    MatRippleModule,
+    MatChipsModule,
   ]
 })
 export class DashboardModule { }

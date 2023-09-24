@@ -14,7 +14,8 @@ import { mockLaboratorios } from 'src/app/storybook/mocks/laboratorios.mock';
 export class TurnoComponent {
   laboratorios: ILaboratorio[] = mockLaboratorios;
   stepperOrientation: Observable<StepperOrientation>;
-
+  selected: Date | null = new Date();
+  selectedIndex: number=0;
   constructor(private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')

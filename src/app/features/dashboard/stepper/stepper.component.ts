@@ -1,4 +1,4 @@
-import { CdkStepper } from '@angular/cdk/stepper';
+import { CdkStep, CdkStepper } from '@angular/cdk/stepper';
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,5 +11,9 @@ export class StepperComponent extends CdkStepper  {
   selectStepByIndex(index: number, step:any): void {
     this.selectedIndex = index;
     console.log(step);
+  }
+
+  isLastStep(index: number, step:CdkStep) {
+    return step.state === 'done';
   }
 }
