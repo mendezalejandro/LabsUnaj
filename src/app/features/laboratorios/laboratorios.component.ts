@@ -9,7 +9,6 @@ import { MessageActions } from 'src/app/core/models/general.model';
 import { BusyService } from 'src/app/core/services/busy.service';
 import { ILaboratorio, Laboratorio } from 'src/app/shared/models/laboratorio.model';
 import { LaboratorioService } from 'src/app/shared/services/laboratorio.service';
-import { mockLaboratorio, mockLaboratorios } from 'src/app/storybook/mocks/laboratorios.mock';
 
 
 @Component({
@@ -23,7 +22,7 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
   /* columnas de la tabla */
   displayedColumns: string[] = ['id', 'imagen', 'nombre', 'disponible', 'estado', 'acciones'];
   /* datos de la tabla */
-  dataSource = mockLaboratorios;
+  dataSource: ILaboratorio[] = [];
   /* filtro para la tabla */
   filterValue!: string;
   /* datos filtrados */
@@ -31,7 +30,7 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
   /* formulario abierto */
   opened!: boolean;
   /* laboratorio seleccionado */
-  laboratorio: ILaboratorio = mockLaboratorio;
+  laboratorio!: ILaboratorio;
   /* operacion a realizar */
   oper: 'edit' | 'add' | 'delete' | 'view' = 'view';
   /* titulo del formulario */

@@ -13,6 +13,15 @@ export interface ILaboratorio {
 }
 
 /**
+ * Modelo de datos para la respuesta de Laboratorio
+ */
+export interface ILaboratorioResponse {
+    objeto: ILaboratorio;
+    mensaje: string;
+    codigo: string;
+}
+
+/**
  * Clase para el modelo de datos de Laboratorio
  */
 export class Laboratorio implements ILaboratorio {

@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=labunaj
+      - MYSQL_ROOT_PASSWORD=labunaj2023
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8081
+    
+  web:
+    image: nicomansotti/labunaj-web
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+volumes:
+  data:

@@ -63,7 +63,7 @@ export class RequestService {
    * @param options opciones de request
    * @returns Retorna un observable del tipo generico especificado
    */
-  delete<T>(url, params: any, options?: RequestOptions) {
+  delete<T>(url:string, params: any, options?: RequestOptions) {
     return this.http.delete<T>(url,{body:params, ...this.getHeaders(options!)}).pipe(
       map((response) => response as T),
       catchError((err) => {

@@ -7,4 +7,5 @@ export const environment = {
   defaultLocale:'es-AR',
   production: false,
   showInterceptionLog:false,
+  apiEndpoint: 'http://localhost:8080'
 };
