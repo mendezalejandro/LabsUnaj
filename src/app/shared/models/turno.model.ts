@@ -9,6 +9,12 @@ export interface ITurno {
     disponible:boolean;
   }
 
+  // interfaz IDisponibilidad
+export interface IDisponibilidad {
+  horario: string;
+  disponible: boolean;
+}
+
   // clase Turno
 export class Turno implements ITurno {
     constructor(

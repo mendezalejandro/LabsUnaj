@@ -1,17 +1,7 @@
 <app-stepper #stepper>
-    <cdk-step label="Seleccione el laboratorio" state="laboratorio">
+    <cdk-step [label]="'features.turnos.step-laboratorio-titulo'|translate" state="laboratorio">
         <div class="container d-flex flex-column gap-2">
-                    
-                        <!-- <mat-selection-list #labs [multiple]="false">
-                            <mat-list-option *ngFor="let laboratorio of laboratorios" class="mt-2" style="height: 150px;">
-                                <img mat-card-sm-image [src]="laboratorio.imagen">
-                                        <span matListItemTitle>{{laboratorio.titulo}}</span>
-                                        <span matListItemLine>{{laboratorio.nombre}}</span>
-                            </mat-list-option>
-                          </mat-selection-list> -->
-
-            <!-- Cards with media area -->
-            <mat-card matRipple *ngFor="let laboratorio of laboratorios" (click)="stepper?.next()">
+            <mat-card matRipple *ngFor="let laboratorio of $laboratorios | async" (click)="laboratorioSelected(laboratorio)">
                 <mat-card-header>
                     <mat-card-title-group>
                         <mat-card-title>{{laboratorio.titulo}}</mat-card-title>
@@ -22,26 +12,26 @@
             </mat-card>
         </div>
     </cdk-step>
-    <cdk-step state="horario" label="Elija un horario">
+    <cdk-step state="horario" [label]="'features.turnos.step-horario-titulo'|translate" *ngIf="laboratorio">
         <div class="h-100 container d-flex flex-column overflow-auto">
             <div class="row">
-                <input matInput [matDatepicker]="picker" hidden [(ngModel)]="selected">
+                <input matInput [matDatepicker]="picker" hidden [(ngModel)]="fecha" (ngModelChange)="fechaSelected($event)">
                 <mat-datepicker touchUi #picker></mat-datepicker>
                 <mat-card class="py-4 d-flex flex-column justify-content-center">
                     <div class="d-flex flex-row justify-content-center">
-                        <span class="mat-title">Laboratorio de ondas</span>
+                        <span class="mat-title">{{laboratorio.titulo}}</span>
                     </div>
                     <div class="d-flex flex-row justify-content-center">
-                        <span class="mat-title">{{selected | date: 'dd/MM/yyyy'}}</span> 
+                        <span class="mat-title">{{fecha | date: 'dd/MM/yyyy'}}</span> 
                         
                     </div>
                 </mat-card>
                 <button mat-raised-button (click)="picker.open()">Cambiar fecha</button>
             </div>
-            <div class="row mt-4 overflow-auto">
+            <div class="row mt-4 overflow-auto" *ngIf="$horarios">
                 <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-                    <mat-chip-option *ngFor="let chip of ['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00']" [color]="'accent'">
-                      {{chip}}
+                    <mat-chip-option *ngFor="let item of $horarios | async" [color]="'accent'" (selectionChange)="horarioSelected(item)">
+                      {{item.horario}}
                     </mat-chip-option>
                   </mat-chip-listbox>
             </div>
@@ -49,16 +39,16 @@
         
 
     </cdk-step>
-    <cdk-step state="confirmacion" label="Confirmación">
+    <cdk-step state="confirmacion" [label]=" 'features.turnos.step-confirmacion-titulo'| translate" *ngIf="laboratorio && horario">
         <div class="h-100 container d-flex flex-column">
-            <h1>Verifique antes de confirmar el turno</h1>
+            <h1>{{'features.turnos.step-confirmacion-subtitulo'| translate}}</h1>
 
             <div class="row mat-subheading-2">
-                <span>Laboratorio de ondas</span>
+                <span>{{laboratorio.titulo}} | <small>{{laboratorio.nombre}}</small></span>
             </div>
             <div class="row mat-subheading-2">
-                <span>Fecha: {{selected | date: 'dd/MM/yyyy'}}</span>
-                <span>Hora: 08:00</span>
+                <span>Fecha: {{fecha | date: 'dd/MM/yyyy'}}</span>
+                <span>Hora: {{horario.horario}}</span>
             </div>
         </div>
     </cdk-step>

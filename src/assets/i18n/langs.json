@@ -35,6 +35,12 @@
       "apellido-placeholder": "Type a lastname",
       "nombre-error": "First name is required",
       "nombre-placeholder": "Type a firstname"
+    },
+    "turnos": {
+      "step-laboratorio-titulo": "Select the laboratory",
+      "step-horario-titulo": "Pick a schedule",
+      "step-confirmacion-titulo": "Confirm your appointment",
+      "step-confirmacion-subtitulo": "Verify the information"
     }
   }
 }

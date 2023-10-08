@@ -147,6 +147,12 @@
         "lenguaje-cambiado": "Language changed to",
         "tema-cambiado": "Theme changed to"
       }
+    },
+    "turnos": {
+      "step-laboratorio-titulo": "Select the laboratory",
+      "step-horario-titulo": "Pick a schedule",
+      "step-confirmacion-titulo": "Confirm your appointment",
+      "step-confirmacion-subtitulo": "Verify the information"
     }
   },
   "shared": {},
@@ -205,5 +211,8 @@
         "LABORATORIOS-ERR-001": "Laboratory already exists with the same name or code"
       }
     }
+  },
+  "generics": {
+    "confirmacion": "Confirmación"
   }
 }

@@ -13,7 +13,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		return next.handle(req).pipe(
 			map((event: HttpEvent<any>) => {
-				if (event instanceof HttpResponse && req.url.includes(apiURL) && (req.method === 'POST' || req.method === 'PUT')) {
+				if (event instanceof HttpResponse && req.url.includes(apiURL) && event.body && event.body.objeto) {
 					// Si es una solicitud POST y la respuesta es una instancia de HttpResponse,
 					// modifica el cuerpo de la respuesta para que sea solo el contenido de "objeto"
 					const modifiedResponse = event.clone({

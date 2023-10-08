@@ -2,7 +2,7 @@
     <div class="row stepper-header pt-3 mat-elevation-z6">
         <span class="mat-headline-5"><b>{{selected?.label}}</b></span>
     </div>
-    <div class="row flex-grow-1">
+    <div class="row h-100 overflow-auto flex-grow-1">
         <div [ngTemplateOutlet]="selected ? selected.content : null"></div>
     </div>
     <div class="row stepper-footer">

@@ -159,6 +159,12 @@
         "delete-title": "Eliminar laboratorio",
         "delete-message": "Está seguro que desea eliminar este laboratorio?"
       }
+    },
+    "turnos": {
+      "step-laboratorio-titulo": "Seleccione el laboratorio",
+      "step-horario-titulo": "Elija un horario",
+      "step-confirmacion-titulo": "Confirme su turno",
+      "step-confirmacion-subtitulo": "Verifique la información"
     }
   },
   "menu": {
