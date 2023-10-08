@@ -22,7 +22,7 @@ export class UsuariosComponent {
   /* columnas de la tabla */
   displayedColumns: string[] = ['id', 'nombre', 'rol','status', 'acciones'];
   /* datos de la tabla */
-  dataSource = mockUsuarios;
+  dataSource!: IUsuario[];
   /* filtro para la tabla */
   filterValue!: string;
   /* datos filtrados */
@@ -199,10 +199,9 @@ export class UsuariosComponent {
       }))
       .subscribe(
         (usuario) => {
-          // update tabla local (cuando este la API)
-          // const index = this.filteredDataSource.findIndex(usuario => usuario.id === this.usuario.id);
-          // const item = this.filteredDataSource[index];
-          // Object.keys(this.usuario).forEach(element => { Object(item)[element] = Object(this.usuario)[element]; });
+          const index = this.dataSource.findIndex(usuario => usuario.id === this.usuario.id);
+          const item = this.dataSource[index];
+          Object.keys(this.usuario).forEach(element => { Object(item)[element] = Object(this.usuario)[element]; });
           this.filter('');
           this.snackBar.open(this.translateService.instant('features.usuarios.mensajes.edit-success'));
           this.hideForm();
@@ -222,8 +221,7 @@ export class UsuariosComponent {
       }))
       .subscribe(
         (usuario) => {
-          // update tabla local (cuando este la API)
-          // this.dataSource = [...this.dataSource, this.usuario];
+          this.dataSource = [...this.dataSource, this.usuario];
           this.filter('');
           this.snackBar.open(this.translateService.instant('features.usuarios.mensajes.add-success'));
           this.hideForm();
@@ -242,9 +240,8 @@ export class UsuariosComponent {
       }))
       .subscribe(
         (response) => {
-          // update tabla local (cuando este la API)
-          // const index = this.filteredDataSource.findIndex(usuario => usuario.id === item.id);
-          // this.filteredDataSource.splice(index, 1);
+          const index = this.dataSource.findIndex(usuario => usuario.id === item.id);
+          this.dataSource.splice(index, 1);
           this.filter('');
           this.snackBar.open(this.translateService.instant('features.usuarios.mensajes.delete-success'));
         },

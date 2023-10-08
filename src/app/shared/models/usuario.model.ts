@@ -1,30 +1,32 @@
+import { Rol } from "./roles.model";
+
 // Interfaz para representar la información de un usuario
 export interface IUsuario {
     id: number;
-    nombre_usuario: string;
+    nombreUsuario: string;
     contrasena: string;
     nombre: string;
     apellido: string;
     mail: string;
     telefono: string;
     estado: boolean;
-    id_rol: string;
+    rol: Rol;
 }
 
 // Clase basada en la interfaz IUsuario
 export class Usuario implements IUsuario {
     id: number;
-    nombre_usuario: string;
+    nombreUsuario: string;
     contrasena: string;
     nombre: string;
     apellido: string;
     mail: string;
     telefono: string;
     estado: boolean;
-    id_rol: string = 'admin';
+    rol: Rol = Rol.Administrador;
 
     constructor(
-        id: number = 0,
+        id: number=0,
         nombre_usuario : string = '',
         contrasena: string = '',
         nombre: string = '',
@@ -32,16 +34,16 @@ export class Usuario implements IUsuario {
         mail: string = '',
         telefono: string = '',
         estado: boolean= true,
-        id_rol: 'admin' | 'alumno' = 'admin'
+        rol: Rol= Rol.Administrador
     ) {
         this.id = id;
-        this.nombre_usuario = nombre_usuario;
+        this.nombreUsuario = nombre_usuario;
         this.contrasena = contrasena;
         this.nombre = nombre;
         this.apellido = apellido;
         this.mail = mail;
         this.telefono = telefono;
         this.estado = estado,
-        this.id_rol = id_rol;
+        this.rol = rol;
     }
 }

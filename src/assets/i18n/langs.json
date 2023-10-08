@@ -15,5 +15,26 @@
     "url": "URL",
     "url-placeholder": "Type a url to this remote laboratory",
     "laboratorio-placeholder": "URL of remote laboratory"
+  },
+  "features": {
+    "usuarios": {
+      "roles": {
+        "administrador": "Administrator",
+        "alumno": "Student"
+      },
+      "rol-placeholder": "Select a rol for this user",
+      "password-error": "Password is required",
+      "password-placeholder": "Write a password",
+      "usuario-error": "The username is required",
+      "usuario-placeholder": "Write a username",
+      "telefono-error": "Phone is required",
+      "telefono-placeholder": "Type a phone number",
+      "email-error": "Email is required",
+      "email-placeholder": "Type a email",
+      "apellido-error": "Lastname is required",
+      "apellido-placeholder": "Type a lastname",
+      "nombre-error": "First name is required",
+      "nombre-placeholder": "Type a firstname"
+    }
   }
 }

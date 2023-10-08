@@ -1,38 +1,67 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of, delay } from 'rxjs';
-import { mockUsuarios } from 'src/app/storybook/mocks/usuario.mock';
-import { IUsuario, Usuario } from '../models/usuario.model';
+import { IUsuario } from '../models/usuario.model';
+import { environment } from 'src/app/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+  /* api endpoint */
+  apiEndpoint: string = environment.apiEndpoint;
+  /**
+   * constructor de UsuarioService
+   * @param httpClient cliente http
+   */
   constructor(private httpClient: HttpClient) {}
 
+  /**
+   * obtiene los usuarios
+   * @returns usuarios
+   */
   getUsuarios() {
-    return of(mockUsuarios).pipe(delay(2000));
+    const endpoint = `${this.apiEndpoint}/usuarios`;
+    return this.httpClient.get<IUsuario[]>(endpoint);
   }
 
+  /**
+   * obtiene un usuario
+   * @param id identificador del usuario
+   * @returns usuario
+   */
   getUsuario(id: number) {
-    return of(mockUsuarios.find((usuario) => usuario.id === id));
+    const endpoint = `${this.apiEndpoint}/usuario/${id}`;
+    return this.httpClient.get<IUsuario>(endpoint);
   }
 
+  /**
+   * agrega un usuario
+   * @param usuario usuario a agregar
+   * @returns usuario agregado
+   */
   agregarUsuario(usuario: IUsuario) {
-    mockUsuarios.push(usuario);
-    return of(usuario).pipe(delay(2000));
+    const endpoint = `${this.apiEndpoint}/usuario`;
+    return this.httpClient.post<IUsuario>(endpoint, usuario);
   }
 
+  /**
+   * edita un usuario
+   * @param usuario usuario a editar
+   * @returns usuario editado
+   */
   editarUsuario(usuario: IUsuario) {
-    const index = mockUsuarios.findIndex((u) => u.id === usuario.id);
-    mockUsuarios[index] = usuario;
-    return of(usuario).pipe(delay(2000));
+    const endpoint = `${this.apiEndpoint}/usuario/${usuario.id}`;
+    return this.httpClient.put<IUsuario>(endpoint, usuario);
   }
 
+  /**
+   * elimina un usuario
+   * @param id identificador del usuario a eliminar
+   * @returns usuario eliminado
+   */
   eliminarUsuario(id: number) {
-    const index = mockUsuarios.findIndex((u) => u.id === id);
-    mockUsuarios.splice(index, 1);
-    return of(id).pipe(delay(2000));
+    const endpoint = `${this.apiEndpoint}/usuario/${id}`;
+    return this.httpClient.delete(endpoint);
   }
 }
 

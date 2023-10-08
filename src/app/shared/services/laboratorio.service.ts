@@ -49,7 +49,7 @@ export class LaboratorioService {
    */
   editLaboratorio(laboratorio: ILaboratorio) {
     const endpoint = `${this.apiEndpoint}/laboratorio/${laboratorio.id}`;
-    return this.httpClient.put<ILaboratorio>(endpoint, laboratorio).pipe(tap((data) => console.log(data)));
+    return this.httpClient.put<ILaboratorio>(endpoint, laboratorio);
   }
 
   /**

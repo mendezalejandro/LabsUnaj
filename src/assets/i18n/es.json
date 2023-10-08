@@ -137,7 +137,12 @@
         "delete-success": "Usuario eliminado correctamente",
         "delete-title": "Eliminar usuario",
         "delete-message": "Está seguro que desea eliminar este usuario?"
-      }
+      },
+      "roles": {
+        "administrador": "Administrador",
+        "alumno": "Estudiante"
+      },
+      "rol-placeholder": "Seleccione un rol para este usuario"
     },
     "laboratorios": {
       "titulo": "Laboratorios",
