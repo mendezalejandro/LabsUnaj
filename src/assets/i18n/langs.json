@@ -1,14 +1,19 @@
 {
-	"langs": [
-		{
-			"name": "English",
-			"code": "en",
-			"flag": ""
-		},
-		{
-			"name": "Español",
-			"code": "es",
-			"flag": ""
-		}
-	]
+  "langs": [
+    {
+      "name": "English",
+      "code": "en",
+      "flag": ""
+    },
+    {
+      "name": "Español",
+      "code": "es",
+      "flag": ""
+    }
+  ],
+  "general": {
+    "url": "URL",
+    "url-placeholder": "Type a url to this remote laboratory",
+    "laboratorio-placeholder": "URL of remote laboratory"
+  }
 }

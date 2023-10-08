@@ -26,15 +26,15 @@
     "descripcion-placeholder": "Ingrese una descripción",
     "descripcion-error": "La descripción es requerida",
     "acciones": "Acciones",
-    "filtro-placeholder":"Escriba para filtrar elementos",
-    "table":{
-      "paginator":{
-        "lastpage":"Última página",
-        "firstpage":"Primera página",
-        "nextpage":"Siguiente página",
-        "previouspage":"Página anterior",
-        "range":"de",
-        "pages":"Registros por página"
+    "filtro-placeholder": "Escriba para filtrar elementos",
+    "table": {
+      "paginator": {
+        "lastpage": "Última página",
+        "firstpage": "Primera página",
+        "nextpage": "Siguiente página",
+        "previouspage": "Página anterior",
+        "range": "de",
+        "pages": "Registros por página"
       }
     },
     "operation": {
@@ -55,13 +55,16 @@
       "cancelated": "Cancelado",
       "finalized": "Finalizado",
       "all": "Todos"
-    }
+    },
+    "url": "URL",
+    "url-placeholder": "Escriba la URL de este laboratorio remoto",
+    "laboratorio-placeholder": "URL del laboratorio remoto"
   },
-  "shared":{
-    "asignacion":{
-      "cantidad":"Cantidad",
-      "asignar":"Asignar",
-      "asignados":"Asignados",
+  "shared": {
+    "asignacion": {
+      "cantidad": "Cantidad",
+      "asignar": "Asignar",
+      "asignados": "Asignados",
       "columnas": {
         "nombre": "Nombre",
         "codigo": "Código",
@@ -78,44 +81,44 @@
       }
     }
   },
-  "features":{
-    "perfil":{
-      "titulo":"Perfil",
-      "lenguaje":"Lenguaje",
-      "tema":"Tema",
-      "tema-opciones":{
-        "light":"Claro",
-        "dark":"Oscuro"
+  "features": {
+    "perfil": {
+      "titulo": "Perfil",
+      "lenguaje": "Lenguaje",
+      "tema": "Tema",
+      "tema-opciones": {
+        "light": "Claro",
+        "dark": "Oscuro"
       },
-      "lenguaje-opciones":{
-        "es":"Español",
-        "en":"Inglés"
+      "lenguaje-opciones": {
+        "es": "Español",
+        "en": "Inglés"
       },
-      "mensajes":{
-        "lenguaje-cambiado":"Lenguaje cambiado a",
-        "tema-cambiado":"Tema cambiado a"
+      "mensajes": {
+        "lenguaje-cambiado": "Lenguaje cambiado a",
+        "tema-cambiado": "Tema cambiado a"
       }
     },
     "usuarios": {
       "titulo": "Usuarios",
       "nombre": "Nombre",
       "nombre-error": "El nombre es requerido",
-      "nombre-placeholder":"Ingrese el nombre",
+      "nombre-placeholder": "Ingrese el nombre",
       "apellido": "Apellido",
       "apellido-error": "El apellido es requerido",
-      "apellido-placeholder":"Ingrese el apellido",
+      "apellido-placeholder": "Ingrese el apellido",
       "usuario": "Usuario",
       "usuario-error": "El nombre de usuario es requerido",
-      "usuario-placeholder":"Ingrese el nombre usuario",
+      "usuario-placeholder": "Ingrese el nombre usuario",
       "password": "Contraseña",
       "password-error": "La contraseña es requerida",
-      "password-placeholder":"Ingrese una contraseña",
+      "password-placeholder": "Ingrese una contraseña",
       "email": "Email",
       "email-error": "El email es requerido",
-      "email-placeholder":"Ingrese el email",
+      "email-placeholder": "Ingrese el email",
       "telefono": "Teléfono",
       "telefono-error": "El teléfono es requerido",
-      "telefono-placeholder":"Ingrese el teléfono",
+      "telefono-placeholder": "Ingrese el teléfono",
       "estado": "Estado",
       "rol": "Rol",
       "rols": {
@@ -129,9 +132,9 @@
         "view": "Detalle de usuario"
       },
       "mensajes": {
-        "edit-success":"Usuario editado correctamente",
-        "add-success":"Usuario agregado correctamente",
-        "delete-success":"Usuario eliminado correctamente",
+        "edit-success": "Usuario editado correctamente",
+        "add-success": "Usuario agregado correctamente",
+        "delete-success": "Usuario eliminado correctamente",
         "delete-title": "Eliminar usuario",
         "delete-message": "Está seguro que desea eliminar este usuario?"
       }
@@ -149,7 +152,7 @@
         "add-success": "Laboratorio agregado correctamente",
         "delete-success": "Laboratorio eliminado correctamente",
         "delete-title": "Eliminar laboratorio",
-        "delete-message": "Está que desea eliminar este laboratorio?"
+        "delete-message": "Está seguro que desea eliminar este laboratorio?"
       }
     }
   },
@@ -163,5 +166,17 @@
   },
   "footer": {
     "title": "Universidad Nacional Arturo Jauretche"
+  },
+  "api": {
+    "errors": {
+      "titles": {
+        "DEFAULT": "Lo sentimos, ha ocurrido un error",
+        "LABORATORIOS-ERR-001": "Laboratorio existente"
+      },
+      "messages": {
+        "DEFAULT": "Por favor, intente nuevamente o comuniquese con el administrador",
+        "LABORATORIOS-ERR-001": "Ya exíste un laboratorio con ese nombre"
+      }
+    }
   }
 }

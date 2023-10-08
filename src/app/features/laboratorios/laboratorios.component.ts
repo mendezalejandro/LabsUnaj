@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
@@ -9,6 +9,7 @@ import { MessageActions } from 'src/app/core/models/general.model';
 import { BusyService } from 'src/app/core/services/busy.service';
 import { ILaboratorio, Laboratorio } from 'src/app/shared/models/laboratorio.model';
 import { LaboratorioService } from 'src/app/shared/services/laboratorio.service';
+import { LaboratorioComponent } from './laboratorio/laboratorio.component';
 
 
 @Component({
@@ -17,6 +18,7 @@ import { LaboratorioService } from 'src/app/shared/services/laboratorio.service'
   styleUrls: ['./laboratorios.component.scss']
 })
 export class LaboratoriosComponent implements OnInit, OnDestroy {
+  @ViewChild('labComponent') labComponent!: LaboratorioComponent;
   /* observable para detectar el tamaño de la pantalla */
   isMobile!: Observable<boolean>;
   /* columnas de la tabla */
@@ -41,7 +43,8 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
   operSuscription!: Subscription;
   /* procesando datos */
   processing: boolean = false;
-
+  /** estado del formulario */
+  formStatus: boolean = false;
   /**
    * constructor
    * @param breakpointObserver inyectado para detectar el tamaño de la pantalla
@@ -146,7 +149,7 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
 
     dialogMessage.afterClosed().subscribe((result) => {
       if (result?.oper === MessageActions.Confirm)
-        this.processEdit(this.laboratorio, true);
+        this.processDelete(this.laboratorio);
     })
   }
 
@@ -209,10 +212,9 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
       }))
       .subscribe(
         (laboratorio) => {
-          // update tabla local (cuando este la API)
-          // const index = this.filteredDataSource.findIndex(laboratorio => laboratorio.id === this.laboratorio.id);
-          // const item = this.filteredDataSource[index];
-          // Object.keys(this.laboratorio).forEach(element => { Object(item)[element] = Object(this.laboratorio)[element]; });
+          const index = this.filteredDataSource.findIndex(laboratorio => laboratorio.id === this.laboratorio.id);
+          const item = this.filteredDataSource[index];
+          Object.keys(this.laboratorio).forEach(element => { Object(item)[element] = Object(this.laboratorio)[element]; });
           this.filter('');
           this.snackBar.open(this.translateService.instant('features.laboratorios.mensajes.edit-success'));
           this.hideForm();
@@ -232,9 +234,9 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
         this.processing = false;
       }))
       .subscribe(
-        (laboratorio) => {
+        (response) => {
           // update tabla local (cuando este la API)
-          // this.dataSource = [...this.dataSource, this.laboratorio];
+          this.dataSource = [...this.dataSource, response];
           this.filter('');
           this.snackBar.open(this.translateService.instant('features.laboratorios.mensajes.add-success'));
           this.hideForm();
@@ -253,9 +255,8 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
       }))
       .subscribe(
         (response) => {
-          // update tabla local (cuando este la API)
-          // const index = this.filteredDataSource.findIndex(laboratorio => laboratorio.id === item.id);
-          // this.filteredDataSource.splice(index, 1);
+          const index = this.dataSource.findIndex(laboratorio => laboratorio.id === item.id);
+          this.dataSource.splice(index, 1);
           this.filter('');
           this.snackBar.open(this.translateService.instant('features.laboratorios.mensajes.delete-success'));
         },

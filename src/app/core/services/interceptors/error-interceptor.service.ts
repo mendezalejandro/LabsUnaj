@@ -10,10 +10,11 @@ import { Observable } from 'rxjs/internal/Observable';
 import { catchError } from 'rxjs/operators';
 import { ErrorService } from '../error.service';
 import { throwError } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({ providedIn: 'root' })
 export class ErrorInterceptorService implements HttpInterceptor {
-  constructor(private errorService: ErrorService) {}
+  constructor(private errorService: ErrorService) { }
 
   intercept(
     req: HttpRequest<any>,
@@ -22,15 +23,15 @@ export class ErrorInterceptorService implements HttpInterceptor {
     const $obs = next
       .handle(req)
       .pipe(
-        catchError((err)=>this.handleError(err))
-        );
+        catchError((err) => this.handleError(err))
+      );
     return $obs;
   }
 
-  public handleError(err: HttpErrorResponse)
-  {
+  public handleError(err: HttpErrorResponse) {
     const error = err.error || err;
-    this.errorService.showError(err.name, error.message);
+    const errorCode = error!.codigo;
+    this.errorService.showError(errorCode);
     return throwError(err);
   }
 }

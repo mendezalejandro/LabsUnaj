@@ -17,6 +17,7 @@ import { ErrorInterceptorService } from './core/services/interceptors/error-inte
 import { environment } from './environments/environment';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpInterceptorService } from './core/services/interceptors/http-request.interceptor';
 
 registerLocaleData(es);
 registerLocaleData(pt);
@@ -29,7 +30,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 
 export const interceptors: Provider[]=  [
-  // {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
+  {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
   {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
   {provide: HTTP_INTERCEPTORS, useClass: BusyInterceptorService, multi: true},
 ];

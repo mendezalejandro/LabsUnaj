@@ -4,11 +4,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from './material.module';
 import { BusyComponent } from '../components/busy/busy.component';
 import { MessageComponent } from '../components/message/message.component';
+import { ErrorComponent } from '../components/error/error.component';
 
 
 const components = [
   BusyComponent,
-  MessageComponent
+  MessageComponent,
+  ErrorComponent
 ];
 @NgModule({
   declarations: [...components],

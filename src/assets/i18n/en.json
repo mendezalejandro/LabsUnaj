@@ -26,16 +26,16 @@
     "descripcion": "Description",
     "descripcion-placeholder": "Write a description",
     "descripcion-error": "You must enter a description",
-    "filtro-placeholder":"Type to filter elements",
+    "filtro-placeholder": "Type to filter elements",
     "acciones": "Actions",
-    "table":{
-      "paginator":{
-        "lastpage":"Last page",
-        "firstpage":"Firs page",
-        "nextpage":"Next page",
-        "previouspage":"Previous page",
-        "range":"of",
-        "pages":"Items per page"
+    "table": {
+      "paginator": {
+        "lastpage": "Last page",
+        "firstpage": "Firs page",
+        "nextpage": "Next page",
+        "previouspage": "Previous page",
+        "range": "of",
+        "pages": "Items per page"
       }
     },
     "operation": {
@@ -56,7 +56,10 @@
       "cancelated": "Cancelated",
       "finalized": "Finalized",
       "all": "All"
-    }
+    },
+    "url": "URL",
+    "url-placeholder": "Type the url to this remote laboratory",
+    "laboratorio-placeholder": "URL of remote laboratory"
   },
   "menu": {
     "home": "Home",
@@ -66,7 +69,7 @@
     "perfil": "Profile",
     "dashboard": "Dashboard"
   },
-  "features":{
+  "features": {
     "usuarios": {
       "titulo": "Users",
       "nombre": "Name",
@@ -88,9 +91,9 @@
         "view": "User detail"
       },
       "mensajes": {
-        "edit-success":"User edited successfully",
-        "add-success":"User added successfully",
-        "delete-success":"User deleted successfully",
+        "edit-success": "User edited successfully",
+        "add-success": "User added successfully",
+        "delete-success": "User deleted successfully",
         "delete-title": "Delete user",
         "delete-message": "Are you sure you want to delete this user?"
       }
@@ -104,34 +107,32 @@
         "view": "Laboratory detail"
       },
       "mensajes": {
-        "edit-success":"Laboratory edited successfully",
-        "add-success":"Laboratory added successfully",
-        "delete-success":"Laboratory deleted successfully",
+        "edit-success": "Laboratory edited successfully",
+        "add-success": "Laboratory added successfully",
+        "delete-success": "Laboratory deleted successfully",
         "delete-title": "Delete laboratory",
         "delete-message": "Are you sure you want to delete this laboratory?"
       }
     },
-    "perfil":{
-      "titulo":"Profile",
-      "lenguaje":"Language",
-      "tema":"Theme",
-      "tema-opciones":{
-        "light":"Light",
-        "dark":"Dark"
+    "perfil": {
+      "titulo": "Profile",
+      "lenguaje": "Language",
+      "tema": "Theme",
+      "tema-opciones": {
+        "light": "Light",
+        "dark": "Dark"
       },
-      "lenguaje-opciones":{
-        "es":"Spanish",
-        "en":"English"
+      "lenguaje-opciones": {
+        "es": "Spanish",
+        "en": "English"
       },
-      "mensajes":{
-        "lenguaje-cambiado":"Language changed to",
-        "tema-cambiado":"Theme changed to"
+      "mensajes": {
+        "lenguaje-cambiado": "Language changed to",
+        "tema-cambiado": "Theme changed to"
       }
     }
   },
-  "shared":{
-
-  },
+  "shared": {},
   "login": {
     "title": "Sign In",
     "button": "Login",
@@ -175,5 +176,17 @@
   },
   "footer": {
     "title": "National University of Arturo Jauretche"
+  },
+  "api": {
+    "errors": {
+      "titles": {
+        "DEFAULT": "Sorry, an error has occurred",
+        "LABORATORIOS-ERR-001": "Laboratory already exists"
+      },
+      "messages": {
+        "DEFAULT": "Please try again later, if the problem persists contact the administrator",
+        "LABORATORIOS-ERR-001": "Laboratory already exists with the same name or code"
+      }
+    }
   }
 }

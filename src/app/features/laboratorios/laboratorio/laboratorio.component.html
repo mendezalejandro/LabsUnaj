@@ -33,6 +33,14 @@
             </mat-form-field>
             <!-- Otros campos del formulario y botón de envío -->
         </div>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>{{ 'general.url' | translate }}</mat-label>
+                <input [(ngModel)]="laboratorio.url" [disabled]="disabled" [readonly]="readOnly" matInput
+                    placeholder="{{ 'general.laboratorio-placeholder' | translate }}" name="nombre" autocomplete="off">
+            </mat-form-field>
+            <!-- Otros campos del formulario y botón de envío -->
+        </div>
         <div class="row d-flex">
             <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent" [disabled]="readOnly || disabled"
                     [(ngModel)]="laboratorio.disponible" name="disponible">{{ 'general.disponible' | translate

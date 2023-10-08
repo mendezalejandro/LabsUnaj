@@ -27,5 +27,4 @@ export class BusyService {
     this.busyConfiguration.processing = false;
     this.$busyState.next(this.busyConfiguration);
   }
-
 }

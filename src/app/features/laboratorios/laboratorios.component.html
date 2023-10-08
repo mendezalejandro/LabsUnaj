@@ -1,14 +1,14 @@
 <div class="main-container">
-  <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-container class="sidenav-container" (backdropClick)="cancel()">
     <mat-sidenav #snav mode="over" position="end" [opened]="opened" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
       <app-crud-container [title]="formTitle" *ngIf="opened" [showLoading]="processing">
         <ng-container content>
-          <app-laboratorio [(laboratorio)]="laboratorio" [readOnly]="oper=='view'" [disabled]="processing"></app-laboratorio>
+          <app-laboratorio #labComponent [(laboratorio)]="laboratorio" [readOnly]="oper=='view'" [disabled]="processing"></app-laboratorio>
         </ng-container>
         <ng-container footer>
           <div class="d-flex justify-content-around" *ngIf="oper!=='view'; else onlyCloseFooter">
             <button mat-stroked-button color="warn" (click)="cancel()">{{'general.cancel' | translate}}</button>
-            <button mat-raised-button color="accent" (click)="confirm()">{{'general.confirm' | translate}}</button>
+            <button mat-raised-button color="accent" [disabled]="!labComponent.formValid" (click)="confirm()">{{'general.confirm' | translate}}</button>
           </div>
           <ng-template #onlyCloseFooter>
             <div class="d-flex justify-content-center">

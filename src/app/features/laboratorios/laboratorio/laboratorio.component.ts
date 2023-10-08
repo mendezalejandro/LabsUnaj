@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ILaboratorio } from 'src/app/shared/models/laboratorio.model';
 
 @Component({
@@ -7,6 +8,7 @@ import { ILaboratorio } from 'src/app/shared/models/laboratorio.model';
   styleUrls: ['./laboratorio.component.scss']
 })
 export class LaboratorioComponent {
+  @ViewChild('form') form!: NgForm;
   /* laboratorio a mostrar */
   @Input() laboratorio!: ILaboratorio;
   /* evento para notificar cambios */
@@ -16,6 +18,8 @@ export class LaboratorioComponent {
   /* indicador de deshabilitado */
   @Input() disabled: boolean = false;
   
+
+
   /**
    * procesa el archivo seleccionado
    * @param event evento de seleccion de archivo
@@ -38,5 +42,10 @@ export class LaboratorioComponent {
       this.laboratorio.imagen = reader.result as string;
     };
     reader.readAsDataURL(file);
+  }
+
+  /** obtiene el estado del formulario (se utiliza en el parent) */
+  get formValid() {
+      return !this.form ? false : this.form.valid;
   }
 }
