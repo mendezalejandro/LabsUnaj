@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{'logout.title' | translate}}</h1>
+<div mat-dialog-content>
+  {{'logout.message' | translate}}
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>{{'general.no' | translate}}</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="signOut()">{{'general.yes' | translate}}</button>
+</div>

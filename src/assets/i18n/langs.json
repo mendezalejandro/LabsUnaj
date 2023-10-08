@@ -42,5 +42,23 @@
       "step-confirmacion-titulo": "Confirm your appointment",
       "step-confirmacion-subtitulo": "Verify the information"
     }
+  },
+  "shared": {
+    "auth": {
+      "login": {
+        "title": "Access"
+      }
+    }
+  },
+  "login": {
+    "user-placeholder": "Type your username",
+    "user": {
+      "error": ""
+    },
+    "password-placeholder": "Type your password",
+    "password-error": "The password is required"
+  },
+  "logout": {
+    "message": "Are you sure do you want close this session?"
   }
 }

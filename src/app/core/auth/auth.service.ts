@@ -1,189 +1,149 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject, of, switchMap } from 'rxjs';
+import { environment } from 'src/app/environments/environment';
+import { IUsuario, IUsuarioSesion } from 'src/app/shared/models/usuario.model';
 
 
-/**
- * Pool cognito
- */
-// const poolData: ICognitoUserPoolData = {
-//   UserPoolId: environment.cognito.userPoolId,
-//   ClientId: environment.cognito.appClientId,
-// };
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  // userPool: CognitoUserPool;
-  // constructor(private userService: UsuarioService) {
-  //   this.userPool = new CognitoUserPool(poolData);
-  // }
+  /** flag que indica si el usuario esta logueado */
+  isLogged$: Subject<boolean> = new Subject<boolean>();
+  /* api endpoint */
+  apiEndpoint: string = environment.apiEndpoint;
+  /**
+   * constructor del componente
+   * @param http servicio http
+   */
+  constructor(private http: HttpClient) { }
 
-  // /**
-  //  * Call Cognito service and validate user credentials
-  //  * @param username Username
-  //  * @param password Password
-  //  * @param callback Callback
-  //  */
-  // signin(
-  //   username: string,
-  //   password: string,
-  //   callback: IAuthenticationCallback
-  // ): void {
-  //   let authenticationDetails = new AuthenticationDetails({
-  //     Username: username,
-  //     Password: password,
-  //   });
+  /**
+   * loguea al usuario
+   * @param nombreUsuario nombre de usuario
+   * @param contrasena contraseña
+   * @returns `Observable` con el usuario logueado
+   */
+  signin(nombreUsuario: string, contrasena: string) {
+    const endpoint = `${this.apiEndpoint}/usuario/conectar`;
+    return this.http.post(`${endpoint}`, { nombreUsuario, contrasena }, { responseType: 'text' }).pipe(
+      switchMap((response) => this.getUsuario(nombreUsuario)),
+      switchMap((usuario) => {
+        const sesion: IUsuarioSesion = {
+          id: usuario.id,
+          nombreUsuario: usuario.nombreUsuario,
+          nombre: usuario.nombre,
+          apellido: usuario.apellido,
+          estado: usuario.estado,
+          rol: usuario.rol,
+          vencimiento: new Date(),
+        };
+        this.saveSession(sesion);
+        return of(sesion);
+      })
+    );
+  }
+  /**
+   * desloguea al usuario
+   */
+  signout() {
+    this.closeSession();
+    this.isLogged$.next(false);
+  }
 
-  //   let userData = { Username: username, Pool: this.userPool };
+  /**
+   * registra al usuario
+   * @param key clave de licencia
+   * @param username nombre de usuario
+   * @param password contraseña
+   * @returns `Observable` con el usuario registrado
+   */
+  signup(key: string, username: string, password: string) {
+    // /** generate a random key for the device */
+    // const deviceIdentifier = this.getUUII();
+    // const p = new Credentials.CredencialParams(key, username, password, deviceIdentifier);
 
-  //   var cognitoUser = new CognitoUser(userData);
-  //   cognitoUser.authenticateUser(authenticationDetails, callback);
-  // }
+    // return this.licensingService.getByModule(p.LicenseKey).pipe(
+    //   catchError((err) => throwError(() => err)),
+    //   switchMap(licenses => {
+    //     const endpoint = this.licensingService.getModuleEndpoing(licenses);
+    //     return forkJoin([of(licenses), of(endpoint), this.credentialService.signup(p, endpoint)]);
+    //   }),
+    //   catchError((err) => throwError(() => err)),
+    //   switchMap(([licenses, restEndpoint, credential]) => {
+    //     this.profileService.create(credential, p, restEndpoint);
+    //     this.licensingService.set(licenses);
+    //     return of(credential);
+    //   })
+    // );
+  }
 
-  // /**
-  //  * Call Cognito service and register new user
-  //  * @param username User to login
-  //  * @param password User password
-  //  * @param user User name
-  //  * @param callback Function callback
-  //  */
-  // signup(
-  //   username: string,
-  //   password: string,
-  //   user: CognitoUsers.UserRegistration,
-  //   callback: NodeCallback<Error, ISignUpResult>
-  // ) {
-  //   let attributeList = [];
+  /**
+   * verifica si el usuario esta logueado
+   * @returns true si esta logueado, false si no lo esta
+   */
+  isLogged() {
+    const cachedData = localStorage.getItem("labunaj_session");
 
-  //   for (let key in user) {
-  //     let attrData = {
-  //       Name: key,
-  //       Value: user[key],
-  //     };
-  //     const attribute = new CognitoUserAttribute(attrData);
-  //     attributeList.push(attribute);
-  //   }
+    const isLogged = !!cachedData && !this.checkSesionExpired();
+    this.isLogged$.next(isLogged);
 
-  //   this.userPool.signUp(username, password, attributeList, [], callback);
-  // }
+    if (isLogged) 
+      return true;
+    else return false;
+  }
 
-  // /**
-  //  * Call cognito forgot password functino
-  //  * @param username Username to recovery password
-  //  * @param callback Callback functions with logic to set input verification code and error/success
-  //  */
-  // forgotpassword(username: string, callback: any) {
-  //   let userData = { Username: username, Pool: this.userPool };
-  //   let cognitoUser = new CognitoUser(userData);
+  /**
+   * guarda la sesion del usuario
+   * @param sesion sesion del usuario
+   */
+  saveSession(sesion: IUsuarioSesion) {
+    sesion.vencimiento = new Date();
+    sesion.vencimiento.setHours(sesion.vencimiento.getHours() + 24);
+    localStorage.setItem("labunaj_session", JSON.stringify(sesion));
+  }
 
-  //   cognitoUser.forgotPassword(callback);
-  // }
+  /**
+   * obtiene la sesion del usuario
+   * @param sesion sesion del usuario
+   */
+  getSession(sesion: IUsuarioSesion) {
+    const cachedData = localStorage.getItem("labunaj_session");
+    if (cachedData) return JSON.parse(cachedData);
+    else {
+      this.saveSession(sesion);
+      return sesion;
+    }
+  }
 
-  // /**
-  //  * Call cognito function to set new password
-  //  * @param username Username to set new password
-  //  * @param verificationCode User verification code received
-  //  * @param newPassword New password
-  //  * @param callbacks Callback functions
-  //  */
-  // confirmPassword(
-  //   username: string,
-  //   verificationCode: string,
-  //   newPassword: string,
-  //   callbacks: any
-  // ) {
-  //   let userData = { Username: username, Pool: this.userPool };
-  //   let cognitoUser = new CognitoUser(userData);
-  //   cognitoUser.confirmPassword(verificationCode, newPassword, callbacks);
-  // }
+  /**
+   * cierra la sesion del usuario
+   */
+  closeSession() {
+    localStorage.removeItem("labunaj_session");
+  }
 
-  // /**
-  //  * Check if current user is logged in
-  //  * @returns true or false
-  //  */
-  // isLoggedIn(): boolean {
-  //   let isAuth = false;
+  /**
+   * verifica si la sesion del usuario expiro
+   * @returns true si expiro, false si no
+   */
+  checkSesionExpired(): boolean {
+    const cachedData = localStorage.getItem("labunaj_session");
+    if (cachedData) {
+      const sesion = JSON.parse(cachedData);
+      const now = new Date().getTime();
+      return sesion.vencimiento < now;
+    } return false;
+  }
 
-  //   const userPool = new CognitoUserPool(poolData);
-  //   const cognitoUser = userPool.getCurrentUser();
-
-  //   if (cognitoUser != null) {
-  //     cognitoUser.getSession((err: any, session: any) => {
-  //       if (err) {
-  //         alert(err.message || JSON.stringify(err));
-  //       }
-  //       isAuth = session.isValid();
-  //     });
-  //   }
-  //   return isAuth;
-  // }
-  // /**
-  //  * Gets current cognito user logged
-  //  * @returns Current CognitoUser
-  //  */
-  // getAuthenticatedUser(): CognitoUser {
-  //   return this.userPool.getCurrentUser();
-  // }
-
-  // /**
-  //  * Save session credentials into object
-  //  * @param session Session from cognito response
-  //  */
-  // saveCredentials(session: CognitoUserSession) {
-  //   this.accessToken = session.getAccessToken().getJwtToken();
-  //   this.idToken = session.getIdToken().getJwtToken();
-  // }
-  // /**
-  //  * Save dynamo user logged information
-  //  * @param session Cognito user session
-  //  */
-  // saveUserLogged(session: CognitoUserSession) {
-  //   const reqOptions =  new RequestOptions();
-  //   reqOptions.silent = true;
-    
-  //   this.userService
-  //     .getByEmail(session.getIdToken().payload.email, reqOptions)
-  //     .pipe(tap((data) => (this.userID = data[0].EntityID)))
-  //     .subscribe();
-  // }
-
-  // /** Get accessToken from localstorage*/
-  // public get accessToken(): string {
-  //   return localStorage.getItem('access_token');
-  // }
-  // /** Set accessToken to local storage*/
-  // public set accessToken(value: string) {
-  //   if (value === null) {
-  //     localStorage.removeItem('access_token');
-  //   } else {
-  //     localStorage.setItem('access_token', value);
-  //   }
-  // }
-  // /**
-  //  * Get Id Token from localstorage
-  //  */
-  // public get idToken(): string {
-  //   return localStorage.getItem('id_token');
-  // }
-  // /**
-  //  * Set Id Token from localstorage
-  //  */
-  // public set idToken(value: string) {
-  //   if (value === null) {
-  //     localStorage.removeItem('id_token');
-  //   } else {
-  //     localStorage.setItem('id_token', value);
-  //   }
-  // }
-  //   /** Get user entity ID from localstorage*/
-  // public get userID(): string {
-  //   return localStorage.getItem('user_id');
-  // }
-  // /** Set user entity id to local storage*/
-  // public set userID(value: string) {
-  //   if (value === null) {
-  //     localStorage.removeItem('user_id');
-  //   } else {
-  //     localStorage.setItem('user_id', value);
-  //   }
-  // }
+  /**
+   * obtiene el usuario
+   * @param nombreUsuario nombre de usuario
+   * @returns `Observable` con el usuario
+   */
+  getUsuario(nombreUsuario: string) {
+    const endpoint = `${this.apiEndpoint}/usuario/${nombreUsuario}`;
+    return this.http.get<IUsuario>(endpoint);
+  }
 }

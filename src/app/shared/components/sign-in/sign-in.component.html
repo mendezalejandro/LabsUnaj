@@ -1,0 +1,38 @@
+<div class="container form-container">
+    <form #form="ngForm">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{'login.title' | translate}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'login.user' | translate }}</mat-label>
+                        <input [(ngModel)]="usuario" matInput
+                            placeholder="{{ 'login.user-placeholder' | translate }}" name="usuario"
+                            autocomplete="off" required>
+                        <mat-error *ngIf="form.controls['usuario']?.invalid && form.controls['usuario']?.touched">
+                            {{ 'login.user-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'login.password' | translate }}</mat-label>
+                        <input [(ngModel)]="contrasena" type="password" matInput
+                            placeholder="{{ 'login.password-placeholder' | translate }}" name="password"
+                            autocomplete="off" required>
+                        <mat-error *ngIf="form.controls['password']?.invalid && form.controls['password']?.touched">
+                            {{ 'login.password-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row d-flex">
+                    <button mat-button (click)="signIn()">{{'login.button' | translate}}</button>
+                </div>
+            </mat-card-content>
+            
+        </mat-card>
+
+    </form>
+</div>

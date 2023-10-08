@@ -13,6 +13,17 @@ export interface IUsuario {
     rol: Rol;
 }
 
+// Interfaz para representar la información de la sesion del usuario
+export interface IUsuarioSesion {
+    id: number;
+    nombreUsuario: string;
+    nombre: string;
+    apellido: string;
+    estado: boolean;
+    rol: Rol;
+    vencimiento: Date;
+}
+
 // Clase basada en la interfaz IUsuario
 export class Usuario implements IUsuario {
     id: number;

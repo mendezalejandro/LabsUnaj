@@ -2,7 +2,6 @@
 <!-- app.component.html -->
 <div [ngClass]="isDarkTheme ? 'dark-theme' : 'light-theme'">
 
-
 <!-- processing spinner  component -->
 <app-busy></app-busy>
 
@@ -75,7 +74,7 @@
     <!-- logout button -->
     <span class="spacer"></span>
     <button mat-icon-button (click)="openLogin()">
-      <mat-icon>logout</mat-icon>
+      <mat-icon>login</mat-icon>
     </button>
   </mat-toolbar>
   <router-outlet> </router-outlet>

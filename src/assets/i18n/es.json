@@ -79,6 +79,11 @@
           "asignacionexistente": "Este elemento ya ha sido asignado"
         }
       }
+    },
+    "auth": {
+      "login": {
+        "title": "Acceso"
+      }
     }
   },
   "features": {
@@ -189,5 +194,28 @@
         "LABORATORIOS-ERR-001": "Ya exíste un laboratorio con ese nombre"
       }
     }
+  },
+  "login": {
+    "title": "Acceso",
+    "button": "Ingresar",
+    "user": "Nombre de usuario",
+    "password": "Contraseña",
+    "signup": "Registrarse",
+    "forgotpassword": "Olvidaste tu contraseña?",
+    "messages": {
+      "info": {},
+      "error": {
+        "login-problem": "Problem with login",
+        "NotAuthorizedException": "Incorrect username or password."
+      }
+    },
+    "user-placeholder": "Escriba su nombre de usuario",
+    "user-error": "El nombre de usuario es requerido",
+    "password-placeholder": "Escriba su contraseña",
+    "password-error": "La contraseña es requerida"
+  },
+  "logout": {
+    "title": "Cerrar sesión",
+    "message": "¿Estás seguro de que quieres cerrar esta sesión?"
   }
 }

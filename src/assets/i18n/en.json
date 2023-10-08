@@ -155,9 +155,8 @@
       "step-confirmacion-subtitulo": "Verify the information"
     }
   },
-  "shared": {},
   "login": {
-    "title": "Sign In",
+    "title": "Sign in",
     "button": "Login",
     "user": "Username",
     "password": "Password",
@@ -169,11 +168,16 @@
         "login-problem": "Problem with login",
         "NotAuthorizedException": "Incorrect username or password."
       }
-    }
+    },
+    "user-placeholder": "Type your username",
+    "user-error": "The username is required",
+    "password-placeholder": "Type your password",
+    "password-error": "The password is required"
   },
   "logout": {
     "title": "Sign out",
-    "legend": "¿Are you sure you want to leave?"
+    "legend": "¿Are you sure you want to leave?",
+    "message": "Are you sure do you want close this session?"
   },
   "register": {
     "title": "Sign up",
