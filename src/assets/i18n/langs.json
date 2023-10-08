@@ -41,6 +41,13 @@
       "step-horario-titulo": "Pick a schedule",
       "step-confirmacion-titulo": "Confirm your appointment",
       "step-confirmacion-subtitulo": "Verify the information"
+    },
+    "dashboard": {
+      "welcome": "Welcome",
+      "turnos-vigentes": "Current appointments",
+      "turnos-pasados": "Expired appointments",
+      "solicitar-turno": "Request an appointment",
+      "turno-confirmado": "Appointment confirmed"
     }
   },
   "shared": {

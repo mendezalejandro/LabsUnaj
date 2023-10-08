@@ -10,7 +10,7 @@
         <div class="d-flex justify-content-around">
             <button *ngIf="selected?.state=='horario' || selected?.state === 'confirmacion'" mat-stroked-button color="accent" cdkStepperPrevious>{{'general.back' | translate}}</button>
             <button *ngIf="selected?.state === 'horario'" mat-stroked-button color="accent" cdkStepperNext>{{'general.next' | translate}}</button>
-            <button *ngIf="selected?.state === 'confirmacion'" mat-stroked-button color="accent" cdkStepperDone>{{'general.confirm' | translate}}</button>
+            <button *ngIf="selected?.state === 'confirmacion'" mat-stroked-button color="accent" (click)="confirmar()">{{'general.confirm' | translate}}</button>
         </div>
     </footer>
     </div>

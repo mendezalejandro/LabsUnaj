@@ -153,6 +153,13 @@
       "step-horario-titulo": "Pick a schedule",
       "step-confirmacion-titulo": "Confirm your appointment",
       "step-confirmacion-subtitulo": "Verify the information"
+    },
+    "dashboard": {
+      "welcome": "Welcome",
+      "turnos-vigentes": "Current appointments",
+      "turnos-pasados": "Expired appointments",
+      "solicitar-turno": "Request an appointment",
+      "turno-confirmado": "Appointment confirmed"
     }
   },
   "login": {
@@ -208,11 +215,13 @@
     "errors": {
       "titles": {
         "DEFAULT": "Sorry, an error has occurred",
-        "LABORATORIOS-ERR-001": "Laboratory already exists"
+        "LABORATORIOS-ERR-001": "Laboratory already exists",
+        "TURNOS-ERR-002": "Schedule has already been requested by another user"
       },
       "messages": {
         "DEFAULT": "Please try again later, if the problem persists contact the administrator",
-        "LABORATORIOS-ERR-001": "Laboratory already exists with the same name or code"
+        "LABORATORIOS-ERR-001": "Laboratory already exists with the same name or code",
+        "TURNOS-ERR-002": "Other user has already requested this schedule, please select another one"
       }
     }
   },

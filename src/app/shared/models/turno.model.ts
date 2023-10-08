@@ -9,6 +9,14 @@ export interface ITurno {
     disponible:boolean;
   }
 
+  // interfaz ITurnoConfirmacion
+  export interface ITurnoConfirmacion {
+    fechaInicio: string;
+    fechaFin: string;
+    nombreUsuario: string;
+    idLaboratorio: number;
+  }
+
   // interfaz IDisponibilidad
 export interface IDisponibilidad {
   horario: string;
@@ -26,4 +34,14 @@ export class Turno implements ITurno {
       public id_laboratorio: number = 0,
       public disponible:boolean = true
     ) {}
-  }
+}
+
+  // clase Turno Confirmacion
+  export class TurnoConfirmacion implements ITurnoConfirmacion {
+    constructor(
+      public fechaInicio: string = '',
+      public fechaFin: string = '',
+      public nombreUsuario: string = '',
+      public idLaboratorio: number = 0
+    ) {}
+}

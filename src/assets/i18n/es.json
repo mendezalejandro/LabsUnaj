@@ -170,6 +170,13 @@
       "step-horario-titulo": "Elija un horario",
       "step-confirmacion-titulo": "Confirme su turno",
       "step-confirmacion-subtitulo": "Verifique la información"
+    },
+    "dashboard": {
+      "welcome": "Bienvenido",
+      "turnos-vigentes": "Turnos vigentes",
+      "turnos-pasados": "Turnos pasados",
+      "solicitar-turno": "Reservar un turno",
+      "turno-confirmado": "Turno confirmado"
     }
   },
   "menu": {
@@ -187,11 +194,13 @@
     "errors": {
       "titles": {
         "DEFAULT": "Lo sentimos, ha ocurrido un error",
-        "LABORATORIOS-ERR-001": "Laboratorio existente"
+        "LABORATORIOS-ERR-001": "Laboratorio existente",
+        "TURNOS-ERR-002": "Turno tomado por otro usuario"
       },
       "messages": {
         "DEFAULT": "Por favor, intente nuevamente o comuniquese con el administrador",
-        "LABORATORIOS-ERR-001": "Ya exíste un laboratorio con ese nombre"
+        "LABORATORIOS-ERR-001": "Ya exíste un laboratorio con ese nombre",
+        "TURNOS-ERR-002": "El turno ya ha sido tomado por otro usuario, por favor seleccione otro horario"
       }
     }
   },

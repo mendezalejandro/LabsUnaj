@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IUsuario } from '../models/usuario.model';
+import { IUsuario, IUsuarioSesion } from '../models/usuario.model';
 import { environment } from 'src/app/environments/environment';
 
 @Injectable({
@@ -33,7 +33,15 @@ export class UsuarioService {
     const endpoint = `${this.apiEndpoint}/usuario/${id}`;
     return this.httpClient.get<IUsuario>(endpoint);
   }
-
+  /**
+   * obtiene el usuario logueado
+   * @returns usuario logueado
+   */
+  getUsuarioLogueado() {
+    const cachedData = localStorage.getItem('labunaj_session');
+    const usuarioSession = JSON.parse(cachedData!!) as IUsuarioSesion;
+    return usuarioSession;
+  }
   /**
    * agrega un usuario
    * @param usuario usuario a agregar

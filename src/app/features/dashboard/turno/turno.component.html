@@ -1,4 +1,4 @@
-<app-stepper #stepper>
+<app-stepper #stepper (onConfirm)="confirmar($event)">
     <cdk-step [label]="'features.turnos.step-laboratorio-titulo'|translate" state="laboratorio">
         <div class="container d-flex flex-column gap-2">
             <mat-card matRipple *ngFor="let laboratorio of $laboratorios | async" (click)="laboratorioSelected(laboratorio)">
@@ -30,7 +30,7 @@
             </div>
             <div class="row mt-4 overflow-auto" *ngIf="$horarios">
                 <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-                    <mat-chip-option *ngFor="let item of $horarios | async" [color]="'accent'" (selectionChange)="horarioSelected(item)">
+                    <mat-chip-option *ngFor="let item of $horarios | async" color="accent" [disabled]="!item.disponible" (selectionChange)="horarioSelected(item)">
                       {{item.horario}}
                     </mat-chip-option>
                   </mat-chip-listbox>
