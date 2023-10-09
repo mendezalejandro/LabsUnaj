@@ -176,7 +176,11 @@
       "turnos-vigentes": "Turnos vigentes",
       "turnos-pasados": "Turnos pasados",
       "solicitar-turno": "Reservar un turno",
-      "turno-confirmado": "Turno confirmado"
+      "turno-confirmado": "Turno confirmado",
+      "turnos-vacio": "No tiene ningún turno vigente",
+      "cancelar-turno-titulo": "Cancelar turno",
+      "cancelar-turno-mensaje": "Está seguro que desea cancelar este turno?",
+      "turno-cancelado": "Turno cancelado"
     }
   },
   "menu": {

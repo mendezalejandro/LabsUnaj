@@ -58,4 +58,13 @@ export class PerfilService {
 
     this.profileSubject.next(userprofile);
   }
+
+  /**
+   * obtiene el idioma del perfil
+   * @returns idioma del perfil
+   */
+  getLocale(): string {
+    const p = this.localService.profileGet();
+    return p.lang;
+  }
 }

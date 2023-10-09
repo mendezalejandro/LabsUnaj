@@ -22,6 +22,15 @@ export interface IDisponibilidad {
   horario: string;
   disponible: boolean;
 }
+  // interfaz ITurnosVigentes
+  export interface ITurnoVigente {
+    idTurno: number;
+    fechaInicio: Date;
+    fechaFin: Date;
+    idUsuario: number;
+    idLaboratorio: number;
+  }
+
 
   // clase Turno
 export class Turno implements ITurno {

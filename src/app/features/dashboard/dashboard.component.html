@@ -13,27 +13,29 @@
         <div class="container h-100">
             <mat-divider></mat-divider>
             <div class="row">
-                <div class="col">
-                    <div class="row pt-4 mat-headline-5">
+                <div class="col" *ngIf="turnosVigentes$ | async as turnosVigentes">
+                    <div class="row pt-4 mat-headline-5" *ngIf="turnosVigentes.length>0; else sinTurnos">
                         <span><b>{{'features.dashboard.turnos-vigentes' | translate}}</b></span>
                         <div class="row mat-body">
                             <mat-selection-list>
-                                <mat-list-item>
+                                <mat-list-item *ngFor="let item of turnosVigentes">
                                     <mat-icon matListItemIcon>schedule</mat-icon>
-                                    <div matListItemTitle>{{'Laboratorio de fisica'}}</div>
-                                    <div matListItemLine>{{'2023-01-05 10:00:00' | date}}</div>
-                                </mat-list-item>
-                                <mat-list-item>
-                                    <mat-icon matListItemIcon>schedule</mat-icon>
-                                    <div matListItemTitle>{{'Laboratorio de Quimica'}}</div>
-                                    <div matListItemLine>{{'2023-05-05 15:30:00' | date}}</div>
+                                    <div matListItemTitle>{{item.idLaboratorio}}</div>
+                                    <div matListItemLine>{{item.fechaInicio| date: 'fullDate':'':locale}}, {{item.fechaInicio| date: 'shortTime':'':locale}}</div>
+                                    <button mat-icon-button (click)="cancelarTurno(item.idTurno)" matListItemMeta>
+                                        <mat-icon>delete</mat-icon>
+                                     </button>
                                 </mat-list-item>
                             </mat-selection-list>
                         </div>
                     </div>
-                    <!-- <mat-divider style="height: 100%;" [vertical]="true"></mat-divider> -->
+                    <ng-template #sinTurnos>
+                        <div class="row pt-4 mat-headline-5" >
+                            {{'features.dashboard.turnos-vacio' | translate}}
+                        </div>
+                    </ng-template>
                 </div>
-        
+<!--         
                 <div class="col">
                     <div class="row pt-4 mat-headline-5">
                         <span><b>{{'features.dashboard.turnos-pasados' | translate}}</b></span>
@@ -52,7 +54,7 @@
                             </mat-selection-list>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         
             <div class="row px-4">

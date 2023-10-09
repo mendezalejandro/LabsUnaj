@@ -47,7 +47,9 @@
       "turnos-vigentes": "Current appointments",
       "turnos-pasados": "Expired appointments",
       "solicitar-turno": "Request an appointment",
-      "turno-confirmado": "Appointment confirmed"
+      "turno-confirmado": "Appointment confirmed",
+      "cancelar-turno-titulo": "Cancel appointment",
+      "turno-cancelado": "Appointment has been cancelated"
     }
   },
   "shared": {

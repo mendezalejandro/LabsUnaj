@@ -159,7 +159,11 @@
       "turnos-vigentes": "Current appointments",
       "turnos-pasados": "Expired appointments",
       "solicitar-turno": "Request an appointment",
-      "turno-confirmado": "Appointment confirmed"
+      "turno-confirmado": "Appointment confirmed",
+      "turnos-vacio": "You don't have any pending appointments",
+      "cancelar-turno-titulo": "Cancel appointment",
+      "cancelar-turno-mensaje": "Are you sure do you want cancel this appointment?",
+      "turno-cancelado": "Appointment has been cancelated"
     }
   },
   "login": {

@@ -47,7 +47,7 @@ export class TurnoComponent implements OnInit {
 
   laboratorioSelected(laboratorio: ILaboratorio){
     this.laboratorio = laboratorio;
-    this.$horarios = this.turnoService.getHorariosDispoinibles(laboratorio.id, this.fecha.toISOString().split('T')[0])
+    this.$horarios = this.turnoService.getHorariosDisponibles(laboratorio.id, this.fecha.toISOString().split('T')[0])
     .pipe(tap((horarios) => {
       this.stepper?.next();
     }));
@@ -57,7 +57,7 @@ export class TurnoComponent implements OnInit {
     this.actualizarHorarios();
   }
   actualizarHorarios(){
-    this.$horarios = this.turnoService.getHorariosDispoinibles(this.laboratorio.id, this.fecha.toISOString().split('T')[0])
+    this.$horarios = this.turnoService.getHorariosDisponibles(this.laboratorio.id, this.fecha.toISOString().split('T')[0])
   }
   horarioSelected(horario: IDisponibilidad){
     this.horario = horario;

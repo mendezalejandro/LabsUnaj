@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/app/environments/environment';
-import { IDisponibilidad, TurnoConfirmacion } from '../models/turno.model';
+import { IDisponibilidad, ITurnoVigente, TurnoConfirmacion } from '../models/turno.model';
 import { DateTime } from 'luxon';
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class TurnoService {
   apiEndpoint = environment.apiEndpoint;
   constructor(private httpClient: HttpClient) { }
 
-  getHorariosDispoinibles(idLaboratorio: number, fecha: string) {
+  getHorariosDisponibles(idLaboratorio: number, fecha: string) {
     const endpoint = `${this.apiEndpoint}/turnos/horarios`;
     const queryParams = {
       idLaboratorio: idLaboratorio,
@@ -20,6 +20,18 @@ export class TurnoService {
     return this.httpClient.get<IDisponibilidad[]>(endpoint, { params: queryParams });
   }
 
+  /**
+   * metodo que obtiene los turnos vigentes del usuario
+   * @param nombreUsuario nombre del usuario
+   * @returns lista de turnos vigentes
+   */
+  getTurnosVigentes(nombreUsuario: string) {
+    const endpoint = `${this.apiEndpoint}/turnos/disponibles`;
+    const queryParams = {
+      username: nombreUsuario
+    };
+    return this.httpClient.get<ITurnoVigente[]>(endpoint, { params: queryParams });
+  }
   /**
    * metodo que confirma un turno
    * @param nombreUsuario nombre del usuario
@@ -36,5 +48,14 @@ export class TurnoService {
     const endpoint = `${this.apiEndpoint}/turno`;
     
     return this.httpClient.post(endpoint, p);
+  }
+
+  /**
+   * metodo que cancela un turno
+   * @param idTurno id del turno
+   */
+  cancelarTurno(idTurno: number) {
+    const endpoint = `${this.apiEndpoint}/turno/${idTurno}`;
+    return this.httpClient.delete(endpoint);
   }
 }
