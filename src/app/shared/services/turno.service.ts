@@ -11,6 +11,12 @@ export class TurnoService {
   apiEndpoint = environment.apiEndpoint;
   constructor(private httpClient: HttpClient) { }
 
+  /**
+   * metodo que obtiene los horarios disponibles
+   * @param idLaboratorio laboratorio seleccionado
+   * @param fecha fecha seleccionada
+   * @returns lista de horarios disponibles
+   */
   getHorariosDisponibles(idLaboratorio: number, fecha: string) {
     const endpoint = `${this.apiEndpoint}/turnos/horarios`;
     const queryParams = {
