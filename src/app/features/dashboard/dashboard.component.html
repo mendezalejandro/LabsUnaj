@@ -22,6 +22,10 @@
                                     <mat-icon matListItemIcon>schedule</mat-icon>
                                     <div matListItemTitle>{{item.idLaboratorio}}</div>
                                     <div matListItemLine>{{item.fechaInicio| date: 'fullDate':'':locale}}, {{item.fechaInicio| date: 'shortTime':'':locale}}</div>
+                                    <span *ngIf="turnoEnTiempo(item); else turnoHabilitado" matListItemLine><small>{{'features.dashboard.turnos-vigentes-mensaje'|translate}}</small></span>
+                                    <ng-template #turnoHabilitado>
+                                        <span matListItemLine *ngIf="getTurnoHabilitado(item) | async as url"><small>{{url}}</small></span>
+                                    </ng-template>
                                     <button mat-icon-button (click)="cancelarTurno(item.idTurno)" matListItemMeta>
                                         <mat-icon>delete</mat-icon>
                                      </button>

@@ -7,7 +7,6 @@ import { DateTime } from 'luxon';
   providedIn: 'root'
 })
 export class TurnoService {
-
   apiEndpoint = environment.apiEndpoint;
   constructor(private httpClient: HttpClient) { }
 
@@ -52,7 +51,6 @@ export class TurnoService {
 
     const p = new TurnoConfirmacion(dateIni, dateEnd, nombreUsuario, idLaboratorio);
     const endpoint = `${this.apiEndpoint}/turno`;
-    
     return this.httpClient.post(endpoint, p);
   }
 
@@ -63,5 +61,15 @@ export class TurnoService {
   cancelarTurno(idTurno: number) {
     const endpoint = `${this.apiEndpoint}/turno/${idTurno}`;
     return this.httpClient.delete(endpoint);
+  }
+
+  /**
+   * metodo que obtiene el turno habilitado
+   * @param idTurno id del turno
+   * @returns url del laboratorio
+   */
+  getTurnoHabilitado(idTurno: number) {
+    const endpoint = `${this.apiEndpoint}/turno/${idTurno}`;
+    return this.httpClient.get(endpoint, { responseType: 'text' });
   }
 }

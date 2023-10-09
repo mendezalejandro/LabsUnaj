@@ -180,7 +180,8 @@
       "turnos-vacio": "No tiene ningún turno vigente",
       "cancelar-turno-titulo": "Cancelar turno",
       "cancelar-turno-mensaje": "Está seguro que desea cancelar este turno?",
-      "turno-cancelado": "Turno cancelado"
+      "turno-cancelado": "Turno cancelado",
+      "turnos-vigentes-mensaje": "El acceso al laboratorio remoto estará disponible 10 minutos antes del horario del turno."
     }
   },
   "menu": {

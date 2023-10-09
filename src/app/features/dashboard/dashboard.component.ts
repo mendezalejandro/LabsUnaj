@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { PerfilService } from 'src/app/core/services/profile.services';
 import { ITurnoVigente, Turno } from 'src/app/shared/models/turno.model';
 import { IUsuarioSesion } from 'src/app/shared/models/usuario.model';
@@ -76,4 +76,26 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+
+/**
+ * metodo que verifica si el turno esta en tiempo
+ * @param turno turno a verificar
+ * @returns true si esta en tiempo, false en caso contrario
+ */
+  turnoEnTiempo(turno: ITurnoVigente): Observable<boolean> {
+    const fechaActual = new Date();
+    const fechaObjeto = new Date(turno.fechaInicio);
+
+    return of(fechaObjeto.getTime() === fechaActual.getTime()).pipe();
+  }
+
+  /**
+   * metodo que obtiene el turno habilitado
+   * @param turno turno a verificar
+   * @returns true si esta habilitado, false en caso contrario
+   */
+  getTurnoHabilitado(turno: ITurnoVigente) {
+    return this.turnosService.getTurnoHabilitado(turno.idTurno);
+  }
+
 }

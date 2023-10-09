@@ -3,6 +3,7 @@ import { StepperOrientation } from '@angular/cdk/stepper';
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import { DateTime } from 'luxon';
 import { Observable, catchError, map, tap } from 'rxjs';
 import { ILaboratorio } from 'src/app/shared/models/laboratorio.model';
 import { IDisponibilidad } from 'src/app/shared/models/turno.model';
@@ -46,8 +47,9 @@ export class TurnoComponent implements OnInit {
   }
 
   laboratorioSelected(laboratorio: ILaboratorio){
+    const fechaParsed = DateTime.fromJSDate(this.fecha).toISO({includeOffset: false }) as string;
     this.laboratorio = laboratorio;
-    this.$horarios = this.turnoService.getHorariosDisponibles(laboratorio.id, this.fecha.toISOString().split('T')[0])
+    this.$horarios = this.turnoService.getHorariosDisponibles(laboratorio.id, fechaParsed.split('T')[0])
     .pipe(tap((horarios) => {
       this.stepper?.next();
     }));
@@ -57,13 +59,15 @@ export class TurnoComponent implements OnInit {
     this.actualizarHorarios();
   }
   actualizarHorarios(){
-    this.$horarios = this.turnoService.getHorariosDisponibles(this.laboratorio.id, this.fecha.toISOString().split('T')[0])
+    const fechaParsed = DateTime.fromJSDate(this.fecha).toISO({includeOffset: false }) as string;
+    this.$horarios = this.turnoService.getHorariosDisponibles(this.laboratorio.id, fechaParsed.split('T')[0])
   }
   horarioSelected(horario: IDisponibilidad){
     this.horario = horario;
   }
   confirmar($event: boolean){
-    this.turnoService.confirmarTurno(this.usuarioLogueado.nombreUsuario, this.laboratorio.id, this.fecha.toISOString().split('T')[0], this.horario!.horario)
+    const dateString = DateTime.fromISO(`${this.fecha.toISOString()}`).toISO({ includeOffset: false }) as string;
+    this.turnoService.confirmarTurno(this.usuarioLogueado.nombreUsuario, this.laboratorio.id, dateString.split('T')[0], this.horario!.horario)
     .pipe(
       tap((turno) => {
         this.onConfirmed.emit(true);

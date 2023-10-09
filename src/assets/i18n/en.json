@@ -163,7 +163,8 @@
       "turnos-vacio": "You don't have any pending appointments",
       "cancelar-turno-titulo": "Cancel appointment",
       "cancelar-turno-mensaje": "Are you sure do you want cancel this appointment?",
-      "turno-cancelado": "Appointment has been cancelated"
+      "turno-cancelado": "Appointment has been cancelated",
+      "turnos-vigentes-mensaje": "The access to remote laboratory will be showed 10 minutes before scheduled time."
     }
   },
   "login": {
