@@ -198,14 +198,46 @@
   "api": {
     "errors": {
       "titles": {
-        "DEFAULT": "Lo sentimos, ha ocurrido un error",
-        "LABORATORIOS-ERR-001": "Laboratorio existente",
-        "TURNOS-ERR-002": "Turno tomado por otro usuario"
+        "DEFAULT": "Lo sentimos, se ha producido un error",
+        "USUARIOS-ERR-001": "Usuario no encontrado",
+        "USUARIOS-ERR-002": "No se pudo crear el usuario",
+        "USUARIOS-ERR-003": "Error al actualizar la contraseña",
+        "USUARIOS-ERR-004": "No existe un usuario con este rol",
+        "USUARIOS-ERR-005": "No existen usuarios",
+        "USUARIOS-ERR-006": "El id de rol proporcionado no existe",
+        "LABORATORIOS-ERR-001": "Este laboratorio ya existe",
+        "LABORATORIOS-ERR-002": "Este laboratorio no existe",
+        "LABORATORIOS-ERR-003": "No se puede eliminar. Existe un turno asociado a este laboratorio",
+        "LABORATORIOS-ERR-004": "No se encontró un laboratorio para eliminar",
+        "ROLES-ERR-001": "Este rol ya existe",
+        "ROLES-ERR-002": "No se puede eliminar. Existe un usuario con este rol",
+        "ROLES-ERR-003": "Rol no encontrado",
+        "TURNOS-ERR-001": "Turno no encontrado",
+        "TURNOS-ERR-002": "Este turno ya existe",
+        "TURNOS-ERR-003": "Error al cancelar el turno",
+        "TURNOS-ERR-004": "Laboratorio no encontrado",
+        "TURNOS-ERR-005": "No se encontró el usuario"
       },
       "messages": {
-        "DEFAULT": "Por favor, intente nuevamente o comuniquese con el administrador",
-        "LABORATORIOS-ERR-001": "Ya exíste un laboratorio con ese nombre",
-        "TURNOS-ERR-002": "El turno ya ha sido tomado por otro usuario, por favor seleccione otro horario"
+        "DEFAULT": "Por favor, inténtelo de nuevo más tarde. Si el problema persiste, póngase en contacto con el administrador.",
+        "USUARIOS-ERR-001": "El usuario que buscaba no se encuentra en nuestros registros.",
+        "USUARIOS-ERR-002": "No hemos podido crear un nuevo usuario en este momento. Intente nuevamente más tarde.",
+        "USUARIOS-ERR-003": "No pudimos actualizar su contraseña. Por favor, compruebe los datos e inténtelo de nuevo.",
+        "USUARIOS-ERR-004": "No hay usuarios con el rol especificado en el sistema.",
+        "USUARIOS-ERR-005": "Actualmente, no existen usuarios registrados en el sistema.",
+        "USUARIOS-ERR-006": "El rol proporcionado no existe en nuestra base de datos.",
+        "LABORATORIOS-ERR-001": "Ya existe un laboratorio con el mismo nombre o código en nuestros registros.",
+        "LABORATORIOS-ERR-002": "El laboratorio que está buscando no existe en nuestra base de datos.",
+        "LABORATORIOS-ERR-003": "No se puede eliminar este laboratorio porque hay un turno asociado a él.",
+        "LABORATORIOS-ERR-004": "No encontramos ningún laboratorio que coincida con los criterios de eliminación.",
+        "ROLES-ERR-001": "Este rol ya existe en el sistema.",
+        "ROLES-ERR-002": "No se puede eliminar este rol porque hay usuarios asignados a él.",
+        "ROLES-ERR-003": "No se ha encontrado el rol especificado.",
+        "TURNOS-ERR-001": "No se ha encontrado el turno que buscaba.",
+        "TURNOS-ERR-002": "Este turno ya ha sido solicitado por otro usuario. Elija otro horario disponible.",
+        "TURNOS-ERR-003": "No hemos podido cancelar su turno en este momento. Por favor, inténtelo más tarde.",
+        "TURNOS-ERR-004": "No hemos podido encontrar el laboratorio asociado a este turno.",
+        "TURNOS-ERR-005": "No hemos podido encontrar el usuario asociado a este turno."
       }
     }
   },

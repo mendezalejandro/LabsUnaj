@@ -220,17 +220,49 @@
     "errors": {
       "titles": {
         "DEFAULT": "Sorry, an error has occurred",
-        "LABORATORIOS-ERR-001": "Laboratory already exists",
-        "TURNOS-ERR-002": "Schedule has already been requested by another user"
+        "USUARIOS-ERR-001": "User not found",
+        "USUARIOS-ERR-002": "User could not be created",
+        "USUARIOS-ERR-003": "Password update failed",
+        "USUARIOS-ERR-004": "No user with this role exists",
+        "USUARIOS-ERR-005": "No users exist",
+        "USUARIOS-ERR-006": "Provided role id does not exist",
+        "LABORATORIOS-ERR-001": "This laboratory already exists",
+        "LABORATORIOS-ERR-002": "This laboratory does not exist",
+        "LABORATORIOS-ERR-003": "Cannot delete. There is a schedule associated with this laboratory",
+        "LABORATORIOS-ERR-004": "No laboratory found to delete",
+        "ROLES-ERR-001": "Role already exists",
+        "ROLES-ERR-002": "Cannot delete. There is a user with this role",
+        "ROLES-ERR-003": "Role not found",
+        "TURNOS-ERR-001": "Schedule not found",
+        "TURNOS-ERR-002": "Schedule already exists",
+        "TURNOS-ERR-003": "Failed to cancel the schedule",
+        "TURNOS-ERR-004": "Laboratory not found",
+        "TURNOS-ERR-005": "Role already exists"
       },
       "messages": {
-        "DEFAULT": "Please try again later, if the problem persists contact the administrator",
-        "LABORATORIOS-ERR-001": "Laboratory already exists with the same name or code",
-        "TURNOS-ERR-002": "Other user has already requested this schedule, please select another one"
+        "DEFAULT": "Please try again later. If the problem persists, contact the administrator",
+        "USUARIOS-ERR-001": "The user you were looking for is not in our records.",
+        "USUARIOS-ERR-002": "We could not create a new user at this time. Please try again later.",
+        "USUARIOS-ERR-003": "We were unable to update your password. Please check the data and try again.",
+        "USUARIOS-ERR-004": "There are no users with the specified role in the system.",
+        "USUARIOS-ERR-005": "Currently, there are no registered users in the system.",
+        "USUARIOS-ERR-006": "The provided role does not exist in our database.",
+        "LABORATORIOS-ERR-001": "A laboratory with the same name or code already exists in our records.",
+        "LABORATORIOS-ERR-002": "The laboratory you are looking for does not exist in our database.",
+        "LABORATORIOS-ERR-003": "This laboratory cannot be deleted because there is a schedule associated with it.",
+        "LABORATORIOS-ERR-004": "We could not find any laboratory that matches the deletion criteria.",
+        "ROLES-ERR-001": "This role already exists in the system.",
+        "ROLES-ERR-002": "This role cannot be deleted because there are users assigned to it.",
+        "ROLES-ERR-003": "The specified role was not found.",
+        "TURNOS-ERR-001": "The turn you were looking for was not found.",
+        "TURNOS-ERR-002": "This turn has already been requested by another user. Please choose another available schedule.",
+        "TURNOS-ERR-003": "We could not cancel your turn at this time. Please try again later.",
+        "TURNOS-ERR-004": "We could not find the laboratory associated with this turn.",
+        "TURNOS-ERR-005": "This turn already exists in our records."
       }
     }
   },
   "generics": {
-    "confirmacion": "Confirmación"
+    "confirmacion": "Confirmation"
   }
 }
