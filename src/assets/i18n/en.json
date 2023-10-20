@@ -67,7 +67,7 @@
     "laboratorios": "Laboratories",
     "turnos": "Schedules",
     "perfil": "Profile",
-    "dashboard": "Dashboard"
+    "dashboard": "My appointments"
   },
   "features": {
     "usuarios": {
@@ -226,6 +226,8 @@
         "USUARIOS-ERR-004": "No user with this role exists",
         "USUARIOS-ERR-005": "No users exist",
         "USUARIOS-ERR-006": "Provided role id does not exist",
+        "USUARIOS-ERR-007": "Cannot access to system",
+        "USUARIOS-ERR-008": "Cannot access to system",
         "LABORATORIOS-ERR-001": "This laboratory already exists",
         "LABORATORIOS-ERR-002": "This laboratory does not exist",
         "LABORATORIOS-ERR-003": "Cannot delete. There is a schedule associated with this laboratory",
@@ -247,6 +249,8 @@
         "USUARIOS-ERR-004": "There are no users with the specified role in the system.",
         "USUARIOS-ERR-005": "Currently, there are no registered users in the system.",
         "USUARIOS-ERR-006": "The provided role does not exist in our database.",
+        "USUARIOS-ERR-007": "The password is invalid",
+        "USUARIOS-ERR-008": "The user is invalid",
         "LABORATORIOS-ERR-001": "A laboratory with the same name or code already exists in our records.",
         "LABORATORIOS-ERR-002": "The laboratory you are looking for does not exist in our database.",
         "LABORATORIOS-ERR-003": "This laboratory cannot be deleted because there is a schedule associated with it.",

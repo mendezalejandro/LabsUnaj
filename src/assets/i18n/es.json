@@ -190,7 +190,7 @@
     "laboratorios": "Laboratorios",
     "turnos": "Turnos",
     "perfil": "Perfil",
-    "dashboard": "Tablero"
+    "dashboard": "Mis turnos"
   },
   "footer": {
     "title": "Universidad Nacional Arturo Jauretche"
@@ -205,6 +205,8 @@
         "USUARIOS-ERR-004": "No existe un usuario con este rol",
         "USUARIOS-ERR-005": "No existen usuarios",
         "USUARIOS-ERR-006": "El id de rol proporcionado no existe",
+        "USUARIOS-ERR-007": "No se pudo ingresar al sistema",
+        "USUARIOS-ERR-008": "No se pudo ingresar al sistema",
         "LABORATORIOS-ERR-001": "Este laboratorio ya existe",
         "LABORATORIOS-ERR-002": "Este laboratorio no existe",
         "LABORATORIOS-ERR-003": "No se puede eliminar. Existe un turno asociado a este laboratorio",
@@ -226,6 +228,8 @@
         "USUARIOS-ERR-004": "No hay usuarios con el rol especificado en el sistema.",
         "USUARIOS-ERR-005": "Actualmente, no existen usuarios registrados en el sistema.",
         "USUARIOS-ERR-006": "El rol proporcionado no existe en nuestra base de datos.",
+        "USUARIOS-ERR-007": "La contraseña es invalida.",
+        "USUARIOS-ERR-008": "El nombre de usuario es invalido.",
         "LABORATORIOS-ERR-001": "Ya existe un laboratorio con el mismo nombre o código en nuestros registros.",
         "LABORATORIOS-ERR-002": "El laboratorio que está buscando no existe en nuestra base de datos.",
         "LABORATORIOS-ERR-003": "No se puede eliminar este laboratorio porque hay un turno asociado a él.",
