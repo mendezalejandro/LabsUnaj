@@ -67,7 +67,7 @@ export class TurnoComponent implements OnInit {
   }
   confirmar($event: boolean){
     const dateString = DateTime.fromISO(`${this.fecha.toISOString()}`).toISO({ includeOffset: false }) as string;
-    this.turnoService.confirmarTurno(this.usuarioLogueado.nombreUsuario, this.laboratorio.id, dateString.split('T')[0], this.horario!.horario)
+    this.turnoService.confirmarTurno(this.usuarioLogueado.id, this.laboratorio.id, dateString.split('T')[0], this.horario!.horario)
     .pipe(
       tap((turno) => {
         this.onConfirmed.emit(true);

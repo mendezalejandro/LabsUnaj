@@ -12,8 +12,7 @@ export interface ITurno {
   // interfaz ITurnoConfirmacion
   export interface ITurnoConfirmacion {
     fechaInicio: string;
-    fechaFin: string;
-    nombreUsuario: string;
+    idUsuario: number;
     idLaboratorio: number;
   }
 
@@ -49,8 +48,7 @@ export class Turno implements ITurno {
   export class TurnoConfirmacion implements ITurnoConfirmacion {
     constructor(
       public fechaInicio: string = '',
-      public fechaFin: string = '',
-      public nombreUsuario: string = '',
+      public idUsuario: number = 0,
       public idLaboratorio: number = 0
     ) {}
 }

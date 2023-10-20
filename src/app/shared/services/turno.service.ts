@@ -45,11 +45,10 @@ export class TurnoService {
    * @param hora hora del turno
    * @returns 
    */
-  confirmarTurno(nombreUsuario: string, idLaboratorio: number, fecha: string, hora: string) {
+  confirmarTurno(idUsuario: number, idLaboratorio: number, fecha: string, hora: string) {
     const dateIni= DateTime.fromISO(`${fecha}T${hora}`).toISO({ includeOffset: false }) as string;
-    const dateEnd= DateTime.fromISO(`${fecha}T${hora}`).plus({ minutes: 30 }).toISO({ includeOffset: false }) as string;
 
-    const p = new TurnoConfirmacion(dateIni, dateEnd, nombreUsuario, idLaboratorio);
+    const p = new TurnoConfirmacion(dateIni, idUsuario, idLaboratorio);
     const endpoint = `${this.apiEndpoint}/turno`;
     return this.httpClient.post(endpoint, p);
   }
