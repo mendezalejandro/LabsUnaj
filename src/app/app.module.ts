@@ -19,6 +19,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpInterceptorService } from './core/services/interceptors/http-request.interceptor';
 import { SignOutComponent } from './shared/components/sign-out/sign-out.component';
+import { AuthModule } from './core/modules/auth.module';
 
 registerLocaleData(es);
 registerLocaleData(pt);
@@ -39,6 +40,7 @@ export const interceptors: Provider[]=  [
 @NgModule({
   declarations: [AppComponent, SignOutComponent],
   imports: [
+    AuthModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

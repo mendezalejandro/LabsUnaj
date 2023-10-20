@@ -108,9 +108,13 @@ export class AuthService {
    * obtiene la sesion del usuario
    * @param sesion sesion del usuario
    */
-  getSession(sesion: IUsuarioSesion) {
+  getSession(sesion?: IUsuarioSesion) {
     const cachedData = localStorage.getItem("labunaj_session");
     if (cachedData) return JSON.parse(cachedData);
+    else if(!sesion){
+      this.closeSession();
+      throw new Error("la sesión del usuario expiró");
+    }
     else {
       this.saveSession(sesion);
       return sesion;

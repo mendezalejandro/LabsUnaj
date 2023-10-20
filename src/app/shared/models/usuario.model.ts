@@ -1,4 +1,4 @@
-import { Rol } from "./roles.model";
+import { Rol, RolTypes } from "./roles.model";
 
 // Interfaz para representar la información de un usuario
 export interface IUsuario {
@@ -34,7 +34,7 @@ export class Usuario implements IUsuario {
     mail: string;
     telefono: string;
     estado: boolean;
-    rol: Rol = Rol.Administrador;
+    rol: Rol = RolTypes.Administrador;
 
     constructor(
         id: number=0,
@@ -45,7 +45,7 @@ export class Usuario implements IUsuario {
         mail: string = '',
         telefono: string = '',
         estado: boolean= true,
-        rol: Rol= Rol.Administrador
+        rol: Rol= RolTypes.Administrador
     ) {
         this.id = id;
         this.nombreUsuario = nombre_usuario;

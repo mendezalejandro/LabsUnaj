@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './core/auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SignOutComponent } from './shared/components/sign-out/sign-out.component';
+import { RolTypes } from './shared/models/roles.model';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { SignOutComponent } from './shared/components/sign-out/sign-out.componen
 export class AppComponent implements AfterViewInit, OnInit {
   /* flag para indicar si el usuario esta logueado */
   userIsLogged!: boolean;
+  /** app title */
   title = 'UNAJ Labs';
   /** Selected language */
   language!: string;
@@ -24,6 +26,8 @@ export class AppComponent implements AfterViewInit, OnInit {
   isDarkTheme = false; // Puedes ajustar esta variable según tus necesidades para alternar entre el tema light y dark
   /** Main observable ta listen for changes */
   mainHandler$!: Observable<any>;
+  /** roles de la app */
+  roles = RolTypes
   /**
    * constructor del componente
    * @param lenguajeService servicio de lenguaje
