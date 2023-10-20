@@ -1,45 +1,50 @@
 <div class="main-container">
-<mat-sidenav-container class="sidenav-container" (backdropClick)="opened=false">
-    <mat-sidenav #snav mode="over" position="end" [opened]="opened" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      
-        <app-turno *ngIf="opened" (onConfirmed)="turnoConfirmado($event)"></app-turno>
-    </mat-sidenav>
+    <mat-sidenav-container class="sidenav-container" (backdropClick)="opened=false">
+        <mat-sidenav #snav mode="over" position="end" [opened]="opened" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
 
-    <mat-sidenav-content>
-        <div class="row m-0 mat-headline-4 mat-elevation-z6 d-flex align-content-center" style="height:80px">
-            <span>{{'features.dashboard.welcome' | translate}} <b>{{usuarioLogueado.nombre}} {{usuarioLogueado.apellido}}</b></span>
-        </div>
-        
-        <div class="container h-100">
-            <mat-divider></mat-divider>
-            <div class="row">
-                <div class="col" *ngIf="turnosVigentes$ | async as turnosVigentes">
-                    <div class="row pt-4 mat-headline-5" *ngIf="turnosVigentes.length>0; else sinTurnos">
-                        <span><b>{{'features.dashboard.turnos-vigentes' | translate}}</b></span>
-                        <div class="row mat-body">
-                            <mat-selection-list>
-                                <mat-list-item *ngFor="let item of turnosVigentes">
-                                    <mat-icon matListItemIcon>schedule</mat-icon>
-                                    <div matListItemTitle>{{item.idLaboratorio}}</div>
-                                    <div matListItemLine>{{item.fechaInicio| date: 'fullDate':'':locale}}, {{item.fechaInicio| date: 'shortTime':'':locale}}</div>
-                                    <span *ngIf="turnoEnTiempo(item); else turnoHabilitado" matListItemLine><small>{{'features.dashboard.turnos-vigentes-mensaje'|translate}}</small></span>
-                                    <ng-template #turnoHabilitado>
-                                        <span matListItemLine *ngIf="getTurnoHabilitado(item) | async as url"><small>{{url}}</small></span>
-                                    </ng-template>
-                                    <button mat-icon-button (click)="cancelarTurno(item.idTurno)" matListItemMeta>
-                                        <mat-icon>delete</mat-icon>
-                                     </button>
-                                </mat-list-item>
-                            </mat-selection-list>
-                        </div>
-                    </div>
-                    <ng-template #sinTurnos>
-                        <div class="row pt-4 mat-headline-5" >
-                            {{'features.dashboard.turnos-vacio' | translate}}
-                        </div>
-                    </ng-template>
+            <app-turno *ngIf="opened" (onConfirmed)="turnoConfirmado($event)"></app-turno>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="h-100 w-100 d-flex flex-column">
+                <div class="row m-0 mat-headline-4 mat-elevation-z6 d-flex align-content-center" style="height:80px">
+                    <span>{{'features.dashboard.welcome' | translate}} <b>{{usuarioLogueado.nombre}}
+                            {{usuarioLogueado.apellido}}</b></span>
                 </div>
-<!--         
+
+                <div class="container h-100 overflow-auto">
+                    <div class="row">
+                        <div class="col" *ngIf="turnosVigentes$ | async as turnosVigentes">
+                            <div class="row pt-4 mat-headline-5" *ngIf="turnosVigentes.length>0; else sinTurnos">
+                                <span><b>{{'features.dashboard.turnos-vigentes' | translate}}</b></span>
+                                <div class="row mat-body">
+                                    <mat-selection-list>
+                                        <mat-list-item *ngFor="let item of turnosVigentes">
+                                            <mat-icon matListItemIcon>schedule</mat-icon>
+                                            <div matListItemTitle>{{item.idLaboratorio}}</div>
+                                            <div matListItemLine>{{item.fechaInicio| date: 'fullDate':'':locale}},
+                                                {{item.fechaInicio| date: 'shortTime':'':locale}}</div>
+                                            <span *ngIf="turnoEnTiempo(item); else turnoHabilitado"
+                                                matListItemLine><small>{{'features.dashboard.turnos-vigentes-mensaje'|translate}}</small></span>
+                                            <ng-template #turnoHabilitado>
+                                                <span matListItemLine
+                                                    *ngIf="getTurnoHabilitado(item) | async as url"><small>{{url}}</small></span>
+                                            </ng-template>
+                                            <button mat-icon-button (click)="cancelarTurno(item.idTurno)"
+                                                matListItemMeta>
+                                                <mat-icon>delete</mat-icon>
+                                            </button>
+                                        </mat-list-item>
+                                    </mat-selection-list>
+                                </div>
+                            </div>
+                            <ng-template #sinTurnos>
+                                <div class="row pt-4 mat-headline-5">
+                                    {{'features.dashboard.turnos-vacio' | translate}}
+                                </div>
+                            </ng-template>
+                        </div>
+                        <!--         
                 <div class="col">
                     <div class="row pt-4 mat-headline-5">
                         <span><b>{{'features.dashboard.turnos-pasados' | translate}}</b></span>
@@ -59,13 +64,16 @@
                         </div>
                     </div>
                 </div> -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="opened=true" color="accent" style="width: 100%; height: 64px;"
+                                mat-raised-button>{{'features.dashboard.solicitar-turno'|translate}}</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        
-            <div class="row px-4">
-                <button (click)="opened=true" color="accent" style="width: 100%; height: 64px;" mat-raised-button>{{'features.dashboard.solicitar-turno'|translate}}</button>
-            </div>
-        </div>
-        
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>
