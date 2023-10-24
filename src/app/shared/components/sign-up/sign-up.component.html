@@ -1,0 +1,72 @@
+<div class="container form-container">
+    <form #form="ngForm">
+        <mat-card *ngIf="!registracionEnviada; else registracionEnviadaTemplate">
+            <mat-card-header>
+                <mat-card-title>{{'sign-up.title' | translate}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row mt-4">
+                    <mat-form-field>
+                        <mat-label>{{ 'sign-up.nombre' | translate }}</mat-label>
+                        <input [(ngModel)]="registracion.nombre" matInput
+                            placeholder="{{ 'sign-up.nombre-placeholder' | translate }}" name="nombre"
+                            autocomplete="off" [maxLength]="100" required>
+                        <mat-error *ngIf="form.controls['nombre']?.invalid && form.controls['nombre']?.touched">
+                            {{ 'sign-up.nombre-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'sign-up.apellido' | translate }}</mat-label>
+                        <input [(ngModel)]="registracion.apellido" matInput
+                            placeholder="{{ 'sign-up.apellido-placeholder' | translate }}" name="apellido"
+                            autocomplete="off" [maxLength]="100" required>
+                        <mat-error *ngIf="form.controls['apellido']?.invalid && form.controls['apellido']?.touched">
+                            {{ 'sign-up.apellido-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>                     
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'sign-up.telefono' | translate }}</mat-label>
+                        <input [(ngModel)]="registracion.telefono" matInput
+                            placeholder="{{ 'sign-up.telefono-placeholder' | translate }}" name="telefono"
+                            autocomplete="off" type="tel">
+                    </mat-form-field>
+                </div>           
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'sign-up.email' | translate }}</mat-label>
+                        <input [(ngModel)]="registracion.mail" matInput
+                            placeholder="{{ 'sign-up.email-placeholder' | translate }}" name="email"
+                            autocomplete="off" type="email" required>
+                        <mat-error *ngIf="form.controls['email']?.invalid && form.controls['email']?.touched">
+                            {{ 'sign-up.email-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row d-flex">
+                    <button mat-button [disabled]="form.invalid" (click)="signUp()">{{'sign-up.button' | translate}}</button>
+
+                </div>
+            </mat-card-content>
+
+        </mat-card>
+        <ng-template #registracionEnviadaTemplate>
+        <mat-card >
+            <mat-card-header>
+                <mat-card-title>{{'sign-up.registracion-completada.titulo' | translate }}</mat-card-title>
+                <mat-card-subtitle>{{'sign-up.registracion-completada.mensaje' | translate}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+            
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button (click)="backToHome()"><mat-icon>keyboard_return</mat-icon>{{'sign-up.volver' |translate}}</button>
+            </mat-card-actions>
+        </mat-card>
+        </ng-template>
+    </form>
+
+</div>

@@ -17,7 +17,7 @@
     </button>
 
     <!-- title -->
-    <span>{{ title }}</span>
+    <span (click)="toHome()">{{ title }}</span>
 
     <!-- login button -->
     <span class="spacer"></span>
@@ -69,12 +69,15 @@
 <ng-template #loggedOutTemplate>
   <mat-toolbar color="primary">
     <!-- title -->
-    <span>{{ title }}</span>
+    <span (click)="toHome()">{{ title }}</span>
 
     <!-- logout button -->
     <span class="spacer"></span>
     <button mat-icon-button (click)="openLogin()">
       <mat-icon>login</mat-icon>
+    </button>
+    <button mat-icon-button (click)="openSignUp()">
+      <mat-icon>badge</mat-icon>
     </button>
   </mat-toolbar>
   <router-outlet> </router-outlet>

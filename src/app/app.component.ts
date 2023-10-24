@@ -85,4 +85,16 @@ export class AppComponent implements AfterViewInit, OnInit {
   openLogin(){
     this.router.navigate(['/sign-in']);
   }
+    /**
+   * abre el dialogo de registracion
+   */
+  openSignUp(){
+    this.router.navigate(['/sign-up']);
+  }
+      /**
+   * regresa a la pantalla de home
+   */
+  toHome(){
+    this.router.navigate(['/home']);
+  }
 }

@@ -69,5 +69,25 @@
   },
   "logout": {
     "message": "Are you sure do you want close this session?"
+  },
+  "sign-up": {
+    "title": "Sign Up",
+    "nombre": "Name",
+    "nombre-placeholder": "Type your name",
+    "button": "Sign up",
+    "nombre-error": "Name is required",
+    "apellido": "Lastname",
+    "apellido-placeholder": "Type your lastname",
+    "apellido-error": "Lastname is required",
+    "telefono": "Phone",
+    "telefono-placeholder": "Type your phone number",
+    "email": "Email",
+    "email-placeholder": "Type your email",
+    "email-error": "Email is required",
+    "registracion-completada": {
+      "titulo": "Registration completed",
+      "mensaje": "An email has been sent to your email inbox. Check to confirm registration."
+    },
+    "volver": "Back to home"
   }
 }

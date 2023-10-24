@@ -267,5 +267,25 @@
   "logout": {
     "title": "Cerrar sesión",
     "message": "¿Estás seguro de que quieres cerrar esta sesión?"
+  },
+  "sign-up": {
+    "title": "Registración de nuevo usuario",
+    "button": "Registrarse",
+    "nombre": "Nombre",
+    "nombre-placeholder": "Escriba su nombre",
+    "nombre-error": "Se requiere el nombre",
+    "apellido": "Apellido",
+    "apellido-placeholder": "Escribe tu apellido",
+    "apellido-error": "Se requiere el apellido",
+    "telefono": "Teléfono",
+    "telefono-placeholder": "Escribe tu número de teléfono",
+    "email": "Correo electrónico",
+    "email-placeholder": "Escribe tu correo electrónico",
+    "email-error": "correo electronico es requerido",
+    "registracion-completada": {
+      "titulo": "Registración completada",
+      "mensaje": "Se ha enviado un mensaje a su bandeja de entrada de correo electrónico. \nVerifique para confirmar el registro."
+    },
+    "volver": "Volver al inicio"
   }
 }
