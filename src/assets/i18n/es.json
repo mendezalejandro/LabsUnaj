@@ -58,7 +58,8 @@
     },
     "url": "URL",
     "url-placeholder": "Escriba la URL de este laboratorio remoto",
-    "laboratorio-placeholder": "URL del laboratorio remoto"
+    "laboratorio-placeholder": "URL del laboratorio remoto",
+    "confirmation": "Confirmación"
   },
   "shared": {
     "asignacion": {
@@ -286,6 +287,21 @@
       "titulo": "Registración completada",
       "mensaje": "Se ha enviado un mensaje a su bandeja de entrada de correo electrónico. \nVerifique para confirmar el registro."
     },
-    "volver": "Volver al inicio"
+    "volver": "Volver al inicio",
+    "usuario": "Nombre de usuario",
+    "usuario-error": "Se requiere el nombre de usuario",
+    "usuario-placeholder": "Escriba un nombre de usuario para usarlo al iniciar sesión",
+    "password": "Contraseña",
+    "password-placeholder": "Escriba una contraseña para usarla al iniciar sesión",
+    "password-hint": "Debe contener al menos 8 caracteres",
+    "password-error": "Se requiere la contraseña",
+    "confirm-password": "Confirmar contraseña",
+    "confirm-password-placeholder": "Escriba la misma contraseña nuevamente",
+    "confirm-password-error": "Se requiere confirmar la contraseña",
+    "confirm-password-notmatch": "Las contraseñas no coinciden",
+    "usuario-hint": "El nombre de usuario debe contener un mínimo de 8 caracteres.",
+    "datos-sesion-titulo": "Credenciales de acceso",
+    "datos-personales-titulo": "Informacion personal",
+    "email-invalid": "El formato del correo electrónico no es válido."
   }
 }

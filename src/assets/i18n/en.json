@@ -59,7 +59,8 @@
     },
     "url": "URL",
     "url-placeholder": "Type the url to this remote laboratory",
-    "laboratorio-placeholder": "URL of remote laboratory"
+    "laboratorio-placeholder": "URL of remote laboratory",
+    "confirmation": "Confirmation"
   },
   "menu": {
     "home": "Home",
@@ -287,6 +288,21 @@
       "titulo": "Registration completed",
       "mensaje": "An email has been sent to your email inbox. Check to confirm registration."
     },
-    "volver": "Back to home"
+    "volver": "Back to home",
+    "usuario": "Username",
+    "usuario-error": "Username is required",
+    "usuario-placeholder": "Type a username to use on login",
+    "password": "Password",
+    "password-placeholder": "Type a password to use on login",
+    "password-hint": "Must contain a 8 characters lenght minimun",
+    "password-error": "Password is required",
+    "confirm-password": "Confirm password",
+    "confirm-password-placeholder": "Type same password again",
+    "confirm-password-error": "Confirm password is required",
+    "confirm-password-notmatch": "Passwords not match",
+    "usuario-hint": "The username must contain minimun of 8 characters",
+    "datos-sesion-titulo": "Personal information",
+    "datos-personales-titulo": "Personal information",
+    "email-invalid": "The email format is invalid"
   }
 }
