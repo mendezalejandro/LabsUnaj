@@ -18,6 +18,7 @@ export class SignUpComponent {
   registracion= new Usuario();
   /* flag que indica que si se termino la registración */
   registracionEnviada: boolean = false;
+  /** flag que indica si el email es invalid */
   emailError: boolean = false;
   /** observable de la orientacion */
   stepperOrientation!: Observable<StepperOrientation>;

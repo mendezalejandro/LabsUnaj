@@ -310,6 +310,21 @@
     "email-placeholder": "Escriba el email utilizado en la registración.",
     "button": "Recuperar",
     "volver": "Volver al inicio",
-    "mensaje": "Se envió un correo a su bandeja de entrada. Por favor chequeelo para continuar con el proceso de cambio de contraseña."
+    "mensaje": "Se envió un correo a su bandeja de entrada. Por favor chequeelo para continuar con el proceso de cambio de contraseña.",
+    "back-to-login": "Ir a inicio de sesión"
+  },
+  "sign-change-password": {
+    "title": "Cambio de contraseña",
+    "subtitle": "Recupere su cuenta con una nueva contraseña",
+    "password": "Nueva contraseña",
+    "confirm-password": "Confirme la nueva contraseña",
+    "button": "Cambiar contraseña",
+    "back-to-login": "Ir a inicio de sesión",
+    "mensaje": "La contraseña se ha cambiado correctamente."
+  },
+  "sign-activate-account": {
+    "title": "Su cuenta ha sido activada correctamente.",
+    "mensaje": "Usted ya puede ingresar y utilizar la aplicación.",
+    "back-to-login": "Ir al inicio de sesión"
   }
 }

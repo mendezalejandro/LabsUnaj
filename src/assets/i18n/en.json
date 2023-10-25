@@ -312,6 +312,22 @@
     "email-error": "Email has an invalid format",
     "button": "Recovery",
     "volver": "Back to home",
-    "mensaje": "An message has been sended to your email inbox. Check them to continue with recovery of your password."
+    "mensaje": "An message has been sended to your email inbox. Check them to continue with recovery of your password.",
+    "back-to-login": "Go to login"
+  },
+  "sign-change-password": {
+    "title": "Change password",
+    "subtitle": "Recovery your account with a new password.",
+    "password": "New password",
+    "password-error": "A new password is required",
+    "confirm-password": "Confirm new password",
+    "button": "Change password",
+    "back-to-login": "Go to login",
+    "mensaje": "Password has been changed successfully"
+  },
+  "sign-activate-account": {
+    "title": "Your account has been activated.",
+    "mensaje": "You can login and start to using this application.",
+    "back-to-login": "Go to login"
   }
 }

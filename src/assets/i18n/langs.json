@@ -107,6 +107,11 @@
     "email-invalid": "The email format is invalid"
   },
   "sign-recovery-account": {
-    "mensaje": "An message has been sended to your email inbox. Check them to recovery your password."
+    "mensaje": "An message has been sended to your email inbox. Check them to recovery your password.",
+    "back-to-login": "Go to login"
+  },
+  "sign-change-password": {
+    "title": "Change password",
+    "subtitle": "Recovery your account with a new password."
   }
 }
