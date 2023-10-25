@@ -36,6 +36,12 @@ export class SignInComponent implements OnDestroy {
       })
     ).subscribe();
   }
+  /**
+   * envia al usuario a la pagina para recuperar contraseña
+   */
+  toRecovery() {
+    this.routerService.navigate(['recovery']);
+  }
 }
 
 

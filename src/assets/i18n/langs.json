@@ -105,5 +105,8 @@
     "datos-sesion-titulo": "Access credentials",
     "datos-personales-titulo": "Personal information",
     "email-invalid": "The email format is invalid"
+  },
+  "sign-recovery-account": {
+    "mensaje": "An message has been sended to your email inbox. Check them to recovery your password."
   }
 }
