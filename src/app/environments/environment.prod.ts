@@ -3,5 +3,5 @@ export const environment = {
   defaultLocale:'es-AR',
   production: true,
   showInterceptionLog:false,
-  apiEndpoint: 'http://localhost:8080'
+  apiEndpoint: 'https://api-labo.informatica.unaj.edu.ar'
 };

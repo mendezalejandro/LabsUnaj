@@ -2,9 +2,11 @@
 /** Define los tipos de roles
  */
 export const RolTypes = {
+    /** Administrador de sistema */
+    Sistema: 1,
     /** Administrador */
-    Administrador: 1,
+    Administrador: 2,
     /** Alumno */
-    Alumno: 2
+    Alumno: 3
   } as const;
   export type Rol = typeof RolTypes[keyof typeof RolTypes];

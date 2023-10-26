@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, of, switchMap } from 'rxjs';
+import { Subject, of,  tap } from 'rxjs';
 import { environment } from 'src/app/environments/environment';
 import { IUsuario, IUsuarioSesion } from 'src/app/shared/models/usuario.model';
 
@@ -27,9 +27,8 @@ export class AuthService {
    */
   signin(nombreUsuario: string, contrasena: string) {
     const endpoint = `${this.apiEndpoint}/usuario/conectar`;
-    return this.http.post(`${endpoint}`, { nombreUsuario, contrasena }, { responseType: 'text' }).pipe(
-      switchMap((response) => this.getUsuario(nombreUsuario)),
-      switchMap((usuario) => {
+    return this.http.post<IUsuarioSesion>(`${endpoint}`, { nombreUsuario, contrasena }).pipe(
+      tap((usuario) => {
         const sesion: IUsuarioSesion = {
           id: usuario.id,
           nombreUsuario: usuario.nombreUsuario,

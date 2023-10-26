@@ -21,7 +21,7 @@
                                     <mat-selection-list>
                                         <mat-list-item *ngFor="let item of turnosVigentes">
                                             <mat-icon matListItemIcon>schedule</mat-icon>
-                                            <div matListItemTitle>{{item.idLaboratorio}}</div>
+                                            <div matListItemTitle>{{item.nombreLaboratorio}}</div>
                                             <div matListItemLine>{{item.fechaInicio| date: 'fullDate':'':locale}},
                                                 {{item.fechaInicio| date: 'shortTime':'':locale}}</div>
                                             <span *ngIf="turnoEnTiempo(item); else turnoHabilitado"

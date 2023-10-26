@@ -11,9 +11,9 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
   { path: 'dashboard', loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthGuard], data: {role: [RolTypes.Alumno ]}},
   { path: 'perfil', loadChildren: () => import('./features/perfil/perfil.module').then(m => m.PerfilModule), canActivate: [AuthGuard] },
-  { path: 'usuarios', loadChildren: () => import('./features/usuarios/usuarios.module').then(m => m.UsuariosModule), canActivate: [AuthGuard] , data: {role: [RolTypes.Administrador]}},
-  { path: 'laboratorios', loadChildren: () => import('./features/laboratorios/laboratorios.module').then(m => m.LaboratoriosModule), canActivate: [AuthGuard] , data: {role: [RolTypes.Administrador] } },
-  { path: 'turnos', loadChildren: () => import('./features/turnos/turnos.module').then(m => m.TurnosModule), canActivate: [AuthGuard], data: {role: [RolTypes.Administrador] } },
+  { path: 'usuarios', loadChildren: () => import('./features/usuarios/usuarios.module').then(m => m.UsuariosModule), canActivate: [AuthGuard] , data: {role: [RolTypes.Administrador,RolTypes.Sistema]}},
+  { path: 'laboratorios', loadChildren: () => import('./features/laboratorios/laboratorios.module').then(m => m.LaboratoriosModule), canActivate: [AuthGuard] , data: {role: [RolTypes.Administrador,RolTypes.Sistema] } },
+  { path: 'turnos', loadChildren: () => import('./features/turnos/turnos.module').then(m => m.TurnosModule), canActivate: [AuthGuard], data: {role: [RolTypes.Administrador,RolTypes.Sistema] } },
 ];
 
 @NgModule({

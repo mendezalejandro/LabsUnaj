@@ -38,15 +38,15 @@
         <mat-icon matListItemIcon>dashboard</mat-icon>
         {{ "menu.dashboard" | translate }}
       </mat-list-item>
-      <mat-list-item *appHideIfRole="[roles.Administrador]" [activated]="true" [routerLink]="['../laboratorios']" (click)="sideNav.toggle()">
+      <mat-list-item *appHideIfRole="[roles.Administrador, roles.Sistema]" [activated]="true" [routerLink]="['../laboratorios']" (click)="sideNav.toggle()">
         <mat-icon matListItemIcon>science</mat-icon>
         {{ "menu.laboratorios" | translate }}
       </mat-list-item>
-      <mat-list-item *appHideIfRole="[roles.Administrador]" [activated]="true" [routerLink]="['../turnos']" (click)="sideNav.toggle()">
+      <mat-list-item *appHideIfRole="[roles.Administrador, roles.Sistema]" [activated]="true" [routerLink]="['../turnos']" (click)="sideNav.toggle()">
         <mat-icon matListItemIcon>edit_calendar</mat-icon>
         {{ "menu.turnos" | translate }}
       </mat-list-item>
-      <mat-list-item *appHideIfRole="[roles.Administrador]" [activated]="true" [routerLink]="['../usuarios']" (click)="sideNav.toggle()">
+      <mat-list-item *appHideIfRole="[roles.Administrador, roles.Sistema]" [activated]="true" [routerLink]="['../usuarios']" (click)="sideNav.toggle()">
         <mat-icon matListItemIcon>people_alt</mat-icon>
         {{ "menu.usuarios" | translate }}
       </mat-list-item>

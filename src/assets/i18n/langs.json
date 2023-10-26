@@ -20,6 +20,7 @@
   "features": {
     "usuarios": {
       "roles": {
+        "sistema": "System",
         "administrador": "Administrator",
         "alumno": "Student"
       },
@@ -35,7 +36,10 @@
       "apellido-error": "Lastname is required",
       "apellido-placeholder": "Type a lastname",
       "nombre-error": "First name is required",
-      "nombre-placeholder": "Type a firstname"
+      "nombre-placeholder": "Type a firstname",
+      "rols": {
+        "sistema": "System"
+      }
     },
     "turnos": {
       "step-laboratorio-titulo": "Select the laboratory",

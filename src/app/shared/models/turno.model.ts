@@ -28,6 +28,8 @@ export interface IDisponibilidad {
     fechaFin: Date;
     idUsuario: number;
     idLaboratorio: number;
+    nombreLaboratorio: string;
+    tituloLaboratorio: string;
   }
 
 

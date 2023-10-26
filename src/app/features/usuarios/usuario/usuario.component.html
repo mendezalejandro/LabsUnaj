@@ -71,8 +71,9 @@
             <mat-form-field>
                 <mat-label>{{ 'features.usuarios.rol' | translate }}</mat-label>
                 <mat-select placeholder="{{ 'features.usuarios.rol-placeholder' | translate }}" [disabled]="disabled" [(ngModel)]="usuario.rol" name="rol" required>
-                    <mat-option [value]="1">{{ 'features.usuarios.rols.admin' | translate }}</mat-option>
-                    <mat-option [value]="2">{{ 'features.usuarios.rols.alumno' | translate }}</mat-option>
+                    <mat-option [value]="1">{{ 'features.usuarios.rols.sistema' | translate }}</mat-option>
+                    <mat-option [value]="2">{{ 'features.usuarios.rols.admin' | translate }}</mat-option>
+                    <mat-option [value]="3">{{ 'features.usuarios.rols.alumno' | translate }}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
