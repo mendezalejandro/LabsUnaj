@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "ng build --configuration production",
+    "push-prod": "docker build -t labs-app . && docker tag labs-app:latest mendezalejandro/labunaj-app && docker push mendezalejandro/labunaj-app",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
