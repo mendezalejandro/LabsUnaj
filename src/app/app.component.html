@@ -1,13 +1,15 @@
 <ng-container *ngIf="mainHandler$ |async"></ng-container>
 <!-- app.component.html -->
 <div [ngClass]="isDarkTheme ? 'dark-theme' : 'light-theme'">
-
+  
 <!-- processing spinner  component -->
 <app-busy></app-busy>
 
 <!-- error  component -->
 <app-error></app-error>
-
+<div class="background-container"> <!-- Fondo con opacidad -->
+  <img src="../assets/images/background-app.jpeg" alt="Fondo" class="background-image">
+</div>
 <!-- template with logged in -->
 <ng-container *ngIf="userIsLogged; else loggedOutTemplate">
   <mat-toolbar color="primary">
@@ -60,6 +62,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
+
       <router-outlet> </router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
