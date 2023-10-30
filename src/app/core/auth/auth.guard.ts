@@ -21,7 +21,6 @@ export class AuthGuard implements CanActivate {
    */
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
     const isLogged = this.authService.isLogged();
-    console.log(route.data)
     const havePermissions = this.havePermissions(route.data);
 
     if(isLogged && havePermissions)

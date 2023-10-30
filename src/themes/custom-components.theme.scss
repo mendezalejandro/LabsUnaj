@@ -1,8 +1,22 @@
 // import custom components themes
+@use '@angular/material' as mat;
 @import '@angular/material/theming';
 @import '../app/features/perfil/perfil.theme.scss';
+
 
 // you only have to add additional components here (instead of in every theme class)
 @mixin custom-components-theme($theme) {
 	@include perfil-theme($theme);
+
+
+	.smaller-input{
+		@include mat.form-field-density(-5);
+		.mat-mdc-form-field-flex{
+			.mat-mdc-form-field-infix{
+			//   display: flex !important;
+			  padding-top: 16px !important;
+			}
+		  }
+ 	}
 }
+

@@ -32,24 +32,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
      
 $fontConfig: (
-  display-4: mat.define-typography-level(112px, 112px, 300, 'Poppins', -0.0134em),
-  display-3: mat.define-typography-level(56px, 56px, 400, 'Poppins', -0.0089em),
-  display-2: mat.define-typography-level(45px, 48px, 400, 'Poppins', 0.0000em),
-  display-1: mat.define-typography-level(34px, 40px, 400, 'Poppins', 0.0074em),
-  headline: mat.define-typography-level(24px, 32px, 400, 'Poppins', 0.0000em),
-  title: mat.define-typography-level(20px, 32px, 500, 'Poppins', 0.0075em),
-  subheading-2: mat.define-typography-level(16px, 28px, 400, 'Poppins', 0.0094em),
-  subheading-1: mat.define-typography-level(15px, 24px, 500, 'Poppins', 0.0067em),
-  body-2: mat.define-typography-level(14px, 24px, 500, 'Poppins', 0.0179em),
-  body-1: mat.define-typography-level(14px, 20px, 400, 'Poppins', 0.0179em),
-  button: mat.define-typography-level(14px, 14px, 500, 'Poppins', 0.0893em),
-  caption: mat.define-typography-level(12px, 20px, 400, 'Poppins', 0.0333em),
-  input: mat.define-typography-level(inherit, 1.125, 400, 'Poppins', 1.5px)
+  headline-1: mat.define-typography-level(93px, 93px, 300, 'Poppins', -1.5px),
+  headline-2: mat.define-typography-level(58px, 58px, 300, 'Poppins', -0.5px),
+  headline-3: mat.define-typography-level(47px, 47px, 400, 'Poppins', 0px),
+  headline-4: mat.define-typography-level(33px, 33px, 400, 'Poppins', 0.25px),
+  headline-5: mat.define-typography-level(23px, 23px, 400, 'Poppins', 0px),
+  headline-6: mat.define-typography-level(19px, 19px, 500, 'Poppins', 0.15px),
+  subtitle-2: mat.define-typography-level(14px, 14px, 500, 'Poppins', 0.1px),
+  subtitle-1: mat.define-typography-level(16px, 16px, 400, 'Poppins', 0.15px),
+  body-2: mat.define-typography-level(14px, 14px, 400, 'Poppins', 0.25px),
+  body-1: mat.define-typography-level(15px, 15px, 400, 'Poppins', 0.5px),
+  button: mat.define-typography-level(14px, 14px, 500, 'Poppins', 1.25px),
+  caption: mat.define-typography-level(12px, 12px, 400, 'Poppins', 0.4px),
+  overline: mat.define-typography-level(10px, 10px, 400, 'Poppins', 1.5px)
 );
-
+// $my-typography: mat.define-typography-config($font-family: 'Poppins');
 @include mat.all-component-typographies($fontConfig);
-
+@include mat.all-component-densities(-1);
+@include mat.typography-hierarchy($fontConfig);
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Poppins}
+
+// $special-primary: mat.define-palette(mat.$orange-palette);
+// $special-accent: mat.define-palette(mat.$brown-palette);
+// $special-theme: mat.define-dark-theme((
+//    color: (primary: $special-primary, accent: $special-accent),
+//  ));
+
+//  @include mat.button-color($special-theme);

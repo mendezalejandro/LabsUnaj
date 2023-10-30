@@ -47,7 +47,9 @@
       "remove": "Remove",
       "search": "Search",
       "add-aria-label": "Button to add new element",
-      "add-tooltip": "Add operation"
+      "add-tooltip": "Add operation",
+      "advance-search-tooltip": "Advance search",
+      "advance-search-aria-label": "Advance search"
     },
     "status": {
       "active": "Active",
@@ -60,7 +62,8 @@
     "url": "URL",
     "url-placeholder": "Type the url to this remote laboratory",
     "laboratorio-placeholder": "URL of remote laboratory",
-    "confirmation": "Confirmation"
+    "confirmation": "Confirmation",
+    "buscar": "Search"
   },
   "menu": {
     "home": "Home",
@@ -72,7 +75,7 @@
   },
   "features": {
     "usuarios": {
-      "titulo": "Users",
+      "titulo": "Users list",
       "nombre": "Name",
       "usuario": "Username",
       "password": "Password",
@@ -119,7 +122,7 @@
       "nombre-placeholder": "Type a first name"
     },
     "laboratorios": {
-      "titulo": "Laboratories",
+      "titulo": "Laboratories list",
       "acciones": "Actions",
       "form": {
         "add": "Add new laboratory",
@@ -155,7 +158,23 @@
       "step-laboratorio-titulo": "Select the laboratory",
       "step-horario-titulo": "Pick a schedule",
       "step-confirmacion-titulo": "Confirm your appointment",
-      "step-confirmacion-subtitulo": "Verify the information"
+      "step-confirmacion-subtitulo": "Verify the information",
+      "titulo": "Appointments lists",
+      "laboratorio": "Laboratory",
+      "alumno": "Student",
+      "fecha": "Date",
+      "busqueda-avanzada": {
+        "laboratorio": "For laboratory",
+        "laboratorio-placeholder": "Select a laboratory to search",
+        "alumno": "For the student",
+        "alumno-placeholder": "Select a student to search",
+        "fecha-desde": "Init from",
+        "fecha-hasta": "To date",
+        "fecha-desde-placeholder": "Pick a initial date",
+        "fecha-hasta-placeholder": "Pick a end date",
+        "titulo": "Appointment searcher"
+      },
+      "cancelar": "Cancel"
     },
     "dashboard": {
       "welcome": "Welcome",

@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/app/environments/environment';
 import { IDisponibilidad, ITurnoVigente, TurnoConfirmacion } from '../models/turno.model';
 import { DateTime } from 'luxon';
+import { of } from 'rxjs';
+import { mockTurnosData } from 'src/app/storybook/mocks/turnos.mock';
 @Injectable({
   providedIn: 'root'
 })
@@ -70,5 +72,9 @@ export class TurnoService {
   getTurnoHabilitado(idTurno: number) {
     const endpoint = `${this.apiEndpoint}/turno/${idTurno}`;
     return this.httpClient.get(endpoint, { responseType: 'text' });
+  }
+
+  getTurnos() {
+    return of(mockTurnosData)
   }
 }

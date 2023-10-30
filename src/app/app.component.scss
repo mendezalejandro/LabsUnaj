@@ -19,14 +19,14 @@
   
   .sidenav-container {
     position: absolute;
-    top: 64px;
+    top: 60px;
+    @media (max-width: 599px) {
+        top: 52px !important;
+    };
+    
     bottom: 20px;
     left: 0;
     right: 0;
-  
-    @media (max-width: 720px) {
-      top: 56px;
-    }
   }
   
   .spacer {

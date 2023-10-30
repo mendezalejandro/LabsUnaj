@@ -24,6 +24,14 @@ export class UsuarioService {
     return this.httpClient.get<IUsuario[]>(endpoint);
   }
 
+    /**
+   * obtiene los alumnos
+   * @returns usuarios con rol alumno
+   */
+    getAlumnos() {
+      const endpoint = `${this.apiEndpoint}/usuarios`;
+      return this.httpClient.get<IUsuario[]>(endpoint);
+    }
   /**
    * obtiene un usuario
    * @param id identificador del usuario

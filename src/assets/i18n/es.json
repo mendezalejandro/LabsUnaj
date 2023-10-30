@@ -46,7 +46,9 @@
       "update": "Actualizar",
       "delete": "Eliminar",
       "remove": "Quitar",
-      "search": "Buscar"
+      "search": "Buscar",
+      "advance-search-tooltip": "Búsqueda avanzada",
+      "advance-search-aria-label": "Búsqueda avanzada"
     },
     "status": {
       "active": "Activo",
@@ -59,7 +61,8 @@
     "url": "URL",
     "url-placeholder": "Escriba la URL de este laboratorio remoto",
     "laboratorio-placeholder": "URL del laboratorio remoto",
-    "confirmation": "Confirmación"
+    "confirmation": "Confirmación",
+    "buscar": "Buscar"
   },
   "shared": {
     "asignacion": {
@@ -106,7 +109,7 @@
       }
     },
     "usuarios": {
-      "titulo": "Usuarios",
+      "titulo": "Lista de usuarios",
       "nombre": "Nombre",
       "nombre-error": "El nombre es requerido",
       "nombre-placeholder": "Ingrese el nombre",
@@ -153,7 +156,7 @@
       "rol-placeholder": "Seleccione un rol para este usuario"
     },
     "laboratorios": {
-      "titulo": "Laboratorios",
+      "titulo": "Lista de laboratorios",
       "acciones": "Acciones",
       "form": {
         "add": "Nuevo laboratorio",
@@ -172,7 +175,23 @@
       "step-laboratorio-titulo": "Seleccione el laboratorio",
       "step-horario-titulo": "Elija un horario",
       "step-confirmacion-titulo": "Confirme su turno",
-      "step-confirmacion-subtitulo": "Verifique la información"
+      "step-confirmacion-subtitulo": "Verifique la información",
+      "titulo": "Lista de turnos",
+      "laboratorio": "Laboratorio",
+      "alumno": "Alumno",
+      "fecha": "Fecha",
+      "busqueda-avanzada": {
+        "laboratorio": "Para el laboratorio",
+        "laboratorio-placeholder": "Seleccione un laboratorio para buscar",
+        "alumno": "Para el estudiante",
+        "alumno-placeholder": "Seleccione un alumno para buscar",
+        "fecha-desde": "A partir de",
+        "fecha-hasta": "Hasta la fecha",
+        "fecha-desde-placeholder": "Elige una fecha inicial",
+        "fecha-hasta-placeholder": "Elige una fecha de finalización",
+        "titulo": "Buscador de turnos"
+      },
+      "cancelar": "Cancelar"
     },
     "dashboard": {
       "welcome": "Bienvenido",

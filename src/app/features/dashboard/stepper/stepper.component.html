@@ -1,5 +1,5 @@
 <div class="container d-flex flex-column h-100">
-    <div class="row stepper-header pt-3 mat-elevation-z6">
+    <div class="row stepper-header pt-3">
         <span class="mat-headline-5"><b>{{selected?.label}}</b></span>
     </div>
     <div class="row h-100 overflow-auto flex-grow-1">
@@ -8,9 +8,9 @@
     <div class="row stepper-footer">
     <footer>
         <div class="d-flex justify-content-around">
-            <button *ngIf="selected?.state=='horario' || selected?.state === 'confirmacion'" mat-stroked-button color="accent" cdkStepperPrevious>{{'general.back' | translate}}</button>
-            <button *ngIf="selected?.state === 'horario'" mat-stroked-button color="accent" cdkStepperNext>{{'general.next' | translate}}</button>
-            <button *ngIf="selected?.state === 'confirmacion'" mat-stroked-button color="accent" (click)="confirmar()">{{'general.confirm' | translate}}</button>
+            <button *ngIf="selected?.state=='horario' || selected?.state === 'confirmacion'" mat-button cdkStepperPrevious>{{'general.back' | translate}}</button>
+            <button *ngIf="selected?.state === 'horario'" mat-raised-button color="accent" cdkStepperNext>{{'general.next' | translate}}</button>
+            <button *ngIf="selected?.state === 'confirmacion'" mat-raised-button color="accent" (click)="confirmar()">{{'general.confirm' | translate}}</button>
         </div>
     </footer>
     </div>

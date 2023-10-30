@@ -15,7 +15,12 @@
     "url": "URL",
     "url-placeholder": "Type a url to this remote laboratory",
     "laboratorio-placeholder": "URL of remote laboratory",
-    "confirmation": "Confirmation"
+    "confirmation": "Confirmation",
+    "operation": {
+      "advance-search-tooltip": "Advance search",
+      "advance-search-aria-label": "Advance search"
+    },
+    "buscar": "Search"
   },
   "features": {
     "usuarios": {
@@ -39,13 +44,30 @@
       "nombre-placeholder": "Type a firstname",
       "rols": {
         "sistema": "System"
-      }
+      },
+      "titulo": "Users list"
     },
     "turnos": {
       "step-laboratorio-titulo": "Select the laboratory",
       "step-horario-titulo": "Pick a schedule",
       "step-confirmacion-titulo": "Confirm your appointment",
-      "step-confirmacion-subtitulo": "Verify the information"
+      "step-confirmacion-subtitulo": "Verify the information",
+      "titulo": "Appointments",
+      "laboratorio": "Laboratory",
+      "alumno": "Student",
+      "fecha": "Date",
+      "busqueda-avanzada": {
+        "laboratorio": "For laboratory",
+        "laboratorio-placeholder": "Select a laboratory to search",
+        "alumno": "For the student",
+        "alumno-placeholder": "Select a student to search",
+        "fecha-desde": "A partir de",
+        "fecha-hasta": "To date",
+        "fecha-desde-placeholder": "Pick a initial date",
+        "fecha-hasta-placeholder": "Pick a end date",
+        "titulo": "Appointment searcher"
+      },
+      "cancelar": "Cancel"
     },
     "dashboard": {
       "welcome": "Welcome",
@@ -55,6 +77,9 @@
       "turno-confirmado": "Appointment confirmed",
       "cancelar-turno-titulo": "Cancel appointment",
       "turno-cancelado": "Appointment has been cancelated"
+    },
+    "laboratorios": {
+      "titulo": "Laboratories list"
     }
   },
   "shared": {

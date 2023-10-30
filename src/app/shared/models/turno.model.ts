@@ -9,6 +9,29 @@ export interface ITurno {
     disponible:boolean;
   }
 
+  // interfaz ITurnoData
+export interface ITurnoData {
+  id: number;
+  fecha_inicio: Date;
+  fecha_fin: Date;
+  idUsuario: number;
+  nombreUsuario: string;
+  apellidoUsuario: string;
+  nombreLaboratorio: string;
+  tituloLaboratorio: string;
+  disponible:boolean;
+}
+
+  // interfaz ITurnoBusqueda
+export interface ITurnoBusqueda {
+  disponible:boolean;
+  fecha_inicio: Date;
+  fecha_fin: Date;
+  idUsuario: number;
+  idLaboratorio: number;
+}
+
+
   // interfaz ITurnoConfirmacion
   export interface ITurnoConfirmacion {
     fechaInicio: string;
@@ -54,3 +77,15 @@ export class Turno implements ITurno {
       public idLaboratorio: number = 0
     ) {}
 }
+
+
+  // clase TurnoBusqueda
+  export class TurnoBusqueda implements ITurnoBusqueda {
+    constructor(
+      public disponible:boolean = true,
+      public fecha_inicio: Date = new Date(),
+      public fecha_fin: Date = new Date(new Date().setDate(new Date().getDate() + 1)),
+      public idUsuario: number = 0,
+      public idLaboratorio: number = 0,
+    ) {}
+  }

@@ -30,9 +30,9 @@
                                                 <span matListItemLine
                                                     *ngIf="getTurnoHabilitado(item) | async as url"><small>{{url}}</small></span>
                                             </ng-template>
-                                            <button mat-icon-button (click)="cancelarTurno(item.idTurno)"
+                                            <button mat-icon-button color="warn" (click)="cancelarTurno(item.idTurno)"
                                                 matListItemMeta>
-                                                <mat-icon>delete</mat-icon>
+                                                <mat-icon>event_busy</mat-icon>
                                             </button>
                                         </mat-list-item>
                                     </mat-selection-list>

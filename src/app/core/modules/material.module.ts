@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,7 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -29,7 +29,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTooltipModule, MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions } from '@angular/material/tooltip';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 /** List of components from Material Design */
 const components = [
 	MatCardModule,
@@ -60,7 +60,8 @@ const components = [
 	MatGridListModule,
 	MatProgressBarModule,
 	MatButtonToggleModule,
-	MatTooltipModule
+	MatTooltipModule,
+	MatPaginatorModule
 ]
 
 
@@ -79,11 +80,15 @@ const components = [
 	providers: [
 		MatDialogModule,
 		{ // configuracion global para tooltips
-		  provide: MAT_TOOLTIP_DEFAULT_OPTIONS,
-		  useValue: {
-			showDelay: 700,
-		  } as MatTooltipDefaultOptions,
+			provide: MAT_TOOLTIP_DEFAULT_OPTIONS,
+			useValue: {
+				showDelay: 700,
+			} as MatTooltipDefaultOptions,
+		},
+		{
+			provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+			useValue: { appearance: 'outline' } as MatFormFieldDefaultOptions
 		}
-	  ]
+	]
 })
-export class MaterialModule {}
+export class MaterialModule { }

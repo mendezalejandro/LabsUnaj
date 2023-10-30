@@ -1,0 +1,67 @@
+
+    
+
+<div class="d-flex flex-row justify-content-between align-items-center">
+    <span mat-dialog-title>{{ 'features.turnos.busqueda-avanzada.titulo' | translate }}</span>
+    <div class="text-end"><button mat-icon-button (click)="cerrar()"><mat-icon>close</mat-icon></button></div>
+</div>
+<div mat-dialog-content>
+    <form #form="ngForm">
+        <div class="container d-flex flex-column gap-2 mt-1">
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>{{ 'features.turnos.busqueda-avanzada.laboratorio' | translate }}</mat-label>
+                    <input ngModel matInput placeholder="{{ 'features.turnos.busqueda-avanzada.laboratorio-placeholder' | translate }}"
+                    name="laboratorio" autocomplete="off"
+                        [matAutocomplete]="autoLabs">
+                    <mat-autocomplete #autoLabs="matAutocomplete" [displayWith]="displayLaboratorioFn">
+                    <mat-option *ngFor="let laboratorio of $laboratorios | async" [value]="laboratorio" (onSelectionChange)="parametros.idLaboratorio=laboratorio.id">
+                        <span>{{laboratorio.nombre}}</span> |
+                        <small>{{laboratorio.titulo}}</small>
+                    </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <!-- buscar por alumno desde un mat-autocomplete-->
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>{{ 'features.turnos.busqueda-avanzada.alumno' | translate }}</mat-label>
+                    <input matInput placeholder="{{ 'features.turnos.busqueda-avanzada.alumno-placeholder' | translate }}"
+                    name="alumno" autocomplete="off"
+                        [matAutocomplete]="autoAlumnos">
+                    <mat-autocomplete #autoAlumnos="matAutocomplete" [displayWith]="displayAlumnoFn">
+                    <mat-option *ngFor="let alumno of $alumnos | async" [value]="alumno" (onSelectionChange)="parametros.idUsuario=alumno.id">
+                        <span>{{alumno.nombre}} {{alumno.apellido}}</span>
+                    </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+
+            <!-- buscar entre fechas -->
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>{{ 'features.turnos.busqueda-avanzada.fecha-desde' | translate }}</mat-label>
+                    <input [(ngModel)]="parametros.fecha_inicio" matInput [matDatepicker]="pickerA"
+                        placeholder="{{ 'features.turnos.busqueda-avanzada.fecha-desde-placeholder' | translate }}"
+                        name="fechaDesde" autocomplete="off">
+                    <mat-datepicker-toggle matSuffix [for]="pickerA"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerA></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>{{ 'features.turnos.busqueda-avanzada.fecha-hasta' | translate }}</mat-label>
+                    <input [(ngModel)]="parametros.fecha_fin" matInput [matDatepicker]="pickerB"
+                        placeholder="{{ 'features.turnos.busqueda-avanzada.fecha-hasta-placeholder' | translate }}"
+                        name="fechaHasta" autocomplete="off">
+                    <mat-datepicker-toggle matSuffix [for]="pickerB"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerB></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <!-- boton de confirmacion -->
+            <div class="row d-flex justify-content-center">
+                <button mat-raised-button color="accent" type="submit" (click)="buscar()">{{ 'general.buscar' |
+                    translate }}</button>
+            </div>
+        </div>
+    </form>
+</div>
