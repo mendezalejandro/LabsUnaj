@@ -54,11 +54,3 @@ $fontConfig: (
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Poppins}
-
-// $special-primary: mat.define-palette(mat.$orange-palette);
-// $special-accent: mat.define-palette(mat.$brown-palette);
-// $special-theme: mat.define-dark-theme((
-//    color: (primary: $special-primary, accent: $special-accent),
-//  ));
-
-//  @include mat.button-color($special-theme);
