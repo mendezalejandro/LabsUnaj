@@ -1,0 +1,10 @@
+@use '@angular/material' as mat;
+@mixin laboratorios-theme($theme){
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .mat-toolbar{
+    background-color: mat-color($primary, darker);
+    color: mat-color($accent, 50);
+  }
+}

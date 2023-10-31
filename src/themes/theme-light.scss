@@ -3,7 +3,7 @@
 @import '@angular/material/theming';
 
 // Definir los colores personalizados
-$primary-color: mat.define-palette(mat.$gray-palette, 800); // #212121 es un tono de gris, por lo que utilizamos la paleta de grises de Angular Material
+$primary-color: mat.define-palette(mat.$gray-palette,900); // #212121 es un tono de gris, por lo que utilizamos la paleta de grises de Angular Material
 $accent-color: mat.define-palette(mat.$blue-palette); // #0081cc es un tono de azul, por lo que utilizamos la paleta de azules de Angular Material
 
 // Definir el tema light

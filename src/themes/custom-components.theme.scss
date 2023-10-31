@@ -2,13 +2,17 @@
 @use '@angular/material' as mat;
 @import '@angular/material/theming';
 @import '../app/features/perfil/perfil.theme.scss';
+@import '../app/features/laboratorios/laboratorios.theme.scss';
+@import '../app/features/usuarios/usuarios.theme.scss';
+@import '../app/features/turnos/turnos.theme.scss';
 
 
 // you only have to add additional components here (instead of in every theme class)
 @mixin custom-components-theme($theme) {
+	@include laboratorios-theme($theme);
+	@include usuarios-theme($theme);
+	@include turnos-theme($theme);
 	@include perfil-theme($theme);
-
-
 	.smaller-input{
 		@include mat.form-field-density(-5);
 		.mat-mdc-form-field-flex{

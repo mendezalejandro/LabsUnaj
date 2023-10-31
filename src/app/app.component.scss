@@ -24,7 +24,7 @@
         top: 52px !important;
     };
     
-    bottom: 20px;
+    height: calc(100% - 120px);
     left: 0;
     right: 0;
   }
@@ -60,4 +60,12 @@
     mat-icon {
       margin-right: 8px;
     }
+  }
+
+  .menu-logo{
+    cursor: pointer;
+  }
+
+  .footer-logo, .menu-logo{
+    opacity: 0.75;
   }
