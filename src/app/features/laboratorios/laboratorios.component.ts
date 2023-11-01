@@ -227,7 +227,6 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
    * @param item laboratorio a agregar
    */
   private processAdd(item: ILaboratorio) {
-    console.log(item);
     this.processing = true;
     this.operSuscription = this.laboratorioService.addLaboratorio(item)
       .pipe(finalize(() => {

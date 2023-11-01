@@ -1,3 +1,4 @@
+<ng-container *ngIf="$operacion | async"></ng-container>
 <div class="container form-container">
     <form #form="ngForm">
         <mat-card *ngIf="!recuperacionEnviada;else recuperacionEnviadaTemplate">
@@ -8,20 +9,20 @@
                 <div class="row mt-4">
                     <mat-form-field>
                         <mat-label>{{ 'sign-recovery-account.email' | translate }}</mat-label>
-                        <input #emailInput="ngModel" ngModel matInput
+                        <input #emailInput="ngModel" [(ngModel)]="email" matInput
                             placeholder="{{ 'sign-recovery-account.email-placeholder' | translate }}" name="email" autocomplete="off"
                             type="email" required (ngModelChange)="validateEmail(emailInput.value, form)">
                         <mat-icon matPrefix>email</mat-icon>
-                        <mat-error *ngIf="emailInput.errors && emailInput.errors['emailInvalid']">
+                        <mat-error *ngIf="emailInput.errors && emailInput.errors['emailInvalid'] || (emailInput.touched && !emailInput.value)">
                             {{ 'sign-up.email-invalid' | translate }}
-                        </mat-error>
-                        <mat-error *ngIf="emailInput.touched && !emailInput.value">
-                            {{ 'sign-recovery-account.email-error' | translate }}
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div class="row d-flex justify-content-center">
-                    <button mat-raised-button color="accent" [disabled]="form.invalid" (click)="recovery()"><mat-icon>recovery{{'sign-recovery-account.button' | translate}}</mat-icon></button>
+                <div class="row mt-4">
+                    <div class="col">
+                        <button mat-raised-button class="w-100" color="accent" [disabled]="!form.valid" (click)="recovery()">{{'sign-recovery-account.button' |
+                            translate}}</button>
+                    </div>
                 </div>
             </mat-card-content>
 
@@ -33,12 +34,14 @@
                     <mat-card-subtitle></mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                    <div class="row">
+                    <div class="row ms-1 mt-4">
                         {{'sign-recovery-account.mensaje' | translate}}
                     </div>
-
-                    <div class="row d-flex justify-content-center">
-                        <button mat-raised-button (click)="backToHome()">{{'sign-recovery-account.volver' | translate}}</button>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <button mat-raised-button class="w-100" color="accent" (click)="backToHome()">{{'sign-recovery-account.volver' |
+                                translate}}</button>
+                        </div>
                     </div>
                 </mat-card-content>
             </mat-card>

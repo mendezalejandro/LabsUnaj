@@ -4,11 +4,12 @@ import { SignChangePasswordRoutingModule } from './sign-change-password-routing.
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from 'src/app/core/modules/material.module';
+import { SignChangePasswordComponent } from './sign-change-password.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [SignChangePasswordComponent],
   imports: [
     SignChangePasswordRoutingModule,
     CommonModule,

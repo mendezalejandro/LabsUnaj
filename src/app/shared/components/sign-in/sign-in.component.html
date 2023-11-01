@@ -23,15 +23,17 @@
                             placeholder="{{ 'login.password-placeholder' | translate }}" name="password"
                             autocomplete="off" required>
                         <mat-hint>
-                            <a (click)="toRecovery()">¿Olvidaste tu contraseña?</a>
+                            <a style="cursor: pointer;" (click)="toRecovery()">{{ 'login.forgot-password' | translate }}</a>
                         </mat-hint>
                         <mat-error *ngIf="form.controls['password']?.invalid && form.controls['password']?.touched">
                             {{ 'login.password-error' | translate }}
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div class="row d-flex">
-                    <button mat-button (click)="signIn()">{{'login.button' | translate}}</button>
+                <div class="row mt-4">
+                    <div class="col">
+                        <button mat-raised-button class="w-100" color="accent" (click)="signIn()">{{'login.button' | translate}}</button>
+                    </div>
                 </div>
             </mat-card-content>
             

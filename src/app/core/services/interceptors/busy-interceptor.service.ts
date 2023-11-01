@@ -18,7 +18,7 @@ export class BusyInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     // chequeo si tengo que mostrar el loading modal
-    if (req.headers.get('silent') === 'false') {
+    if (!req.headers.has('silent') || req.headers.get('silent') === 'false') {
       this.busyService.showProcessing();
     }
 

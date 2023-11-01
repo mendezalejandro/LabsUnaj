@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../../services/usuario.service';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-sign-recovery-account',
@@ -10,13 +12,23 @@ import { Router } from '@angular/router';
 export class SignRecoveryAccountComponent {
   /** flag para indicar que se envió la recuperación */
   recuperacionEnviada = false;
-  /** contructor de la clase */
-  constructor(private router: Router){}
+  $operacion!: Observable<any>;
+  email!: string;
+  /** 
+   * contructor de la clase 
+   * @param router servicio para redireccionar
+   * @param usuarioService servicio para usuario
+  */
+  constructor(private router: Router, private usuarioService: UsuarioService){}
 /**
    * confirmar la recuperación
    */
 recovery(){
-  this.recuperacionEnviada = true;
+  this.$operacion = this.usuarioService.enviarEmailRecuperacion(this.email).pipe(
+    tap((_)=>{
+      this.recuperacionEnviada = true;
+    })
+  );
 }
 /**
  * regresa al home

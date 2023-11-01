@@ -11,6 +11,7 @@ export interface IUsuario {
     telefono: string;
     estado: boolean;
     rol: Rol;
+    esAdmin: boolean;
 }
 
 // Interfaz para representar la información de la sesion del usuario
@@ -24,6 +25,15 @@ export interface IUsuarioSesion {
     vencimiento: Date;
 }
 
+// Interfaz para representar la información de un usuario
+export interface IUsuarioActualizar {
+    nombre: string | null;
+    apellido: string | null;
+    mail: string | null;
+    telefono: string | null;
+    registrado: boolean;
+}
+
 // Clase basada en la interfaz IUsuario
 export class Usuario implements IUsuario {
     id: number;
@@ -35,7 +45,7 @@ export class Usuario implements IUsuario {
     telefono: string;
     estado: boolean;
     rol: Rol = RolTypes.Administrador;
-
+    esAdmin: boolean;
     constructor(
         id: number=0,
         nombre_usuario : string = '',
@@ -45,7 +55,8 @@ export class Usuario implements IUsuario {
         mail: string = '',
         telefono: string = '',
         estado: boolean= true,
-        rol: Rol= RolTypes.Administrador
+        rol: Rol= RolTypes.Alumno,
+        esAdmin: boolean = false
     ) {
         this.id = id;
         this.nombreUsuario = nombre_usuario;
@@ -56,5 +67,28 @@ export class Usuario implements IUsuario {
         this.telefono = telefono;
         this.estado = estado,
         this.rol = rol;
+        this.esAdmin = esAdmin;
+    }
+}
+
+// Clase basada en la interfaz IUsuarioActualizar
+export class UsuarioActualizar implements IUsuarioActualizar {
+    nombre: string | null;
+    apellido: string | null;
+    mail: string | null;
+    telefono: string | null;
+    registrado: boolean;
+    constructor(
+        nombre: string | null = null,
+        apellido: string| null = null,
+        mail: string| null = null,
+        telefono: string| null = null,
+        registrado: boolean = false
+    ) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.mail = mail;
+        this.telefono = telefono;
+        this.registrado = registrado;
     }
 }

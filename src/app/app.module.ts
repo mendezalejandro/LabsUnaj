@@ -20,9 +20,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpInterceptorService } from './core/services/interceptors/http-request.interceptor';
 import { SignOutComponent } from './shared/components/sign-out/sign-out.component';
 import { AuthModule } from './core/modules/auth.module';
-import { SignRecoveryAccountComponent } from './shared/components/sign-recovery-account/sign-recovery-account.component';
-import { SignChangePasswordComponent } from './shared/components/sign-change-password/sign-change-password.component';
-import { SignActivateAccountComponent } from './shared/components/sign-activate-account/sign-activate-account.component';
 
 registerLocaleData(es);
 registerLocaleData(pt);
@@ -41,7 +38,7 @@ export const interceptors: Provider[]=  [
 ];
 
 @NgModule({
-  declarations: [AppComponent, SignOutComponent, SignRecoveryAccountComponent, SignChangePasswordComponent, SignActivateAccountComponent],
+  declarations: [AppComponent, SignOutComponent],
   imports: [
     AuthModule,
     BrowserModule,

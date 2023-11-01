@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'sign-in', loadChildren: () => import('./shared/components/sign-in/sign-in.module').then(m => m.SignInModule) },
   { path: 'sign-up', loadChildren: () => import('./shared/components/sign-up/sign-up.module').then(m => m.SignUpModule) },
   { path: 'recovery', loadChildren: () => import('./shared/components/sign-recovery-account/sign-recovery-account.module').then(m => m.SignRecoveryAccountModule) },
+  { path: 'activate/:id', loadChildren: () => import('./shared/components/sign-activate-account/sign-activate-account.module').then(m => m.SignActivateAccountModule) },
+  { path: 'change-password/:id', loadChildren: () => import('./shared/components/sign-change-password/sign-change-password.module').then(m => m.SignChangePasswordModule) },
   { path: 'home', loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
   { path: 'dashboard', loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthGuard], data: {role: [RolTypes.Alumno ]}},
   { path: 'perfil', loadChildren: () => import('./features/perfil/perfil.module').then(m => m.PerfilModule), canActivate: [AuthGuard] },

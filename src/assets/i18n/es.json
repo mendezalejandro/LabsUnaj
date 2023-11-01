@@ -229,6 +229,10 @@
         "USUARIOS-ERR-006": "El id de rol proporcionado no existe",
         "USUARIOS-ERR-007": "No se pudo ingresar al sistema",
         "USUARIOS-ERR-008": "No se pudo ingresar al sistema",
+        "USUARIOS-ERR-009": "No se encontró el usuario.",
+        "USUARIOS-ERR-010": "Completar la registración.",
+        "USUARIOS-ERR-011": "No se encontró el usuario.",
+        "USUARIOS-ERR-012": "No se pudo completar la registración.",
         "LABORATORIOS-ERR-001": "Este laboratorio ya existe",
         "LABORATORIOS-ERR-002": "Este laboratorio no existe",
         "LABORATORIOS-ERR-003": "No se puede eliminar. Existe un turno asociado a este laboratorio",
@@ -245,13 +249,17 @@
       "messages": {
         "DEFAULT": "Por favor, inténtelo de nuevo más tarde. Si el problema persiste, póngase en contacto con el administrador.",
         "USUARIOS-ERR-001": "El usuario que buscaba no se encuentra en nuestros registros.",
-        "USUARIOS-ERR-002": "No hemos podido crear un nuevo usuario en este momento. Intente nuevamente más tarde.",
+        "USUARIOS-ERR-002": "El nombre de usuario ya ha sido tomado por otra persona.",
         "USUARIOS-ERR-003": "No pudimos actualizar su contraseña. Por favor, compruebe los datos e inténtelo de nuevo.",
         "USUARIOS-ERR-004": "No hay usuarios con el rol especificado en el sistema.",
         "USUARIOS-ERR-005": "Actualmente, no existen usuarios registrados en el sistema.",
         "USUARIOS-ERR-006": "El rol proporcionado no existe en nuestra base de datos.",
         "USUARIOS-ERR-007": "La contraseña es invalida.",
         "USUARIOS-ERR-008": "El nombre de usuario es invalido.",
+        "USUARIOS-ERR-009": "No se encontró el usuario.",
+        "USUARIOS-ERR-010": "Usted tiene una registración pendiente. Verifique su correo para activar la cuenta.",
+        "USUARIOS-ERR-011": "No se encontró el usuario.",
+        "USUARIOS-ERR-012": "Ya exíste un usuario registrado con este email.",
         "LABORATORIOS-ERR-001": "Ya existe un laboratorio con el mismo nombre o código en nuestros registros.",
         "LABORATORIOS-ERR-002": "El laboratorio que está buscando no existe en nuestra base de datos.",
         "LABORATORIOS-ERR-003": "No se puede eliminar este laboratorio porque hay un turno asociado a él.",
@@ -284,7 +292,8 @@
     "user-placeholder": "Escriba su nombre de usuario",
     "user-error": "El nombre de usuario es requerido",
     "password-placeholder": "Escriba su contraseña",
-    "password-error": "La contraseña es requerida"
+    "password-error": "La contraseña es requerida",
+    "forgot-password": "¿Olvidaste tu contraseña?"
   },
   "logout": {
     "title": "Cerrar sesión",
@@ -341,11 +350,12 @@
     "confirm-password": "Confirme la nueva contraseña",
     "button": "Cambiar contraseña",
     "back-to-login": "Ir a inicio de sesión",
-    "mensaje": "La contraseña se ha cambiado correctamente."
+    "mensaje": "La contraseña se ha cambiado correctamente.",
+    "password-error": "Se requiere una nueva contraseña"
   },
   "sign-activate-account": {
     "title": "Su cuenta ha sido activada correctamente.",
-    "mensaje": "Usted ya puede ingresar y utilizar la aplicación.",
+    "mensaje": "Ya puede ingresar y utilizar la aplicación.",
     "back-to-login": "Ir al inicio de sesión"
   }
 }

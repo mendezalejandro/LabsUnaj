@@ -8,7 +8,7 @@ import { Observable, Subscription, map, finalize } from 'rxjs';
 import { MessageComponent } from 'src/app/core/components/message/message.component';
 import { MessageActions } from 'src/app/core/models/general.model';
 import { BusyService } from 'src/app/core/services/busy.service';
-import { mockUsuario, mockUsuarios } from 'src/app/storybook/mocks/usuario.mock';
+import { mockUsuario } from 'src/app/storybook/mocks/usuario.mock';
 import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 @Component({

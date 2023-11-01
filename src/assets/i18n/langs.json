@@ -95,7 +95,8 @@
       "error": ""
     },
     "password-placeholder": "Type your password",
-    "password-error": "The password is required"
+    "password-error": "The password is required",
+    "forgot-password": "Forgot passowrd?"
   },
   "logout": {
     "message": "Are you sure do you want close this session?"
@@ -141,6 +142,7 @@
   },
   "sign-change-password": {
     "title": "Change password",
-    "subtitle": "Recovery your account with a new password."
+    "subtitle": "Recovery your account with a new password.",
+    "password-error": "A new password is required"
   }
 }
