@@ -11,9 +11,9 @@ export interface ITurno {
 
   // interfaz ITurnoData
 export interface ITurnoData {
-  id: number;
-  fecha_inicio: Date;
-  fecha_fin: Date;
+  idTurno: number;
+  fechaInicio: Date;
+  fechaFin: Date;
   idUsuario: number;
   nombreUsuario: string;
   apellidoUsuario: string;
@@ -24,11 +24,11 @@ export interface ITurnoData {
 
   // interfaz ITurnoBusqueda
 export interface ITurnoBusqueda {
-  disponible:boolean;
-  fecha_inicio: Date;
-  fecha_fin: Date;
-  idUsuario: number;
-  idLaboratorio: number;
+  disponible:boolean|null;
+  fechaDesde: Date|null;
+  fechaHasta: Date|null;
+  idUsuario: number|null;
+  idLaboratorio: number|null;
 }
 
 
@@ -82,10 +82,10 @@ export class Turno implements ITurno {
   // clase TurnoBusqueda
   export class TurnoBusqueda implements ITurnoBusqueda {
     constructor(
-      public disponible:boolean = true,
-      public fecha_inicio: Date = new Date(),
-      public fecha_fin: Date = new Date(new Date().setDate(new Date().getDate() + 1)),
-      public idUsuario: number = 0,
-      public idLaboratorio: number = 0,
+      public disponible:boolean|null = null,
+      public fechaDesde: Date|null = new Date(),
+      public fechaHasta: Date|null = new Date(new Date().setDate(new Date().getDate() + 1)),
+      public idUsuario: number | null = null,
+      public idLaboratorio: number | null = null,
     ) {}
   }

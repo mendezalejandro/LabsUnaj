@@ -36,6 +36,8 @@ export class TurnosComponent implements OnInit, OnDestroy, AfterViewInit {
   operSuscription!: Subscription;
   /* procesando datos */
   processing: boolean = false;
+  /* filtros actuales */
+  currentFilters!: ITurnoBusqueda;
   /**
    * constructor
    * @param breakpointObserver inyectado para detectar el tamaño de la pantalla
@@ -69,18 +71,16 @@ export class TurnosComponent implements OnInit, OnDestroy, AfterViewInit {
   /* inicializacion */
   ngOnInit(): void {
     this.busyService.showProcessing();
-    this.dataSuscription = this.turnoService.getTurnos()
-      .pipe(finalize(() => {
-        this.busyService.hideProcessing();
-      }))
-      .subscribe(turnos => {
-        this.dataSource = new MatTableDataSource(turnos);
-      });
+    this.showSearch();
   }
   //#endregion
 
   //#region metodos de la tabla
 
+  /**
+   * aplica el filtro a la tabla
+   * @param event evento de teclado
+   */
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -112,7 +112,8 @@ export class TurnosComponent implements OnInit, OnDestroy, AfterViewInit {
    * @param parametros parametros de busqueda
    */
   buscar(parametros: ITurnoBusqueda){
-    this.turnoService.getTurnos()
+    this.currentFilters = parametros;
+    this.turnoService.getTurnos(parametros)
       .subscribe(turnos => {
         this.dataSource = new MatTableDataSource(turnos);
       });
@@ -125,6 +126,7 @@ export class TurnosComponent implements OnInit, OnDestroy, AfterViewInit {
         this.turnoService.cancelarTurno(idTurno).subscribe(
           () => {
             this.snackBar.open(this.translateService.instant('features.dashboard.turno-cancelado'));
+            this.buscar(this.currentFilters);
           }
         );
       }

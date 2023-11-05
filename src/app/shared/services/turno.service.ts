@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/app/environments/environment';
-import { IDisponibilidad, ITurnoVigente, TurnoConfirmacion } from '../models/turno.model';
+import { IDisponibilidad, ITurnoBusqueda, ITurnoData, ITurnoVigente, TurnoConfirmacion } from '../models/turno.model';
 import { DateTime } from 'luxon';
 import { of } from 'rxjs';
 import { mockTurnosData } from 'src/app/storybook/mocks/turnos.mock';
@@ -74,7 +74,20 @@ export class TurnoService {
     return this.httpClient.get(endpoint, { responseType: 'text' });
   }
 
-  getTurnos() {
-    return of(mockTurnosData)
+  /**
+   * metodo que obtiene los turnos
+   * @param p parametros de busqueda
+   * @returns lista de turnos
+   */
+  getTurnos(p: ITurnoBusqueda) {
+    let queryParams={} as any;
+    if(p.disponible!=null) queryParams.disponible=p.disponible;
+    if(p.fechaDesde!=null) queryParams.fechaDesde=p.fechaDesde;
+    if(p.fechaHasta!=null) queryParams.fechaHasta=p.fechaHasta;
+    if(p.idUsuario!=null) queryParams.idUsuario=p.idUsuario;
+    if(p.idLaboratorio!=null) queryParams.idLaboratorio=p.idLaboratorio;
+
+    const endpoint = `${this.apiEndpoint}/turnos`;
+    return this.httpClient.get<ITurnoData[]>(endpoint, { params: queryParams });
   }
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IUsuario, IUsuarioSesion, UsuarioActualizar } from '../models/usuario.model';
 import { environment } from 'src/app/environments/environment';
+import { RolTypes } from '../models/roles.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class UsuarioService {
  * @returns usuarios con rol alumno
  */
   getAlumnos() {
-    const endpoint = `${this.apiEndpoint}/usuarios`;
+    const endpoint = `${this.apiEndpoint}/usuarios?idRol=${RolTypes.Alumno}`;
     return this.httpClient.get<IUsuario[]>(endpoint);
   }
   /**

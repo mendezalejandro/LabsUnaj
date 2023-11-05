@@ -3,7 +3,7 @@
 
 <div class="d-flex flex-row justify-content-between align-items-center">
     <span mat-dialog-title>{{ 'features.turnos.busqueda-avanzada.titulo' | translate }}</span>
-    <div class="text-end"><button mat-icon-button (click)="cerrar()"><mat-icon>close</mat-icon></button></div>
+    <div class="text-end me-2"><button mat-icon-button (click)="cerrar()"><mat-icon>close</mat-icon></button></div>
 </div>
 <div mat-dialog-content>
     <form #form="ngForm">
@@ -41,7 +41,7 @@
             <div class="row">
                 <mat-form-field>
                     <mat-label>{{ 'features.turnos.busqueda-avanzada.fecha-desde' | translate }}</mat-label>
-                    <input [(ngModel)]="parametros.fecha_inicio" matInput [matDatepicker]="pickerA"
+                    <input [(ngModel)]="parametros.fechaDesde" matInput [matDatepicker]="pickerA"
                         placeholder="{{ 'features.turnos.busqueda-avanzada.fecha-desde-placeholder' | translate }}"
                         name="fechaDesde" autocomplete="off">
                     <mat-datepicker-toggle matSuffix [for]="pickerA"></mat-datepicker-toggle>
@@ -49,7 +49,7 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>{{ 'features.turnos.busqueda-avanzada.fecha-hasta' | translate }}</mat-label>
-                    <input [(ngModel)]="parametros.fecha_fin" matInput [matDatepicker]="pickerB"
+                    <input [(ngModel)]="parametros.fechaHasta" matInput [matDatepicker]="pickerB"
                         placeholder="{{ 'features.turnos.busqueda-avanzada.fecha-hasta-placeholder' | translate }}"
                         name="fechaHasta" autocomplete="off">
                     <mat-datepicker-toggle matSuffix [for]="pickerB"></mat-datepicker-toggle>

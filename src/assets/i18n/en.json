@@ -207,7 +207,7 @@
     "user-error": "The username is required",
     "password-placeholder": "Type your password",
     "password-error": "The password is required",
-    "forgot-password": "Forgot passowrd?"
+    "forgot-password": "Forgot password?"
   },
   "logout": {
     "title": "Sign out",

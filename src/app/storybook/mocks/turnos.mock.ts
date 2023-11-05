@@ -23,300 +23,300 @@ export const mockTurnos: ITurno[] = [
 // Mock de una lista de turnos
 export const mockTurnosData: ITurnoData[] = [
   {
-    id: 1,
+    idTurno: 1,
     nombreLaboratorio: 'Laboratorio 1',
     tituloLaboratorio: 'Laboratorio 1',
     idUsuario: 1,
     nombreUsuario: 'Nombre 1',
     apellidoUsuario: 'Apellido 1',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:true
   },
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   },
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   ,
   {
-    id: 2,
+    idTurno: 2,
     nombreLaboratorio: 'Laboratorio 2',
     tituloLaboratorio: 'Laboratorio 2',
     idUsuario: 2,
     nombreUsuario: 'Nombre 2',
     apellidoUsuario: 'Apellido 2',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date(),
+    fechaInicio: new Date(),
+    fechaFin: new Date(),
     disponible:false
   }
   // Agrega más datos de turnos aquí...
