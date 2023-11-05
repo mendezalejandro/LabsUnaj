@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
    * metodo que inicializa el componente
    */
   ngOnInit(): void {
-    this.turnosVigentes$ = this.turnosService.getTurnosVigentes(this.usuarioLogueado.nombreUsuario);
+    this.turnosVigentes$ = this.turnosService.getTurnosVigentes(this.usuarioLogueado.id);
   }
 
   /**
@@ -56,7 +56,7 @@ export class DashboardComponent implements OnInit {
   turnoConfirmado($event: boolean) {
     this.opened = false;
     this.snackBar.open(this.translateService.instant('features.dashboard.turno-confirmado'));
-    this.turnosVigentes$ = this.turnosService.getTurnosVigentes(this.usuarioLogueado.nombreUsuario);
+    this.turnosVigentes$ = this.turnosService.getTurnosVigentes(this.usuarioLogueado.id);
   }
 
   /**
@@ -70,7 +70,7 @@ export class DashboardComponent implements OnInit {
         this.turnosService.cancelarTurno(idTurno).subscribe(
           () => {
             this.snackBar.open(this.translateService.instant('features.dashboard.turno-cancelado'));
-            this.turnosVigentes$ = this.turnosService.getTurnosVigentes(this.usuarioLogueado.nombreUsuario);
+            this.turnosVigentes$ = this.turnosService.getTurnosVigentes(this.usuarioLogueado.id);
           }
         );
       }

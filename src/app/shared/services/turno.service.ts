@@ -29,13 +29,13 @@ export class TurnoService {
 
   /**
    * metodo que obtiene los turnos vigentes del usuario
-   * @param nombreUsuario nombre del usuario
+   * @param idUsuario id del usuario
    * @returns lista de turnos vigentes
    */
-  getTurnosVigentes(nombreUsuario: string) {
+  getTurnosVigentes(idUsuario: number) {
     const endpoint = `${this.apiEndpoint}/turnos/disponibles`;
     const queryParams = {
-      username: nombreUsuario
+      idUsuario: idUsuario
     };
     return this.httpClient.get<ITurnoVigente[]>(endpoint, { params: queryParams });
   }

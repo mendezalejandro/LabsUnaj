@@ -266,7 +266,10 @@
         "TURNOS-ERR-002": "Schedule already exists",
         "TURNOS-ERR-003": "Failed to cancel the schedule",
         "TURNOS-ERR-004": "Laboratory not found",
-        "TURNOS-ERR-005": "Role already exists"
+        "TURNOS-ERR-005": "Role already exists",
+        "TURNOS-ERR-006": "Cannot create the schedule",
+        "TURNOS-ERR-007": "Cannot create the schedule",
+        "TURNOS-ERR-008": "Cannot get the schedule"
       },
       "messages": {
         "DEFAULT": "Please try again later. If the problem persists, contact the administrator",
@@ -293,7 +296,10 @@
         "TURNOS-ERR-002": "This turn has already been requested by another user. Please choose another available schedule.",
         "TURNOS-ERR-003": "We could not cancel your turn at this time. Please try again later.",
         "TURNOS-ERR-004": "We could not find the laboratory associated with this turn.",
-        "TURNOS-ERR-005": "This turn already exists in our records."
+        "TURNOS-ERR-005": "This turn already exists in our records.",
+        "TURNOS-ERR-006": "The selected schedule is not available. Please choose another schedule.",
+        "TURNOS-ERR-007": "Error on process dates",
+        "TURNOS-ERR-008": "User not found"
       }
     }
   },

@@ -244,7 +244,10 @@
         "TURNOS-ERR-002": "Este turno ya existe",
         "TURNOS-ERR-003": "Error al cancelar el turno",
         "TURNOS-ERR-004": "Laboratorio no encontrado",
-        "TURNOS-ERR-005": "No se encontró el usuario"
+        "TURNOS-ERR-005": "No se encontró el usuario",
+        "TURNOS-ERR-006": "No se pudo crear el turno",
+        "TURNOS-ERR-007": "No se pudo crear el turno",
+        "TURNOS-ERR-008": "No se pudo obtener el turno"
       },
       "messages": {
         "DEFAULT": "Por favor, inténtelo de nuevo más tarde. Si el problema persiste, póngase en contacto con el administrador.",
@@ -271,7 +274,10 @@
         "TURNOS-ERR-002": "Este turno ya ha sido solicitado por otro usuario. Elija otro horario disponible.",
         "TURNOS-ERR-003": "No hemos podido cancelar su turno en este momento. Por favor, inténtelo más tarde.",
         "TURNOS-ERR-004": "No hemos podido encontrar el laboratorio asociado a este turno.",
-        "TURNOS-ERR-005": "No hemos podido encontrar el usuario asociado a este turno."
+        "TURNOS-ERR-005": "No hemos podido encontrar el usuario asociado a este turno.",
+        "TURNOS-ERR-006": "El horario seleccionado no está disponible. Por favor, elija otro horario.",
+        "TURNOS-ERR-007": "Error al procesar las fechas del turno. Por favor, inténtelo de nuevo más tarde.",
+        "TURNOS-ERR-008": "Usuario no encontrado"
       }
     }
   },
