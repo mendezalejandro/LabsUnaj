@@ -20,7 +20,17 @@
       "advance-search-tooltip": "Advance search",
       "advance-search-aria-label": "Advance search"
     },
-    "buscar": "Search"
+    "buscar": "Search",
+    "general": "General",
+    "configuracion": "Configuration",
+    "duracion": "Duration",
+    "lunes": "Monday",
+    "martes": "Tuesday",
+    "miercoles": "Wednesday",
+    "jueves": "Thursday",
+    "viernes": "Friday",
+    "sabado": "Saturday",
+    "domingo": "Sunday"
   },
   "features": {
     "usuarios": {
@@ -79,7 +89,23 @@
       "turno-cancelado": "Appointment has been cancelated"
     },
     "laboratorios": {
-      "titulo": "Laboratories list"
+      "titulo": "Laboratories list",
+      "configuracion": {
+        "duracion-hint": "Quantity of duration minutes on each appointment",
+        "duracion-title": "Duration",
+        "duracion-placeholder": "Type a value on minutes",
+        "horariosinicial-title": "Initial schedule",
+        "horarioinicial-placeholder": "Type a time",
+        "horarioinicial-hint": "Appointments available for this laboratory will be init on this time.",
+        "horarioinicial-error": "Must be a select a initial schedule",
+        "horariosfinal-title": "Final schedule",
+        "horariofinal-placeholder": "Type a time",
+        "horariofinal-hint": "Appointments available for this laboratory will be finish on this time.",
+        "horariofinal-error": "Must be a select a final schedule",
+        "dias-title": "Available days",
+        "disponibilidad-hint": "Available days to get an a appointment for this laboratory",
+        "disponibilidad-error": "Must be select at least a one day"
+      }
     }
   },
   "shared": {

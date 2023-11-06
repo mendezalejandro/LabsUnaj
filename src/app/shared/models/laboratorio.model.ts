@@ -10,6 +10,31 @@ export interface ILaboratorio {
     descripcion?: string | null;
     disponible: boolean;
     estado: boolean;
+    configuracion: ILaboratorioConfiguracion;
+}
+
+/**
+ * Modelo de datos para la configuracion de laboratorios
+ */
+export interface ILaboratorioConfiguracion {
+    duracion: number;
+    horarioInicial: string;
+    horarioFinal: string;
+    cantidad: number;
+    dias: ILaboratorioConfiguracionDias;
+}
+
+/**
+ * Modelo de datos para la configuracion de días de los laboratorios
+ */
+export interface ILaboratorioConfiguracionDias {
+    lunes: boolean;
+    martes: boolean;
+    miercoles: boolean;
+    jueves: boolean;
+    viernes: boolean;
+    sabado: boolean;
+    domingo: boolean;
 }
 
 /**
@@ -33,7 +58,7 @@ export class Laboratorio implements ILaboratorio {
     descripcion?: string | null;
     disponible: boolean;
     estado: boolean;
-
+    configuracion: ILaboratorioConfiguracion;
     constructor(
         id?: number,
         nombre?: string,
@@ -42,7 +67,8 @@ export class Laboratorio implements ILaboratorio {
         imagen?: string | null,
         descripcion?: string | null,
         disponible: boolean = false,
-        estado: boolean = false
+        estado: boolean = false,
+        configuracion: ILaboratorioConfiguracion = new LaboratorioConfiguracion()
     ) {
         this.id = id || 0;
         this.nombre = nombre || '';
@@ -52,5 +78,48 @@ export class Laboratorio implements ILaboratorio {
         this.descripcion = descripcion || null;
         this.disponible = disponible;
         this.estado = estado;
+        this.configuracion = configuracion;
+    }
+}
+
+/**
+ * Clase para el modelo de datos de LaboratorioConfiguracion
+ */
+export class LaboratorioConfiguracion{
+    duracion: number;
+    horarioInicial: string;
+    horarioFinal: string;
+    cantidad: number;
+    dias: ILaboratorioConfiguracionDias;
+    constructor(
+    ) {
+        this.duracion = 60;
+        this.horarioInicial = '09:00';
+        this.horarioFinal = '18:00';
+        this.cantidad = 1;
+        this.dias = new LaboratorioConfiguracionDias();
+    }
+}
+
+/**
+ * Clase para el modelo de datos de LaboratorioConfiguracionDias
+ */
+export class LaboratorioConfiguracionDias implements ILaboratorioConfiguracionDias {
+    lunes: boolean;
+    martes: boolean;
+    miercoles: boolean;
+    jueves: boolean;
+    viernes: boolean;
+    sabado: boolean;
+    domingo: boolean;
+    constructor(
+    ) {
+        this.lunes = true;
+        this.martes = true;
+        this.miercoles = true;
+        this.jueves = true;
+        this.viernes = true;
+        this.sabado = false;
+        this.domingo = false;
     }
 }

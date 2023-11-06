@@ -1,73 +1,138 @@
-<form #form="ngForm">
-    <div class="container d-flex flex-column gap-2">
-        <div class="row">
-            <mat-form-field>
-                <mat-label>{{ 'general.titulo' | translate }}</mat-label>
-                <input [(ngModel)]="laboratorio.titulo" [readonly]="readOnly" [disabled]="disabled" matInput
-                    placeholder="{{ 'general.titulo-placeholder' | translate }}" name="titulo" autocomplete="off"
-                    required>
-                <mat-error *ngIf="form.controls['titulo']?.invalid && form.controls['titulo']?.touched">
-                    {{ 'general.titulo-error' | translate }}
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="row">
-            <mat-form-field>
-                <mat-label>{{ 'general.nombre' | translate }}</mat-label>
-                <input [(ngModel)]="laboratorio.nombre" [disabled]="disabled" [readonly]="readOnly" matInput
-                    placeholder="{{ 'general.nombre-placeholder' | translate }}" name="nombre" autocomplete="off"
-                    required>
-                <mat-error *ngIf="form.controls['nombre']?.invalid && form.controls['nombre']?.touched">
-                    {{ 'general.nombre-error' | translate }}
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="row">
-            <mat-form-field>
-                <mat-label>{{ 'general.descripcion' | translate }}</mat-label>
-                <textarea [(ngModel)]="laboratorio.descripcion" [readonly]="readOnly" [disabled]="disabled" name="descripcion" matInput
-                    placeholder="{{ 'general.descripcion-placeholder' | translate }}"></textarea>
-                <mat-error *ngIf="form.controls['descripcion']?.invalid && form.controls['descripcion']?.touched">
-                    {{ 'general.descripcion-error' | translate }}
-                </mat-error>
-            </mat-form-field>
-            <!-- Otros campos del formulario y botón de envío -->
-        </div>
-        <div class="row">
-            <mat-form-field>
-                <mat-label>{{ 'general.url' | translate }}</mat-label>
-                <input [(ngModel)]="laboratorio.url" [disabled]="disabled" [readonly]="readOnly" matInput
-                    placeholder="{{ 'general.laboratorio-placeholder' | translate }}" name="nombre" autocomplete="off">
-            </mat-form-field>
-            <!-- Otros campos del formulario y botón de envío -->
-        </div>
-        <div class="row d-flex">
-            <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent" [disabled]="readOnly || disabled"
-                    [(ngModel)]="laboratorio.disponible" name="disponible">{{ 'general.disponible' | translate
-                    }}</mat-slide-toggle></div>
-            <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent" [disabled]="readOnly || disabled"
-                    [(ngModel)]="laboratorio.estado" name="estado">{{ 'general.estado' | translate }}</mat-slide-toggle>
-            </div>
-        </div>
-        <ng-container *ngIf="!readOnly; else imageOnly">
-            <div class="row mt-4">
-                <mat-label>{{ 'general.imagen-load' | translate }}</mat-label>
-                <input ngModel [disabled]="disabled" [ngModelOptions]="{standalone:true}" name="imagen" type="file"
-                    (change)="onFileSelected($event)" accept=".jpg,.png" required>
-                <mat-error *ngIf="form.controls['imagen']?.invalid && form.controls['imagen']?.touched">
-                    {{ 'general.imagen-error' | translate }}
-                </mat-error>
-            </div>
-            <div class="row pt-2" *ngIf="laboratorio.imagen">
-                <img [src]="laboratorio.imagen" alt="Imagen subida">
-            </div>
-        </ng-container>
 
-        <ng-template #imageOnly>
-            <div class="row pt-2" *ngIf="laboratorio.imagen">
-                <mat-label class="pb-2">{{ 'general.imagen' | translate }}</mat-label>
-                <img [src]="laboratorio.imagen" alt="Imagen subida">
+<mat-tab-group>
+    <mat-tab label="{{ 'general.general' | translate }}" >
+        <form #generalForm="ngForm" class="mt-4">
+            <div class="container d-flex flex-column gap-2">
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'general.titulo' | translate }}</mat-label>
+                        <input [(ngModel)]="laboratorio.titulo" [readonly]="readOnly" [disabled]="disabled" matInput
+                            placeholder="{{ 'general.titulo-placeholder' | translate }}" name="titulo" autocomplete="off"
+                            required>
+                        <mat-error *ngIf="generalForm.controls['titulo']?.invalid && generalForm.controls['titulo']?.touched">
+                            {{ 'general.titulo-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'general.nombre' | translate }}</mat-label>
+                        <input [(ngModel)]="laboratorio.nombre" [disabled]="disabled" [readonly]="readOnly" matInput
+                            placeholder="{{ 'general.nombre-placeholder' | translate }}" name="nombre" autocomplete="off"
+                            required>
+                        <mat-error *ngIf="generalForm.controls['nombre']?.invalid && generalForm.controls['nombre']?.touched">
+                            {{ 'general.nombre-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'general.descripcion' | translate }}</mat-label>
+                        <textarea [(ngModel)]="laboratorio.descripcion" [readonly]="readOnly" [disabled]="disabled" name="descripcion" matInput
+                            placeholder="{{ 'general.descripcion-placeholder' | translate }}"></textarea>
+                        <mat-error *ngIf="generalForm.controls['descripcion']?.invalid && generalForm.controls['descripcion']?.touched">
+                            {{ 'general.descripcion-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                    <!-- Otros campos del formulario y botón de envío -->
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'general.url' | translate }}</mat-label>
+                        <input [(ngModel)]="laboratorio.url" [disabled]="disabled" [readonly]="readOnly" matInput
+                            placeholder="{{ 'general.laboratorio-placeholder' | translate }}" name="nombre" autocomplete="off">
+                    </mat-form-field>
+                    <!-- Otros campos del formulario y botón de envío -->
+                </div>
+                <div class="row d-flex">
+                    <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent" [disabled]="readOnly || disabled"
+                            [(ngModel)]="laboratorio.disponible" name="disponible">{{ 'general.disponible' | translate
+                            }}</mat-slide-toggle></div>
+                    <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent" [disabled]="readOnly || disabled"
+                            [(ngModel)]="laboratorio.estado" name="estado">{{ 'general.estado' | translate }}</mat-slide-toggle>
+                    </div>
+                </div>
+                <ng-container *ngIf="!readOnly; else imageOnly">
+                    <div class="row mt-4">
+                        <mat-label>{{ 'general.imagen-load' | translate }}</mat-label>
+                        <input ngModel [disabled]="disabled" [ngModelOptions]="{standalone:true}" name="imagen" type="file"
+                            (change)="onFileSelected($event)" accept=".jpg,.png" required>
+                        <mat-error *ngIf="generalForm.controls['imagen']?.invalid && generalForm.controls['imagen']?.touched">
+                            {{ 'general.imagen-error' | translate }}
+                        </mat-error>
+                    </div>
+                    <div class="row pt-2" *ngIf="laboratorio.imagen">
+                        <img [src]="laboratorio.imagen" alt="Imagen subida">
+                    </div>
+                </ng-container>
+        
+                <ng-template #imageOnly>
+                    <div class="row pt-2" *ngIf="laboratorio.imagen">
+                        <mat-label class="pb-2">{{ 'general.imagen' | translate }}</mat-label>
+                        <img [src]="laboratorio.imagen" alt="Imagen subida">
+                    </div>
+                </ng-template>
             </div>
-        </ng-template>
-    </div>
-</form>
+        </form>
+    </mat-tab>
+    <mat-tab label="{{ 'general.configuracion' | translate }}">
+        <form #configuracionForm="ngForm" class="configuracionForm mt-4">
+            <div class="container d-flex flex-column gap-4">
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'features.laboratorios.configuracion.duracion-title' | translate }}</mat-label>
+                        <input [(ngModel)]="laboratorio.configuracion.duracion" [readonly]="readOnly" [disabled]="disabled" matInput
+                            placeholder="{{ 'features.laboratorios.configuracion.duracion-placeholder' | translate }}" name="duracion" autocomplete="off" type="number"
+                            required>
+                        <mat-hint>{{ 'features.laboratorios.configuracion.duracion-hint' | translate }}</mat-hint>
+                        <mat-error *ngIf="configuracionForm.controls['titulo']?.invalid && configuracionForm.controls['titulo']?.touched">
+                            {{ 'general.titulo-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'features.laboratorios.configuracion.horariosinicial-title' | translate }}</mat-label>
+                        <input [(ngModel)]="laboratorio.configuracion.horarioInicial" [readonly]="readOnly" [disabled]="disabled" matInput
+                            placeholder="{{ 'features.laboratorios.configuracion.horarioinicial-placeholder' | translate }}" name="horarioInicial" autocomplete="off" type="time"
+                            required>
+                        <mat-hint>{{ 'features.laboratorios.configuracion.horarioinicial-hint' | translate }}</mat-hint>
+                        <mat-error *ngIf="configuracionForm.controls['horarioinicial']?.invalid && configuracionForm.controls['horarioinicial']?.touched">
+                            {{ 'features.laboratorios.configuracion.horarioinicial-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'features.laboratorios.configuracion.horariosfinal-title' | translate }}</mat-label>
+                        <input [(ngModel)]="laboratorio.configuracion.horarioFinal" [readonly]="readOnly" [disabled]="disabled" matInput
+                            placeholder="{{ 'features.laboratorios.configuracion.horariofinal-placeholder' | translate }}" name="horarioFinal" autocomplete="off" type="time"
+                            required>
+                        <mat-hint>{{ 'features.laboratorios.configuracion.horariofinal-hint' | translate }}</mat-hint>
+                        <mat-error *ngIf="configuracionForm.controls['horariofinal']?.invalid && configuracionForm.controls['horariofinal']?.touched">
+                            {{ 'features.laboratorios.configuracion.horariofinal-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>{{ 'features.laboratorios.configuracion.dias-title' | translate }}</mat-label>
+                        <mat-select [(ngModel)]="dias" name="dia" (valueChange)="onchange($event)" multiple required>
+                            <mat-option [value]="'lunes'">{{'general.lunes' | translate}}</mat-option>
+                            <mat-option [value]="'martes'">{{'general.martes' | translate}}</mat-option>
+                            <mat-option [value]="'miercoles'">{{'general.miercoles' | translate}}</mat-option>
+                            <mat-option [value]="'jueves'">{{'general.jueves' | translate}}</mat-option>
+                            <mat-option [value]="'viernes'">{{'general.viernes' | translate}}</mat-option>
+                            <mat-option [value]="'sabado'">{{'general.sabado' | translate}}</mat-option>
+                            <mat-option [value]="'domingo'">{{'general.domingo' | translate}}</mat-option>
+                        </mat-select>
+                        <mat-hint>{{ 'features.laboratorios.configuracion.disponibilidad-hint' | translate }}</mat-hint>
+                        <mat-error *ngIf="configuracionForm.controls['dia']?.invalid && configuracionForm.controls['dia']?.touched">
+                            {{ 'features.laboratorios.configuracion.disponibilidad-error' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>           
+            </div>
+        </form>
+    </mat-tab>
+  </mat-tab-group>

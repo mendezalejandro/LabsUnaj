@@ -62,7 +62,17 @@
     "url-placeholder": "Escriba la URL de este laboratorio remoto",
     "laboratorio-placeholder": "URL del laboratorio remoto",
     "confirmation": "Confirmación",
-    "buscar": "Buscar"
+    "buscar": "Buscar",
+    "general": "General",
+    "configuracion": "Configuración",
+    "duracion": "Duración",
+    "lunes": "Lunes",
+    "martes": "Martes",
+    "miercoles": "Miércoles",
+    "jueves": "Jueves",
+    "viernes": "Viernes",
+    "sabado": "Sábado",
+    "domingo": "Domingo"
   },
   "shared": {
     "asignacion": {
@@ -169,6 +179,22 @@
         "delete-success": "Laboratorio eliminado correctamente",
         "delete-title": "Eliminar laboratorio",
         "delete-message": "Está seguro que desea eliminar este laboratorio?"
+      },
+      "configuracion": {
+        "duracion-hint": "Cantidad de minutos de duración en cada turno",
+        "duracion-title": "Duración",
+        "duracion-placeholder": "Escriba un valor en minutos",
+        "horariosinicial-title": "Horario inicial",
+        "horarioinicial-placeholder": "Escribe una hora",
+        "horarioinicial-hint": "Los turnos disponibles para este laboratorio se iniciarán a partir de este horario.",
+        "horarioinicial-error": "Debe seleccionar un horario inicial.",
+        "horariosfinal-title": "Horario final",
+        "horariofinal-placeholder": "Escribe una hora",
+        "horariofinal-hint": "Los turnos disponibles para este laboratorio finalizarán a esta hora.",
+        "horariofinal-error": "Debe seleccionarse un horario final.",
+        "dias-title": "Días disponibles",
+        "disponibilidad-hint": "Días disponibles para reservar un turno para este laboratorio.",
+        "disponibilidad-error": "Debe seleccionarse al menos un día."
       }
     },
     "turnos": {

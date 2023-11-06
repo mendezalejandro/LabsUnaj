@@ -1,6 +1,6 @@
 <div class="main-container">
   <mat-sidenav-container class="sidenav-container" (backdropClick)="cancel()">
-    <mat-sidenav #snav mode="over" position="end" [opened]="opened" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+    <mat-sidenav #snav mode="over" position="end" [opened]="opened" class="col-12 col-lg-8 col-xl-4">
       <app-crud-container [title]="formTitle" *ngIf="opened" [showLoading]="processing">
         <ng-container content>
           <app-laboratorio #labComponent [(laboratorio)]="laboratorio" [readOnly]="oper=='view'" [disabled]="processing"></app-laboratorio>
