@@ -15,25 +15,30 @@
     <cdk-step state="horario" [label]="'features.turnos.step-horario-titulo'|translate" *ngIf="laboratorio">
         <div class="h-100 container d-flex flex-column overflow-auto">
             <div class="row">
-                <input matInput [matDatepicker]="picker" hidden [(ngModel)]="fecha" (ngModelChange)="fechaSelected($event)">
+                <input matInput [matDatepickerFilter]="dateFilter"  [matDatepicker]="picker" hidden [(ngModel)]="fecha" (ngModelChange)="fechaSelected($event)">
                 <mat-datepicker touchUi #picker></mat-datepicker>
+
                 <mat-card class="py-4 d-flex flex-column justify-content-center">
                     <div class="d-flex flex-row justify-content-center">
                         <span class="mat-title">{{laboratorio.titulo}}</span>
                     </div>
                     <div class="d-flex flex-row justify-content-center">
                         <span class="mat-title">{{fecha | date: 'dd/MM/yyyy'}}</span> 
-                        
                     </div>
                 </mat-card>
-                <button mat-raised-button (click)="picker.open()">Cambiar fecha</button>
+                <button mat-raised-button (click)="picker.open()">{{'features.turnos.step-horario-cambiar-fecha'|translate}}</button>
             </div>
-            <div class="row mt-4 overflow-auto" *ngIf="$horarios">
-                <mat-chip-listbox class="mat-mdc-chip-set-stacked">
+            <div class="row mt-4 overflow-auto" *ngIf="$horarios | async as horarios">
+                <mat-chip-listbox class="mat-mdc-chip-set-stacked" *ngIf="horarios.length>0; else noHorarios">
                     <mat-chip-option *ngFor="let item of $horarios | async" color="accent" [disabled]="!item.disponible" (selectionChange)="horarioSelected(item)">
                       {{item.horario}}
                     </mat-chip-option>
                   </mat-chip-listbox>
+                  <ng-template #noHorarios>
+                    <div class="container">
+                        <h3>{{'features.turnos.step-horario-sinhorario' | translate}}</h3>
+                    </div>
+                  </ng-template>
             </div>
         </div>
         

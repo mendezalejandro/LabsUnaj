@@ -18,8 +18,8 @@ export interface ILaboratorio {
  */
 export interface ILaboratorioConfiguracion {
     duracion: number;
-    horarioInicial: string;
-    horarioFinal: string;
+    horarioInicial: number;
+    horarioFinal: number;
     cantidad: number;
     dias: ILaboratorioConfiguracionDias;
 }
@@ -87,15 +87,15 @@ export class Laboratorio implements ILaboratorio {
  */
 export class LaboratorioConfiguracion{
     duracion: number;
-    horarioInicial: string;
-    horarioFinal: string;
+    horarioInicial: number;
+    horarioFinal: number;
     cantidad: number;
     dias: ILaboratorioConfiguracionDias;
     constructor(
     ) {
         this.duracion = 60;
-        this.horarioInicial = '09:00';
-        this.horarioFinal = '18:00';
+        this.horarioInicial = 9;
+        this.horarioFinal = 18;
         this.cantidad = 1;
         this.dias = new LaboratorioConfiguracionDias();
     }

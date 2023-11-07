@@ -80,7 +80,9 @@
         "fecha-hasta-placeholder": "Pick a end date",
         "titulo": "Appointment searcher"
       },
-      "cancelar": "Cancel"
+      "cancelar": "Cancel",
+      "step-horario-sinhorario": "This day not have any more availables schedules",
+      "step-horario-cambiar-fecha": "Change date"
     },
     "dashboard": {
       "welcome": "Welcome",

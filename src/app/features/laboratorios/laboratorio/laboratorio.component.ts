@@ -24,7 +24,7 @@ export class LaboratorioComponent implements AfterViewInit {
   @Input() disabled: boolean = false;
   /* indicador de dias */
   dias:string[]= [];
-
+  horas: number[] =  Array.from({ length: 25 }, (_, i) => i);
   /**
    * despues de inicializar la vista carga la lista de dias
    */
@@ -85,5 +85,8 @@ export class LaboratorioComponent implements AfterViewInit {
     this.laboratorio.configuracion.dias.viernes = dias.includes('viernes');
     this.laboratorio.configuracion.dias.sabado = dias.includes('sabado');
     this.laboratorio.configuracion.dias.domingo = dias.includes('domingo');
+  }
+  horariosFinal(){
+    return this.horas.filter(hora => hora > this.laboratorio.configuracion.horarioInicial);
   }
 }
