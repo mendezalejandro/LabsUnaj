@@ -163,7 +163,10 @@
         "administrador": "Administrador",
         "alumno": "Estudiante"
       },
-      "rol-placeholder": "Seleccione un rol para este usuario"
+      "rol-placeholder": "Seleccione un rol para este usuario",
+      "recuperar-contrasena": "Enviar un correo electrónico para recuperar la contraseña",
+      "enviar-email": "Se enviará un correo electrónico a este usuario para recuperar su contraseña. \n¿Está seguro?",
+      "enviar-email-confirmacion": "Correo electrónico enviado exitosamente"
     },
     "laboratorios": {
       "titulo": "Lista de laboratorios",
@@ -273,7 +276,8 @@
         "TURNOS-ERR-005": "No se encontró el usuario",
         "TURNOS-ERR-006": "No se pudo crear el turno",
         "TURNOS-ERR-007": "No se pudo crear el turno",
-        "TURNOS-ERR-008": "No se pudo obtener el turno"
+        "TURNOS-ERR-008": "No se pudo obtener el turno",
+        "TURNOS-ERR-009": "No se pudo confirmar el turno"
       },
       "messages": {
         "DEFAULT": "Por favor, inténtelo de nuevo más tarde. Si el problema persiste, póngase en contacto con el administrador.",
@@ -303,7 +307,8 @@
         "TURNOS-ERR-005": "No hemos podido encontrar el usuario asociado a este turno.",
         "TURNOS-ERR-006": "El horario seleccionado no está disponible. Por favor, elija otro horario.",
         "TURNOS-ERR-007": "Error al procesar las fechas del turno. Por favor, inténtelo de nuevo más tarde.",
-        "TURNOS-ERR-008": "Usuario no encontrado"
+        "TURNOS-ERR-008": "Usuario no encontrado",
+        "TURNOS-ERR-009": "Usted ya tiene un turno programado"
       }
     }
   },

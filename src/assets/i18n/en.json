@@ -129,7 +129,10 @@
       "apellido-error": "Lastname is required",
       "apellido-placeholder": "Type a lastname",
       "nombre-error": "First name is required",
-      "nombre-placeholder": "Type a first name"
+      "nombre-placeholder": "Type a first name",
+      "recuperar-contrasena": "Send a email to recovery password",
+      "enviar-email": "An email will be sent to this user to retrieve their password. Are you sure?",
+      "enviar-email-confirmacion": "Email sended successfully"
     },
     "laboratorios": {
       "titulo": "Laboratories list",
@@ -295,7 +298,8 @@
         "TURNOS-ERR-005": "Role already exists",
         "TURNOS-ERR-006": "Cannot create the schedule",
         "TURNOS-ERR-007": "Cannot create the schedule",
-        "TURNOS-ERR-008": "Cannot get the schedule"
+        "TURNOS-ERR-008": "Cannot get the schedule",
+        "TURNOS-ERR-009": "Cannot confirm the schedule"
       },
       "messages": {
         "DEFAULT": "Please try again later. If the problem persists, contact the administrator",
@@ -325,7 +329,8 @@
         "TURNOS-ERR-005": "This turn already exists in our records.",
         "TURNOS-ERR-006": "The selected schedule is not available. Please choose another schedule.",
         "TURNOS-ERR-007": "Error on process dates",
-        "TURNOS-ERR-008": "User not found"
+        "TURNOS-ERR-008": "User not found",
+        "TURNOS-ERR-009": "You have already an a appointment on scheduled"
       }
     }
   },

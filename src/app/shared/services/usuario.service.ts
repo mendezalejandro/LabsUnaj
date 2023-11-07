@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { IUsuario, IUsuarioSesion, UsuarioActualizar } from '../models/usuario.model';
 import { environment } from 'src/app/environments/environment';
 import { RolTypes } from '../models/roles.model';
+import { filter, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,9 @@ export class UsuarioService {
    */
   getUsuarios() {
     const endpoint = `${this.apiEndpoint}/usuarios`;
-    return this.httpClient.get<IUsuario[]>(endpoint);
+    return this.httpClient.get<IUsuario[]>(endpoint).pipe(
+      switchMap(data=>of(data.filter(x=>x.rol!==RolTypes.Sistema)))
+    );
   }
 
   /**

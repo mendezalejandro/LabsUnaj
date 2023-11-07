@@ -55,7 +55,10 @@
       "rols": {
         "sistema": "System"
       },
-      "titulo": "Users list"
+      "titulo": "Users list",
+      "recuperar-contrasena": "Send a email to recovery password",
+      "enviar-email": "An email will be sent to this user to retrieve their password. Are you sure?",
+      "enviar-email-confirmacion": "Email sended successfully"
     },
     "turnos": {
       "step-laboratorio-titulo": "Select the laboratory",

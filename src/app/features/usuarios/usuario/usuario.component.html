@@ -1,3 +1,4 @@
+<ng-container *ngIf="$operacion | async"></ng-container>
 <form #form="ngForm">
     <div class="container d-flex flex-column gap-2">
         <div class="row">
@@ -56,7 +57,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="oper==='add'">
             <mat-form-field>
                 <mat-label>{{ 'features.usuarios.password' | translate }}</mat-label>
                 <input [(ngModel)]="usuario.contrasena" [readonly]="readOnly" type="password" [disabled]="disabled" matInput
@@ -71,7 +72,6 @@
             <mat-form-field>
                 <mat-label>{{ 'features.usuarios.rol' | translate }}</mat-label>
                 <mat-select placeholder="{{ 'features.usuarios.rol-placeholder' | translate }}" [disabled]="disabled" [(ngModel)]="usuario.rol" name="rol" required>
-                    <mat-option [value]="1">{{ 'features.usuarios.rols.sistema' | translate }}</mat-option>
                     <mat-option [value]="2">{{ 'features.usuarios.rols.admin' | translate }}</mat-option>
                     <mat-option [value]="3">{{ 'features.usuarios.rols.alumno' | translate }}</mat-option>
                 </mat-select>
@@ -81,6 +81,10 @@
             <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent" [disabled]="readOnly || disabled"
                     [(ngModel)]="usuario.estado" name="estado">{{ 'general.estado' | translate }}</mat-slide-toggle>
             </div>
+        </div>
+
+        <div class="row mt-2" *ngIf="usuario.mail && oper === 'edit'">
+            <a style="cursor: pointer;" class="mat-primary" (click)="enviarMailRecuperacion(usuario.mail)">{{ 'features.usuarios.recuperar-contrasena' | translate }}</a>
         </div>
     </div>
 </form>

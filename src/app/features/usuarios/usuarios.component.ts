@@ -74,7 +74,9 @@ export class UsuariosComponent {
   ngOnInit(): void {
     this.busyService.showProcessing();
     this.dataSuscription = this.usuarioService.getUsuarios()
-      .pipe(finalize(() => {
+      .pipe(
+        finalize(() => {
+
         this.busyService.hideProcessing();
       }))
       .subscribe(usuarios => {

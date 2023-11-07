@@ -47,7 +47,7 @@ export class TurnoComponent implements OnInit {
   }
 
   laboratorioSelected(laboratorio: ILaboratorio){
-    const fechaParsed = DateTime.fromJSDate(this.fecha).toUTC().toISO({includeOffset: false }) as string;
+    const fechaParsed = DateTime.fromJSDate(this.fecha).toISO({includeOffset: false }) as string;
     this.laboratorio = laboratorio;
     this.$horarios = this.turnoService.getHorariosDisponibles(laboratorio.id, fechaParsed.split('T')[0])
     .pipe(tap((horarios) => {
@@ -59,14 +59,14 @@ export class TurnoComponent implements OnInit {
     this.actualizarHorarios();
   }
   actualizarHorarios(){
-    const fechaParsed = DateTime.fromJSDate(this.fecha).toUTC().toISO({includeOffset: false }) as string;
+    const fechaParsed = DateTime.fromJSDate(this.fecha).toISO({includeOffset: false }) as string;
     this.$horarios = this.turnoService.getHorariosDisponibles(this.laboratorio.id, fechaParsed.split('T')[0])
   }
   horarioSelected(horario: IDisponibilidad){
     this.horario = horario;
   }
   confirmar($event: boolean){
-    const dateString = DateTime.fromISO(`${this.fecha.toISOString()}`).toUTC().toISO({ includeOffset: false }) as string;
+    const dateString = DateTime.fromISO(`${this.fecha.toISOString()}`).toISO({ includeOffset: false }) as string;
     this.turnoService.confirmarTurno(this.usuarioLogueado.id, this.laboratorio.id, dateString.split('T')[0], this.horario!.horario)
     .pipe(
       tap((turno) => {
