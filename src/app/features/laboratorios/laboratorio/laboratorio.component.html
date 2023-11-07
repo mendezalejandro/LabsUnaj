@@ -81,9 +81,9 @@
                 <div class="row">
                     <mat-form-field>
                         <mat-label>{{ 'features.laboratorios.configuracion.duracion-title' | translate }}</mat-label>
-                        <input [(ngModel)]="laboratorio.configuracion.duracion" [readonly]="readOnly" [disabled]="disabled" matInput
-                            placeholder="{{ 'features.laboratorios.configuracion.duracion-placeholder' | translate }}" name="duracion" autocomplete="off" type="number"
-                            required>
+                        <mat-select [(ngModel)]="laboratorio.configuracion.duracion" name="duracion" [disabled]="readOnly" required>
+                            <mat-option *ngFor="let val of [5,10,20,30,45,60]" [value]="val">{{val}}</mat-option>
+                        </mat-select>
                         <mat-hint>{{ 'features.laboratorios.configuracion.duracion-hint' | translate }}</mat-hint>
                         <mat-error *ngIf="configuracionForm.controls['titulo']?.invalid && configuracionForm.controls['titulo']?.touched">
                             {{ 'general.titulo-error' | translate }}

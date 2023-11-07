@@ -85,7 +85,7 @@ export class DashboardComponent implements OnInit {
   turnoEnTiempo(turno: ITurnoVigente): Observable<boolean> {
     const fechaActual = new Date();
     const fechaObjeto = new Date(turno.fechaInicio);
-
+    console.log(fechaActual.getTime() - fechaObjeto.getTime());
     return of(fechaObjeto.getTime() === fechaActual.getTime()).pipe();
   }
 

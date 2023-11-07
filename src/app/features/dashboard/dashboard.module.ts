@@ -10,11 +10,12 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatRippleModule } from '@angular/material/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { CancelarTurnoComponent } from './cancelar-turno/cancelar-turno.component';
+import { HabilitarTurnoDirective } from './habilitar-turno.directive';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, TurnoComponent, StepperComponent, CancelarTurnoComponent],
+  declarations: [DashboardComponent, TurnoComponent, StepperComponent, CancelarTurnoComponent,HabilitarTurnoDirective],
   imports: [
     BaseModule,
     CommonModule,
