@@ -91,7 +91,7 @@ export class TurnoComponent implements OnInit {
 
   dateFilter = (date: Date | null): boolean => {
     const dayOfWeek = (date || new Date()).getDay(); // Obtiene el día de la semana (0 para domingo, 1 para lunes, etc.)
-    const daysOfWeek = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+    const daysOfWeek = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sabado'];
     const dayName = daysOfWeek[dayOfWeek].toLowerCase(); // Obtiene el nombre del día en minúsculas
     const dias = this.laboratorio.configuracion.dias as any
     return dias[dayName];
