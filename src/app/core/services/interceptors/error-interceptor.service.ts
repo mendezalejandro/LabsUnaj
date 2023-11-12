@@ -10,6 +10,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { catchError } from 'rxjs/operators';
 import { ErrorService } from '../error.service';
 import { throwError } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 /**
  * intercepta los errores de la api
  */
@@ -19,7 +20,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
    * constructor del interceptor
    * @param errorService servicio de errores
    */
-  constructor(private errorService: ErrorService) { }
+  constructor(private errorService: ErrorService, private authService: AuthService) { }
 
   /**
    * intercepta los errores de la api
@@ -48,6 +49,11 @@ export class ErrorInterceptorService implements HttpInterceptor {
     const error = err.error || err;
     const errorCode = error!.codigo;
     this.errorService.showError(errorCode);
+
+    // sesion expirada
+    if (errorCode === 'TOKEN-ERR-003') {
+      this.authService.signout();
+    }
     return throwError(err);
   }
 }

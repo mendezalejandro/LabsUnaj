@@ -13,12 +13,11 @@ export class SignOutComponent {
    * @param authService servicio de autenticacion
    * @param routerService servicio de ruteo
    */
-  constructor(private authService: AuthService, private routerService: Router) { }
+  constructor(private authService: AuthService) { }
   /**
    * cierra la sesion del usuario y lo redirige al home
    */
   signOut() {
     this.authService.signout();
-    this.routerService.navigate(['/home']);
   } 
 }

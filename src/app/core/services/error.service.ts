@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject} from 'rxjs';
 
 export class Error{
@@ -26,21 +25,8 @@ export class ErrorService {
     // busco la traducción del error
     this.error.code = code;
     this.error.show = true;
-    // this.error.title = title;
-    // this.error.message = message;
     this.$errorState.next(this.error);
   }
-  // showError(title:string, message?: string){
-    
-  //   // busco la traducción del error
-  //   const errorTitle = title ? this.translateService.instant(`api.errors.titles.${title}`) : this.translateService.instant('api.errors.titles.DEFAULT');
-  //   const errorMessage = title ? this.translateService.instant(`api.errors.messages.${title}`): this.translateService.instant('api.errors.messages.DEFAULT');
-
-  //   this.error.show = true;
-  //   this.error.title = title;
-  //   this.error.message = message;
-  //   this.$errorState.next(this.error);
-  // }
 
   closeError(){
     this.$errorState.next(new Error());

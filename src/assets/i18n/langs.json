@@ -175,5 +175,7 @@
     "title": "Change password",
     "subtitle": "Recovery your account with a new password.",
     "password-error": "A new password is required"
-  }
+  },
+  "TOKEN-ERR-002": "You not have permissions to realize this operation. Contact with your administrator.",
+  "TOKEN-ERR-003": "Sessión has expired. Sign in again."
 }

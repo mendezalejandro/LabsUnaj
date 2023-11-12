@@ -301,7 +301,9 @@
         "TURNOS-ERR-006": "Cannot create the schedule",
         "TURNOS-ERR-007": "Cannot create the schedule",
         "TURNOS-ERR-008": "Cannot get the schedule",
-        "TURNOS-ERR-009": "Cannot confirm the schedule"
+        "TURNOS-ERR-009": "Cannot confirm the schedule",
+        "TOKEN-ERR-002": "Cannot realize operation",
+        "TOKEN-ERR-003": "Cannot realize operation"
       },
       "messages": {
         "DEFAULT": "Please try again later. If the problem persists, contact the administrator",
@@ -332,7 +334,9 @@
         "TURNOS-ERR-006": "The selected schedule is not available. Please choose another schedule.",
         "TURNOS-ERR-007": "Error on process dates",
         "TURNOS-ERR-008": "User not found",
-        "TURNOS-ERR-009": "You have already an a appointment on scheduled"
+        "TURNOS-ERR-009": "You have already an a appointment on scheduled",
+        "TOKEN-ERR-002": "You not have permissions to realize this operation. Contact with your administrator.",
+        "TOKEN-ERR-003": "Sessión has expired. Sign in again."
       }
     }
   },

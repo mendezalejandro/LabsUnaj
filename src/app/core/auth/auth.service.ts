@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Subject, of,  tap } from 'rxjs';
 import { environment } from 'src/app/environments/environment';
 import { IUsuario, IUsuarioSesion } from 'src/app/shared/models/usuario.model';
+import { RequestOptions, RequestService } from '../services/helpers/request.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -17,7 +19,7 @@ export class AuthService {
    * constructor del componente
    * @param http servicio http
    */
-  constructor(private http: HttpClient) { }
+  constructor(private http: RequestService, private routerService: Router) { }
 
   /**
    * loguea al usuario
@@ -27,7 +29,8 @@ export class AuthService {
    */
   signin(nombreUsuario: string, contrasena: string) {
     const endpoint = `${this.apiEndpoint}/usuario/conectar`;
-    return this.http.post<IUsuarioSesion>(`${endpoint}`, { nombreUsuario, contrasena }).pipe(
+    const requestOptions = { withToken: false} as RequestOptions;
+    return this.http.post<IUsuarioSesion>(`${endpoint}`, { nombreUsuario, contrasena },requestOptions).pipe(
       tap((usuario) => {
         const sesion: IUsuarioSesion = {
           id: usuario.id,
@@ -36,6 +39,7 @@ export class AuthService {
           apellido: usuario.apellido,
           estado: usuario.estado,
           rol: usuario.rol,
+          tokenSesion: usuario.tokenSesion,
           vencimiento: new Date(),
         };
         this.saveSession(sesion);
@@ -49,33 +53,7 @@ export class AuthService {
   signout() {
     this.closeSession();
     this.isLogged$.next(false);
-  }
-
-  /**
-   * registra al usuario
-   * @param key clave de licencia
-   * @param username nombre de usuario
-   * @param password contraseña
-   * @returns `Observable` con el usuario registrado
-   */
-  signup(key: string, username: string, password: string) {
-    // /** generate a random key for the device */
-    // const deviceIdentifier = this.getUUII();
-    // const p = new Credentials.CredencialParams(key, username, password, deviceIdentifier);
-
-    // return this.licensingService.getByModule(p.LicenseKey).pipe(
-    //   catchError((err) => throwError(() => err)),
-    //   switchMap(licenses => {
-    //     const endpoint = this.licensingService.getModuleEndpoing(licenses);
-    //     return forkJoin([of(licenses), of(endpoint), this.credentialService.signup(p, endpoint)]);
-    //   }),
-    //   catchError((err) => throwError(() => err)),
-    //   switchMap(([licenses, restEndpoint, credential]) => {
-    //     this.profileService.create(credential, p, restEndpoint);
-    //     this.licensingService.set(licenses);
-    //     return of(credential);
-    //   })
-    // );
+    this.routerService.navigate(['/home']);
   }
 
   /**
@@ -91,6 +69,16 @@ export class AuthService {
     if (isLogged) 
       return true;
     else return false;
+  }
+
+
+  /**
+   * obtiene el token del usuario
+   * @returns token del usuario
+   */
+  getUserToken() {
+    const cachedData = this.getSession();
+    return cachedData.tokenSesion;
   }
 
   /**
@@ -112,7 +100,7 @@ export class AuthService {
     if (cachedData) return JSON.parse(cachedData);
     else if(!sesion){
       this.closeSession();
-      throw new Error("la sesión del usuario expiró");
+      // throw new Error("El usuario no se encuentra logueado");
     }
     else {
       this.saveSession(sesion);

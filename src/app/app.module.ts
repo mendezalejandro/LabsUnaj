@@ -17,9 +17,10 @@ import { ErrorInterceptorService } from './core/services/interceptors/error-inte
 import { environment } from './environments/environment';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpInterceptorService } from './core/services/interceptors/http-request.interceptor';
+import { HttpResponseInterceptorService } from './core/services/interceptors/http-response.interceptor';
 import { SignOutComponent } from './shared/components/sign-out/sign-out.component';
 import { AuthModule } from './core/modules/auth.module';
+import { HttpRequestInterceptorService } from './core/services/interceptors/http-request.interceptor';
 
 registerLocaleData(es);
 registerLocaleData(pt);
@@ -32,9 +33,10 @@ export function createTranslateLoader(http: HttpClient) {
 
 
 export const interceptors: Provider[]=  [
-  {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
-  {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
+  {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptorService, multi: true},
   {provide: HTTP_INTERCEPTORS, useClass: BusyInterceptorService, multi: true},
+  {provide: HTTP_INTERCEPTORS, useClass: HttpResponseInterceptorService, multi: true},
+  {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
 ];
 
 @NgModule({

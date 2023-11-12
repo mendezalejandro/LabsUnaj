@@ -1,30 +1,40 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/app/environments/environment';
+import { AuthService } from '../../auth/auth.service';
 
 const apiURL = environment.apiEndpoint;
-
 @Injectable({ providedIn: 'root' })
-export class HttpInterceptorService implements HttpInterceptor {
-	constructor(
+export class HttpRequestInterceptorService implements HttpInterceptor {
+	constructor(private authService: AuthService
 	) { }
-	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		return next.handle(req).pipe(
-			map((event: HttpEvent<any>) => {
-				if (event instanceof HttpResponse && req.url.includes(apiURL) && event.body && event.body.objeto) {
-					// Si es una solicitud POST y la respuesta es una instancia de HttpResponse,
-					// modifica el cuerpo de la respuesta para que sea solo el contenido de "objeto"
-					const modifiedResponse = event.clone({
-						body: event.body && event.body.objeto ? event.body.objeto : {},
-					});
-					return modifiedResponse;
-				}
-				// Devuelve el evento sin cambios para otros casos
-				return event;
-			})
-		);
+
+	/** Intercepts all HTTP requests! */
+	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+		const isAPI = request.url.includes(apiURL);
+		const withToken = (!request.headers.has('withToken')) || (request.headers.has('withToken') && request.headers.get('withToken') === 'true');
+		
+		if(isAPI && withToken){
+			const token = this.authService.getUserToken();
+			return next.handle(this.buildRequest(request, token));
+		}
+		else return next.handle(request);
 	}
 
+
+	/**
+	 * Builds the request with the token
+	 * @param request request
+	 * @param token token
+	 * @returns 
+	 */
+	buildRequest(request: HttpRequest<any>, token: string) {
+		return request.clone({
+			setHeaders: {
+				Authorization: token,
+			}
+		})
+	}
 }

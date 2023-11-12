@@ -25,8 +25,7 @@ export class AuthGuard implements CanActivate {
 
     if(isLogged && havePermissions)
       return of(true);
-    else
-      return of(this.router.parseUrl('/home'));
+    else return of(this.router.parseUrl('/home'));
   }
 
   /**
@@ -38,8 +37,12 @@ export class AuthGuard implements CanActivate {
     const requiredRoles = data['role'];
     // si no tiene configuracion por roles, entonces cualquiera puede acceder
     if(!requiredRoles) return true;
-
-    const userRole = this.authService.getSession().rol;
+    const session = this.authService.getSession();
+    if(session){
+      const userRole = this.authService.getSession().rol;
     return requiredRoles.includes(userRole);
+    }
+    else return false;
+    
   }
 }

@@ -4,6 +4,7 @@ import { IUsuario, IUsuarioSesion, UsuarioActualizar } from '../models/usuario.m
 import { environment } from 'src/app/environments/environment';
 import { RolTypes } from '../models/roles.model';
 import { filter, of, switchMap } from 'rxjs';
+import { RequestOptions, RequestService } from 'src/app/core/services/helpers/request.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class UsuarioService {
    * constructor de UsuarioService
    * @param httpClient cliente http
    */
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: RequestService) { }
 
   /**
    * obtiene los usuarios
@@ -73,7 +74,8 @@ export class UsuarioService {
   registrarUsuario(usuario: IUsuario) {
     usuario.esAdmin = false;
     const endpoint = `${this.apiEndpoint}/usuario`;
-    return this.httpClient.post<IUsuario>(endpoint, usuario);
+    const requestOptions = { withToken: false} as RequestOptions;
+    return this.httpClient.post<IUsuario>(endpoint, usuario, requestOptions);
   }
   /**
  * activate un usuario
@@ -81,11 +83,9 @@ export class UsuarioService {
  * @returns usuario activado
  */
   activarUsuario(usuarioid: number) {
-    const params = new UsuarioActualizar();
-    params.registrado = true;
-
-    const endpoint = `${this.apiEndpoint}/usuario/datos-personales/${usuarioid}`;
-    return this.httpClient.put<IUsuario>(endpoint, params);
+    const requestOptions = { withToken: false} as RequestOptions;
+    const endpoint = `${this.apiEndpoint}/usuario/activar/${usuarioid}`;
+    return this.httpClient.put<IUsuario>(endpoint, {}, requestOptions);
   }
   
   /**
@@ -97,8 +97,9 @@ export class UsuarioService {
     const params = {
       mail: email
     };
+    const requestOptions = { withToken: false} as RequestOptions;
     const endpoint = `${this.apiEndpoint}/usuario/recuperar-contrasena/enviar-mail`;
-    return this.httpClient.post<IUsuario>(endpoint, params);
+    return this.httpClient.post<IUsuario>(endpoint, params, requestOptions);
   }
 
   /**
@@ -110,9 +111,9 @@ export class UsuarioService {
     const params = {
       contrasena: contrasena
     };
-
+    const requestOptions = { withToken: false} as RequestOptions;
     const endpoint = `${this.apiEndpoint}/usuario/${usuarioid}/recuperar-contrasena`;
-    return this.httpClient.put<IUsuario>(endpoint, params);
+    return this.httpClient.put<IUsuario>(endpoint, params, requestOptions);
   }
   /**
    * edita un usuario

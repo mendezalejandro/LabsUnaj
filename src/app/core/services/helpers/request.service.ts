@@ -9,6 +9,7 @@ import { catchError, map } from 'rxjs/operators';
  export class RequestOptions {
   // flag para indicar si al hacer un request se bloquea la llamada con un loading modal.
   public silent: boolean= false;
+  public withToken: boolean = true;
 }
 
 @Injectable({
@@ -56,6 +57,21 @@ export class RequestService {
       })
     );
   }
+
+
+  /**
+   * Realiza el http request con metodo GET para obtener un registro
+   * @param url del endpoint
+   * @returns Retorna un observable del tipo generico especificado
+   */
+  get<T>(url:string) {
+    return this.http.get<T>(url).pipe(
+      map((response) => response as T),
+      catchError((err) => {
+        return throwError(err);
+      })
+    );
+  }
   /**
    * Realiza el http request con metodo DELETE para eliminar un registro
    * @param url del endpoint
@@ -63,7 +79,7 @@ export class RequestService {
    * @param options opciones de request
    * @returns Retorna un observable del tipo generico especificado
    */
-  delete<T>(url:string, params: any, options?: RequestOptions) {
+  delete<T>(url:string, params?: any, options?: RequestOptions) {
     return this.http.delete<T>(url,{body:params, ...this.getHeaders(options!)}).pipe(
       map((response) => response as T),
       catchError((err) => {
@@ -80,7 +96,8 @@ export class RequestService {
    */
   private getHeaders(options: RequestOptions){
     const silent = options?.silent ? 'true' : 'false';
-    const requestOptions = { headers: { 'silent': silent } };
+    const withToken = options?.withToken ? 'true' : 'false';
+    const requestOptions = { headers: { 'silent': silent, 'withToken': withToken } };
 
     return requestOptions;
   };

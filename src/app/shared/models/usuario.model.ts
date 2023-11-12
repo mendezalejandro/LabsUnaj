@@ -23,6 +23,7 @@ export interface IUsuarioSesion {
     estado: boolean;
     rol: Rol;
     vencimiento: Date;
+    tokenSesion: string;
 }
 
 // Interfaz para representar la información de un usuario
