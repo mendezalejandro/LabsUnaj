@@ -24,11 +24,10 @@
                                             <div matListItemTitle>{{item.nombreLaboratorio}}</div>
                                             <div matListItemLine>{{item.fechaInicio| date: 'fullDate':'':locale}},
                                                 {{item.fechaInicio| date: 'shortTime':'':locale}}</div>
-                                                <span [chequearTurno]="item.fechaInicio" matListItemLine><small>{{'features.dashboard.turnos-vigentes-mensaje'|translate}}</small></span>
-                                            <ng-template #turnoHabilitado>
-                                                <span matListItemLine
-                                                    *ngIf="getTurnoHabilitado(item) | async as url"><small>{{url}}</small></span>
-                                            </ng-template>
+                                                <span class="mb-2" [chequearTurno]="item.fechaInicio" matListItemLine>
+                                                    <button mat-raised-button color="primary" class="w-100" (click)="openLab(item)">{{'features.dashboard.ir-a-laboratorio' | translate}}</button>
+                                                    <!-- <small>{{'features.dashboard.turnos-vigentes-mensaje'|translate}}</small> -->
+                                                </span>
                                             <button mat-icon-button color="warn" (click)="cancelarTurno(item.idTurno)"
                                                 matListItemMeta>
                                                 <mat-icon>event_busy</mat-icon>

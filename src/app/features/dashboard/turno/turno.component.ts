@@ -64,7 +64,6 @@ export class TurnoComponent implements OnInit {
     this.actualizarHorarios();
   }
   actualizarHorarios() {
-
     const fechaParsed = DateTime.fromJSDate(this.fecha).toISO({ includeOffset: false }) as string;
     this.$horarios = this.turnoService.getHorariosDisponibles(this.laboratorio.id, fechaParsed.split('T')[0])
   }

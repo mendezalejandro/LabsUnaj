@@ -71,7 +71,7 @@ export class TurnoService {
    */
   getTurnoHabilitado(idTurno: number) {
     const endpoint = `${this.apiEndpoint}/turno/${idTurno}`;
-    return this.httpClient.get(endpoint, { responseType: 'text' });
+    return this.httpClient.get(endpoint);
   }
 
   /**

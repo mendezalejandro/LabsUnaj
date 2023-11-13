@@ -23,7 +23,7 @@ export class HabilitarTurnoDirective implements OnInit, OnDestroy{
 
   private updateVisibility() {
     const fechaActual = new Date();
-    if (this.fechaTurno <= fechaActual) {
+    if (new Date(this.fechaTurno) <= fechaActual) {
       this.el.nativeElement.style.display = 'inline';
     } else {
       this.el.nativeElement.style.display = 'none';

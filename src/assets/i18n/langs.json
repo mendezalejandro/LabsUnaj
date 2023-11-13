@@ -91,7 +91,8 @@
       "solicitar-turno": "Request an appointment",
       "turno-confirmado": "Appointment confirmed",
       "cancelar-turno-titulo": "Cancel appointment",
-      "turno-cancelado": "Appointment has been cancelated"
+      "turno-cancelado": "Appointment has been cancelated",
+      "ir-a-laboratorio": "You can now access to laboratory. Click here!"
     },
     "laboratorios": {
       "titulo": "Laboratories list",

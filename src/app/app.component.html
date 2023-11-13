@@ -23,7 +23,7 @@
 
     <!-- login button -->
     <span class="spacer"></span>
-
+    
     <button mat-icon-button (click)="openLogout()">
       <mat-icon>login</mat-icon>
     </button>
@@ -76,12 +76,13 @@
 
     <!-- logout button -->
     <span class="spacer"></span>
-    <button mat-icon-button (click)="openLogin()">
-      <mat-icon>login</mat-icon>
+    <button mat-button (click)="openLogin()">
+      {{'login.button' | translate}}
     </button>
-    <button mat-icon-button (click)="openSignUp()">
+    <button mat-button (click)="openSignUp()">{{'login.signup' | translate}}</button>
+    <!-- <button mat-icon-button (click)="openSignUp()">
       <mat-icon>badge</mat-icon>
-    </button>
+    </button> -->
   </mat-toolbar>
   <router-outlet> </router-outlet>
 </ng-template>

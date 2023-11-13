@@ -217,7 +217,8 @@
       "cancelar-turno-titulo": "Cancel appointment",
       "cancelar-turno-mensaje": "Are you sure do you want cancel this appointment?",
       "turno-cancelado": "Appointment has been cancelated",
-      "turnos-vigentes-mensaje": "The access to remote laboratory will be showed 10 minutes before scheduled time."
+      "turnos-vigentes-mensaje": "The access to remote laboratory will be showed 10 minutes before scheduled time.",
+      "ir-a-laboratorio": "You can now access to laboratory. Click here!"
     }
   },
   "login": {
@@ -302,6 +303,8 @@
         "TURNOS-ERR-007": "Cannot create the schedule",
         "TURNOS-ERR-008": "Cannot get the schedule",
         "TURNOS-ERR-009": "Cannot confirm the schedule",
+        "TURNOS-ERR-010": "Cannot access to this laboratory",
+        "TURNOS-ERR-011": "Cannot access to this laboratory",
         "TOKEN-ERR-002": "Cannot realize operation",
         "TOKEN-ERR-003": "Cannot realize operation"
       },
@@ -335,6 +338,8 @@
         "TURNOS-ERR-007": "Error on process dates",
         "TURNOS-ERR-008": "User not found",
         "TURNOS-ERR-009": "You have already an a appointment on scheduled",
+        "TURNOS-ERR-010": "Your appointment is not available because the time has expired.",
+        "TURNOS-ERR-011": "The appointment not exists",
         "TOKEN-ERR-002": "You not have permissions to realize this operation. Contact with your administrator.",
         "TOKEN-ERR-003": "Sessión has expired. Sign in again."
       }

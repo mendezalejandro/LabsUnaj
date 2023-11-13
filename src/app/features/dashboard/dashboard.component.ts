@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, of, tap } from 'rxjs';
+import { Observable, Subscription, of, tap } from 'rxjs';
 import { PerfilService } from 'src/app/core/services/profile.services';
 import { ITurnoVigente, Turno } from 'src/app/shared/models/turno.model';
 import { IUsuarioSesion } from 'src/app/shared/models/usuario.model';
@@ -15,7 +15,7 @@ import { CancelarTurnoComponent } from './cancelar-turno/cancelar-turno.componen
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   /* flag que indica si el formulario esta abierto */
   opened!: boolean;
   /* usuario logueado */
@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
   turnosVigentes$!: Observable<ITurnoVigente[]>;
   /* idioma del usuario */
   locale: string = this.perfilService.getLocale();
+  /** suscription operation */
+  operSuscription!: Subscription;
   /**
    * constructor de DashboardComponent
    * @param usuarioService servicio de usuarios
@@ -42,7 +44,11 @@ export class DashboardComponent implements OnInit {
     public dialog: MatDialog
     ) {
   }
-
+  ngOnDestroy(): void {
+    if(this.operSuscription){
+      this.operSuscription.unsubscribe();
+    }
+  }
   /**
    * metodo que inicializa el componente
    */
@@ -94,8 +100,11 @@ export class DashboardComponent implements OnInit {
    * @param turno turno a verificar
    * @returns true si esta habilitado, false en caso contrario
    */
-  getTurnoHabilitado(turno: ITurnoVigente) {
-    return this.turnosService.getTurnoHabilitado(turno.idTurno);
+  openLab(turno: ITurnoVigente) {
+    this.operSuscription = this.turnosService.getTurnoHabilitado(turno.idTurno).pipe(
+      tap((data) => {
+        window.open((data as any).url, '_blank');
+      })
+    ).subscribe();
   }
-
 }
