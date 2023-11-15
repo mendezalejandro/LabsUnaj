@@ -218,7 +218,13 @@
       "cancelar-turno-mensaje": "Are you sure do you want cancel this appointment?",
       "turno-cancelado": "Appointment has been cancelated",
       "turnos-vigentes-mensaje": "The access to remote laboratory will be showed 10 minutes before scheduled time.",
-      "ir-a-laboratorio": "You can now access to laboratory. Click here!"
+      "ir-a-laboratorio": "Go to laboratory",
+      "cancelar-turno": "Cancel appointment",
+      "fecha-turno": "Your appointment start on"
+    },
+    "home": {
+      "title": "Welcome to UNAJ Remote Laboratories platform!",
+      "subtitle": "From here you will be able to manage your shifts for all the laboratories available at our University."
     }
   },
   "login": {

@@ -235,7 +235,13 @@
       "cancelar-turno-mensaje": "Está seguro que desea cancelar este turno?",
       "turno-cancelado": "Turno cancelado",
       "turnos-vigentes-mensaje": "El acceso al laboratorio remoto estará disponible 10 minutos antes del horario del turno.",
-      "ir-a-laboratorio": "Ya puedes acceder al laboratorio. \n¡Haga clic aquí!"
+      "ir-a-laboratorio": "Ir al laboratorio",
+      "cancelar-turno": "Cancelar turno",
+      "fecha-turno": "Tu turno inicia el"
+    },
+    "home": {
+      "title": "¡Bienvenidos a la plataforma de Laboratorios Remotos de la UNAJ!",
+      "subtitle": "Desde aquí podrás gestionar tus turnos para todos los laboratorios disponibles en nuestra Universidad."
     }
   },
   "menu": {

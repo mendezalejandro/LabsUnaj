@@ -3,12 +3,13 @@ import { PerfilService } from './core/services/profile.services';
 import { LanguageService } from './core/services/language.service';
 import { ThemesService } from './core/services/themes.service';
 import { DOCUMENT } from '@angular/common';
-import { Observable, merge, delay, tap } from 'rxjs';
+import { Observable, merge, delay, tap, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from './core/auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SignOutComponent } from './shared/components/sign-out/sign-out.component';
 import { RolTypes } from './shared/models/roles.model';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   mainHandler$!: Observable<any>;
   /** roles de la app */
   roles = RolTypes
+  isMobile!: Observable<boolean>;
   /**
    * constructor del componente
    * @param lenguajeService servicio de lenguaje
@@ -37,6 +39,7 @@ export class AppComponent implements AfterViewInit, OnInit {
    * @param router servicio de ruteo
    * @param authService servicio de autenticacion
    * @param dialog servicio de dialogo
+   * @param breakpointObserver servicio de observacion de cambios de pantalla
    * @param document servicio de documento
    */
   constructor(
@@ -47,12 +50,15 @@ export class AppComponent implements AfterViewInit, OnInit {
     private router: Router, 
     private authService: AuthService,
     public dialog: MatDialog,
+    breakpointObserver: BreakpointObserver,
     @Inject(DOCUMENT) private document: Document,
     ) {
-
+      this.isMobile = breakpointObserver
+      .observe('(max-width: 425px)')
+      .pipe(map(({ matches }) => (matches)));
   }
   /** onInit hook */
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.mainHandler$ = merge(
       this.authService.isLogged$.pipe(tap((isLogged) => this.userIsLogged = isLogged)),
       /** Language service handler */

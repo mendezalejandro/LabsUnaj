@@ -7,9 +7,7 @@
 
 <!-- error  component -->
 <app-error></app-error>
-<div class="background-container"> <!-- Fondo con opacidad -->
-  <img src="../assets/images/background-app.jpeg" alt="Fondo" class="background-image">
-</div>
+
 <!-- template with logged in -->
 <ng-container *ngIf="userIsLogged; else loggedOutTemplate">
   <mat-toolbar color="primary">
@@ -27,6 +25,7 @@
     <button mat-icon-button (click)="openLogout()">
       <mat-icon>login</mat-icon>
     </button>
+    
   </mat-toolbar>
   <!-- menu sidenav-->
   <mat-sidenav-container class="sidenav-container">
@@ -76,13 +75,22 @@
 
     <!-- logout button -->
     <span class="spacer"></span>
-    <button mat-button (click)="openLogin()">
-      {{'login.button' | translate}}
-    </button>
-    <button mat-button (click)="openSignUp()">{{'login.signup' | translate}}</button>
-    <!-- <button mat-icon-button (click)="openSignUp()">
-      <mat-icon>badge</mat-icon>
-    </button> -->
+
+    <ng-container *ngIf="isMobile| async;else loginDesktop">
+      <button mat-icon-button (click)="openLogin()">
+        <mat-icon>login</mat-icon>
+      </button>
+      <button mat-icon-button (click)="openSignUp()">
+        <mat-icon>badge</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #loginDesktop>
+      <button mat-button (click)="openLogin()">
+        {{'login.button' | translate}}
+      </button>
+      <button mat-button (click)="openSignUp()">{{'login.signup' | translate}}</button>
+    </ng-template>
+    <!--  -->
   </mat-toolbar>
   <router-outlet> </router-outlet>
 </ng-template>

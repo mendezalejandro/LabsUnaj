@@ -12,28 +12,25 @@
                             {{usuarioLogueado.apellido}}</b></span>
                 </div>
 
-                <div class="container h-100 overflow-auto">
+                <div class="container h-100 overflow-auto d-flex flex-column">
                     <div class="row">
                         <div class="col" *ngIf="turnosVigentes$ | async as turnosVigentes">
                             <div class="row pt-4 mat-headline-5" *ngIf="turnosVigentes.length>0; else sinTurnos">
                                 <span><b>{{'features.dashboard.turnos-vigentes' | translate}}</b></span>
-                                <div class="row mat-body">
-                                    <mat-selection-list>
-                                        <mat-list-item *ngFor="let item of turnosVigentes">
-                                            <mat-icon matListItemIcon>schedule</mat-icon>
-                                            <div matListItemTitle>{{item.nombreLaboratorio}}</div>
-                                            <div matListItemLine>{{item.fechaInicio| date: 'fullDate':'':locale}},
-                                                {{item.fechaInicio| date: 'shortTime':'':locale}}</div>
-                                                <span class="mb-2" [chequearTurno]="item.fechaInicio" matListItemLine>
-                                                    <button mat-raised-button color="primary" class="w-100" (click)="openLab(item)">{{'features.dashboard.ir-a-laboratorio' | translate}}</button>
-                                                    <!-- <small>{{'features.dashboard.turnos-vigentes-mensaje'|translate}}</small> -->
-                                                </span>
-                                            <button mat-icon-button color="warn" (click)="cancelarTurno(item.idTurno)"
-                                                matListItemMeta>
-                                                <mat-icon>event_busy</mat-icon>
-                                            </button>
-                                        </mat-list-item>
-                                    </mat-selection-list>
+                                <div class="row mat-body gap-4 mt-4">
+                                    <mat-card *ngFor="let item of turnosVigentes">
+                                        <mat-card-header>
+                                          <mat-card-title>{{item.nombreLaboratorio}}</mat-card-title>
+                                          <mat-card-subtitle class="mt-1">{{item.tituloLaboratorio}}</mat-card-subtitle>
+                                        </mat-card-header>
+                                        <mat-card-content class="mt-3">
+                                          <p><b>{{'features.dashboard.fecha-turno' | translate}}: </b>{{item.fechaInicio| date: 'fullDate':'':locale}}, {{item.fechaInicio| date: 'shortTime':'':locale}}</p>
+                                        </mat-card-content>
+                                        <mat-card-actions align="end">
+                                          <button class="w-100" #gotoButton mat-raised-button color="primary" [chequearTurno]="item.fechaInicio" (click)="openLab(item)">{{'features.dashboard.ir-a-laboratorio' | translate}}</button>
+                                          <button mat-button *ngIf="showCancel(gotoButton)" align="end" color="warn" (click)="cancelarTurno(item.idTurno)">{{'features.dashboard.cancelar-turno' | translate}}</button>
+                                        </mat-card-actions>
+                                      </mat-card>
                                 </div>
                             </div>
                             <ng-template #sinTurnos>
@@ -64,7 +61,7 @@
                 </div> -->
                     </div>
 
-                    <div class="row">
+                    <div class="row mb-2 flex-grow-1 d-flex align-items-end">
                         <div class="col">
                             <button (click)="opened=true" color="accent" style="width: 100%; height: 64px;"
                                 mat-raised-button>{{'features.dashboard.solicitar-turno'|translate}}</button>

@@ -92,7 +92,9 @@
       "turno-confirmado": "Appointment confirmed",
       "cancelar-turno-titulo": "Cancel appointment",
       "turno-cancelado": "Appointment has been cancelated",
-      "ir-a-laboratorio": "You can now access to laboratory. Click here!"
+      "ir-a-laboratorio": "Go to laboratory",
+      "cancelar-turno": "Cancel appointment",
+      "fecha-turno": "Your appointment start on"
     },
     "laboratorios": {
       "titulo": "Laboratories list",
@@ -112,6 +114,10 @@
         "disponibilidad-hint": "Available days to get an a appointment for this laboratory",
         "disponibilidad-error": "Must be select at least a one day"
       }
+    },
+    "home": {
+      "title": "Welcome to UNAJ Remote Laboratories platform!",
+      "subtitle": "From here you will be able to manage your shifts for all the laboratories available at our University."
     }
   },
   "shared": {

@@ -20,11 +20,11 @@
   .sidenav-container {
     position: absolute;
     top: 60px;
+    height: calc(100% - 120px);
     @media (max-width: 599px) {
         top: 52px !important;
+        height: calc(100% - 104px);
     };
-    
-    height: calc(100% - 120px);
     left: 0;
     right: 0;
   }

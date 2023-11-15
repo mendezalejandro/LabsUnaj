@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
@@ -9,6 +9,7 @@ import { IUsuarioSesion } from 'src/app/shared/models/usuario.model';
 import { TurnoService } from 'src/app/shared/services/turno.service';
 import { UsuarioService } from 'src/app/shared/services/usuario.service';
 import { CancelarTurnoComponent } from './cancelar-turno/cancelar-turno.component';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-dashboard',
@@ -103,8 +104,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
   openLab(turno: ITurnoVigente) {
     this.operSuscription = this.turnosService.getTurnoHabilitado(turno.idTurno).pipe(
       tap((data) => {
-        window.open((data as any).url, '_blank');
+        console.log(data)
+        window.open("https://" + (data as string));
       })
     ).subscribe();
+  }
+
+  public showCancel(gotoButton: MatButton): boolean {
+    if (gotoButton) {
+      // Accede al elemento del DOM a través de nativeElement
+      const displayStyle = window.getComputedStyle(gotoButton._elementRef.nativeElement).display;
+      
+      // Devuelve true o false según tu lógica específica
+      return displayStyle === 'none';
+    }
+    // Si el botón no está disponible, puedes manejarlo según tus necesidades (p. ej., retornando false)
+    return false;
   }
 }
