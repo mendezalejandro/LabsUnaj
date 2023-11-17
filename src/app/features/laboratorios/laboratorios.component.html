@@ -112,15 +112,7 @@
           <ng-container matColumnDef="disponible">
             <th mat-header-cell *matHeaderCellDef> {{'general.disponible'|translate}} </th>
             <td mat-cell *matCellDef="let element">
-              <mat-slide-toggle [checked]="element.estado" (click)="changeDisponible(element)" color="accent"></mat-slide-toggle>
-            </td>
-          </ng-container>
-
-          <!-- Estado Column -->
-          <ng-container matColumnDef="estado">
-            <th mat-header-cell *matHeaderCellDef> {{'general.estado'|translate}} </th>
-            <td mat-cell *matCellDef="let element">
-              <mat-slide-toggle [checked]="element.estado" (click)="changeEstado(element)" color="accent"></mat-slide-toggle>
+              <mat-slide-toggle [checked]="element.disponible" (click)="changeDisponible(element)" color="accent"></mat-slide-toggle>
             </td>
           </ng-container>
 

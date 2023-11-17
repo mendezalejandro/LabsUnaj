@@ -9,7 +9,6 @@ export interface ILaboratorio {
     imagen?: string | null;
     descripcion?: string | null;
     disponible: boolean;
-    estado: boolean;
     configuracion: ILaboratorioConfiguracion;
 }
 
@@ -57,7 +56,6 @@ export class Laboratorio implements ILaboratorio {
     imagen?: string | null;
     descripcion?: string | null;
     disponible: boolean;
-    estado: boolean;
     configuracion: ILaboratorioConfiguracion;
     constructor(
         id?: number,
@@ -67,7 +65,6 @@ export class Laboratorio implements ILaboratorio {
         imagen?: string | null,
         descripcion?: string | null,
         disponible: boolean = false,
-        estado: boolean = false,
         configuracion: ILaboratorioConfiguracion = new LaboratorioConfiguracion()
     ) {
         this.id = id || 0;
@@ -77,7 +74,6 @@ export class Laboratorio implements ILaboratorio {
         this.imagen = imagen || null;
         this.descripcion = descripcion || null;
         this.disponible = disponible;
-        this.estado = estado;
         this.configuracion = configuracion;
     }
 }

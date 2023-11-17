@@ -22,7 +22,7 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
   /* observable para detectar el tamaño de la pantalla */
   isMobile!: Observable<boolean>;
   /* columnas de la tabla */
-  displayedColumns: string[] = ['id', 'imagen', 'nombre', 'disponible', 'estado', 'acciones'];
+  displayedColumns: string[] = ['id', 'imagen', 'nombre', 'disponible', 'acciones'];
   /* datos de la tabla */
   dataSource: ILaboratorio[] = [];
   /* filtro para la tabla */
@@ -138,7 +138,6 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
   delete(item: ILaboratorio) {
     this.laboratorio = { ...item };
     this.laboratorio.disponible = false;
-    this.laboratorio.estado = false;
 
     const dialogMessage = this.dialog.open(MessageComponent, {
       data: {
@@ -160,15 +159,6 @@ export class LaboratoriosComponent implements OnInit, OnDestroy {
   changeDisponible(item: ILaboratorio) {
     this.laboratorio = { ...item };
     this.laboratorio.disponible = !item.disponible;
-    this.processEdit(this.laboratorio, true);
-  }
-  /**
-   * cambia el estado del laboratorio
-   * @param item laboratorio a cambiar el estado
-   */
-  changeEstado(item: ILaboratorio) {
-    this.laboratorio = { ...item };
-    this.laboratorio.estado = !item.disponible;
     this.processEdit(this.laboratorio, true);
   }
 

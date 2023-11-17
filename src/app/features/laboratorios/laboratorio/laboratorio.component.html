@@ -53,10 +53,6 @@
                             [disabled]="readOnly || disabled" [(ngModel)]="laboratorio.disponible" name="disponible">{{
                             'general.disponible' | translate
                             }}</mat-slide-toggle></div>
-                    <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent"
-                            [disabled]="readOnly || disabled" [(ngModel)]="laboratorio.estado" name="estado">{{
-                            'general.estado' | translate }}</mat-slide-toggle>
-                    </div>
                 </div>
                 <ng-container *ngIf="!readOnly; else imageOnly">
                     <div class="row mt-4">
@@ -90,7 +86,7 @@
                         <mat-label>{{ 'features.laboratorios.configuracion.duracion-title' | translate }}</mat-label>
                         <mat-select [(ngModel)]="laboratorio.configuracion.duracion" name="duracion"
                             [disabled]="readOnly" required>
-                            <mat-option *ngFor="let val of [5, 15,20,30,45,60]" [value]="val">{{val}}</mat-option>
+                            <mat-option *ngFor="let val of [15,20,30,45,60]" [value]="val">{{val}}</mat-option>
                         </mat-select>
                         <mat-hint>{{ 'features.laboratorios.configuracion.duracion-hint' | translate }}</mat-hint>
                         <mat-error

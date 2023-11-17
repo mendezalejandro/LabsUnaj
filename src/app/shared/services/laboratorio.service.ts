@@ -16,10 +16,15 @@ export class LaboratorioService {
 
   /**
    * obtiene los laboratorios
+   * @param disponible indica si se obtienen los laboratorios disponibles
    * @returns laboratorios
    */
-  getLaboratorios() {
-    return this.httpClient.get<ILaboratorio[]>(this.endpoint);
+  getLaboratorios(disponible?: boolean|null) {
+    let endpoint = this.endpoint;
+    if (disponible != null) {
+      endpoint = `${this.apiEndpoint}/laboratorios?disponible=${disponible}`;
+    }
+    return this.httpClient.get<ILaboratorio[]>(endpoint);
   }
 
   /**

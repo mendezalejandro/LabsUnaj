@@ -21,7 +21,7 @@ export class TurnoComponent implements OnInit {
   @ViewChild('stepper') stepper!: MatStepper;
   /** evento que se emite cuando se confirma el paso */
   @Output() public onConfirmed: EventEmitter<boolean> = new EventEmitter();
-  $laboratorios = this.laboratorioService.getLaboratorios();
+  $laboratorios = this.laboratorioService.getLaboratorios(true);
   $horarios!: Observable<IDisponibilidad[]>;
   stepperOrientation: Observable<StepperOrientation>;
   selectedIndex: number = 0;

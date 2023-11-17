@@ -1,9 +1,5 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { StepperOrientation } from '@angular/cdk/stepper';
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Observable, map } from 'rxjs';
-import { Operation } from 'src/app/core/models/general.model';
 import { ILaboratorio } from 'src/app/shared/models/laboratorio.model';
 
 @Component({
