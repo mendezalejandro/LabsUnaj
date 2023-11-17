@@ -357,7 +357,7 @@
     "title": "Registración de nuevo usuario",
     "button": "Registrarse",
     "nombre": "Nombre",
-    "nombre-placeholder": "Escriba su nombre",
+    "nombre-placeholder": "Escribe tu nombre",
     "nombre-error": "Se requiere el nombre",
     "apellido": "Apellido",
     "apellido-placeholder": "Escribe tu apellido",
@@ -383,10 +383,11 @@
     "confirm-password-placeholder": "Escriba la misma contraseña nuevamente",
     "confirm-password-error": "Se requiere confirmar la contraseña",
     "confirm-password-notmatch": "Las contraseñas no coinciden",
-    "usuario-hint": "El nombre de usuario debe contener un mínimo de 8 caracteres.",
+    "usuario-hint": "Al menos 8 caracteres alfanuméricos",
     "datos-sesion-titulo": "Credenciales de acceso",
     "datos-personales-titulo": "Informacion personal",
-    "email-invalid": "El formato del correo electrónico no es válido."
+    "email-invalid": "El formato del correo electrónico no es válido.",
+    "usuario-hint-mobile": "Mín. 8 caracteres alfanuméricos"
   },
   "sign-recovery-account": {
     "title": "Recuperación de cuenta",

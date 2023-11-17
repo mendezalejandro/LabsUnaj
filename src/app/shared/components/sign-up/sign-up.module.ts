@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from 'src/app/core/modules/material.module';
 import { SignUpRoutingModule } from './sign-up-routing.module';
+import { CustomDirectivesModule } from '../../directives/custom-directives.module';
 
 
 
@@ -15,6 +16,7 @@ import { SignUpRoutingModule } from './sign-up-routing.module';
     CommonModule,
     FormsModule,
     MaterialModule,
+    CustomDirectivesModule,
     TranslateModule.forChild(),
   ]
 })

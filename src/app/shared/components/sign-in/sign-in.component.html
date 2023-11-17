@@ -4,16 +4,13 @@
             <mat-card-header>
                 <mat-card-title>{{'login.title' | translate}}</mat-card-title>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content class="d-flex flex-column gap-2">
                 <div class="row mt-4">
                     <mat-form-field>
                         <mat-label>{{ 'login.user' | translate }}</mat-label>
                         <input [(ngModel)]="usuario" matInput
                             placeholder="{{ 'login.user-placeholder' | translate }}" name="usuario"
                             autocomplete="off" required>
-                        <mat-error *ngIf="form.controls['usuario']?.invalid && form.controls['usuario']?.touched">
-                            {{ 'login.user-error' | translate }}
-                        </mat-error>
                     </mat-form-field>
                 </div>
                 <div class="row">
@@ -22,15 +19,16 @@
                         <input [(ngModel)]="contrasena" type="password" matInput
                             placeholder="{{ 'login.password-placeholder' | translate }}" name="password"
                             autocomplete="off" required>
+
+                        <!-- <mat-error *ngIf="form.controls['password']?.invalid && form.controls['password']?.touched">
+                            {{ 'login.password-error' | translate }}
+                        </mat-error> -->
                         <mat-hint>
                             <a style="cursor: pointer;" (click)="toRecovery()">{{ 'login.forgot-password' | translate }}</a>
                         </mat-hint>
-                        <mat-error *ngIf="form.controls['password']?.invalid && form.controls['password']?.touched">
-                            {{ 'login.password-error' | translate }}
-                        </mat-error>
                     </mat-form-field>
                 </div>
-                <div class="row mt-4">
+                <div class="row">
                     <div class="col">
                         <button mat-raised-button class="w-100" color="accent" (click)="signIn()">{{'login.button' | translate}}</button>
                     </div>

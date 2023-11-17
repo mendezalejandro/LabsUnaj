@@ -4,7 +4,8 @@
             <mat-card-title>{{'sign-up.title' | translate}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <mat-stepper linear #stepper [orientation]="(stepperOrientation | async)!">
+            <ng-container *ngIf="stepperOrientation | async as orientation">
+            <mat-stepper linear #stepper [orientation]="orientation">
                 <mat-step [stepControl]="formDatosPersonales.control" [editable]="!registracionEnviada">
                     <form #formDatosPersonales="ngForm">
                         <ng-template matStepLabel>{{'sign-up.datos-personales-titulo' | translate}}</ng-template>
@@ -12,27 +13,19 @@
                         <div class="row mt-4">
                             <mat-form-field>
                                 <mat-label>{{ 'sign-up.nombre' | translate }}</mat-label>
-                                <input [(ngModel)]="registracion.nombre" matInput autofocus
+                                <input alphabetic [(ngModel)]="registracion.nombre" matInput autofocus
                                     placeholder="{{ 'sign-up.nombre-placeholder' | translate }}" name="nombre"
-                                    autocomplete="off" [maxLength]="100" required>
+                                    autocomplete="off" maxlength="50" required>
                                 <mat-icon matPrefix>badge</mat-icon>
-                                <mat-error
-                                    *ngIf="formDatosPersonales.controls['nombre']?.invalid && formDatosPersonales.controls['nombre']?.touched">
-                                    {{ 'sign-up.nombre-error' | translate }}
-                                </mat-error>
                             </mat-form-field>
                         </div>
                         <div class="row">
                             <mat-form-field>
                                 <mat-label>{{ 'sign-up.apellido' | translate }}</mat-label>
-                                <input [(ngModel)]="registracion.apellido" matInput
+                                <input alphabetic [(ngModel)]="registracion.apellido" matInput
                                     placeholder="{{ 'sign-up.apellido-placeholder' | translate }}" name="apellido"
-                                    autocomplete="off" [maxLength]="100" required>
+                                    autocomplete="off" maxlength="50" required>
                                 <mat-icon matPrefix>badge</mat-icon>
-                                <mat-error
-                                    *ngIf="formDatosPersonales.controls['apellido']?.invalid && formDatosPersonales.controls['apellido']?.touched">
-                                    {{ 'sign-up.apellido-error' | translate }}
-                                </mat-error>
                             </mat-form-field>
                         </div>
                         <div class="row">
@@ -40,7 +33,7 @@
                                 <mat-label>{{ 'sign-up.telefono' | translate }}</mat-label>
                                 <input [(ngModel)]="registracion.telefono" matInput
                                     placeholder="{{ 'sign-up.telefono-placeholder' | translate }}" name="telefono"
-                                    autocomplete="off" type="tel">
+                                    autocomplete="off" type="tel" maxlength="20">
                                 <mat-icon matPrefix>phone</mat-icon>
                             </mat-form-field>
                         </div>
@@ -49,14 +42,10 @@
                                 <mat-label>{{ 'sign-up.email' | translate }}</mat-label>
                                 <input #emailInput="ngModel" [(ngModel)]="registracion.mail" matInput
                                     placeholder="{{ 'sign-up.email-placeholder' | translate }}" name="email" autocomplete="off"
-                                    type="email" required (ngModelChange)="validateEmail(emailInput.value, formDatosPersonales)">
+                                    type="email" required (ngModelChange)="validateEmail(emailInput.value, formDatosPersonales)" maxlength="100">
                                 <mat-icon matPrefix>email</mat-icon>
                                 <mat-error *ngIf="emailInput.errors && emailInput.errors['emailInvalid']">
                                     {{ 'sign-up.email-invalid' | translate }}
-                                </mat-error>
-                                <mat-error
-                                    *ngIf="emailInput.touched && !emailInput.value">
-                                    {{ 'sign-up.email-error' | translate }}
                                 </mat-error>
                             </mat-form-field>
                         </div>
@@ -66,42 +55,34 @@
                     </form>
                 </mat-step>
                 <mat-step [stepControl]="formSesion.control" [editable]="!registracionEnviada">
-                    <form #formSesion="ngForm">
+                    <form #formSesion="ngForm" class="d-flex flex-column gap-3">
                         <ng-template matStepLabel>{{'sign-up.datos-sesion-titulo' | translate}}</ng-template>
-                        <div class="row">
+                        <div class="row mt-4">
                             <mat-form-field>
                                 <mat-label>{{ 'sign-up.usuario' | translate }}</mat-label>
-                                <input [(ngModel)]="registracion.nombreUsuario" matInput autofocus
-                                    placeholder="{{ 'sign-up.usuario-placeholder' | translate }}" name="usuario" [minLength]="8"
+                                <input alphaNumeric [(ngModel)]="registracion.nombreUsuario" matInput autofocus
+                                    placeholder="{{ 'sign-up.usuario-placeholder' | translate }}" name="usuario" minlength="8" maxlength="20"
                                     autocomplete="off" required>
                                 <mat-icon matPrefix>account_circle</mat-icon>
-                                <mat-hint>{{ 'sign-up.usuario-hint' | translate }}</mat-hint>
-                                <mat-error
-                                    *ngIf="formSesion.controls['usuario']?.invalid && formSesion.controls['usuario']?.touched">
-                                    {{ 'sign-up.usuario-error' | translate }}
-                                </mat-error>
+                                <mat-hint>{{ (orientation==='horizontal' ? 'sign-up.usuario-hint' : 'sign-up.usuario-hint-mobile')| translate }}</mat-hint>
                             </mat-form-field>
                         </div>
                         <div class="row">
                             <mat-form-field>
                                 <mat-label>{{ 'sign-up.password' | translate }}</mat-label>
-                                <mat-hint>{{'sign-up.password-hint'|translate}}</mat-hint>
-                                <input matInput #passwordInput="ngModel" [(ngModel)]="registracion.contrasena" name="password"
+                                <mat-hint>{{ (orientation==='horizontal' ? 'sign-up.usuario-hint' : 'sign-up.usuario-hint-mobile')| translate }}</mat-hint>
+                                <input alphaNumeric matInput #passwordInput="ngModel" [(ngModel)]="registracion.contrasena" name="password"
                                     type="password" placeholder="{{'sign-up.password-placeholder'|translate}}" required
-                                    (ngModelChange)="validatePasswords(formSesion)" minlength="5">
-                                <mat-error
-                                    *ngIf="passwordInput.errors && passwordInput.errors['required']">{{'sign-up.password-error'|translate}}</mat-error>
+                                    (ngModelChange)="validatePasswords(formSesion)" minlength="8" maxlength="20">
                                 <mat-icon matPrefix>password</mat-icon>
                             </mat-form-field>
                         </div>
                         <div class="row">
                             <mat-form-field>
                                 <mat-label>{{ 'sign-up.confirm-password' | translate }}</mat-label>
-                                <input matInput ngModel #confirmPasswordInput="ngModel" name="confirmPassword" type="password"
+                                <input alphaNumeric matInput ngModel #confirmPasswordInput="ngModel" name="confirmPassword" type="password"
                                     placeholder="{{'sign-up.confirm-password-placeholder'|translate}}" required
-                                    (ngModelChange)="validatePasswords(formSesion)" minlength="5">
-                                <mat-error
-                                    *ngIf="confirmPasswordInput.errors && confirmPasswordInput.errors['required']">{{'sign-up.confirm-password-error'|translate}}</mat-error>
+                                    (ngModelChange)="validatePasswords(formSesion)" minlength="8" maxlength="20">
                                 <mat-error
                                     *ngIf="confirmPasswordInput.errors && confirmPasswordInput.errors['notMatching']">{{'sign-up.confirm-password-notmatch'|translate}}</mat-error>
                                 <mat-icon matPrefix>password</mat-icon>
@@ -124,6 +105,7 @@
                     </div>
                 </mat-step>
             </mat-stepper>        
+        </ng-container>
         </mat-card-content>
     </mat-card>
     <!-- <span class="mat-h2 text-center"></span> -->

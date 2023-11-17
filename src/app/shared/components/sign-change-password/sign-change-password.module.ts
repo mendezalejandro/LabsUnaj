@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from 'src/app/core/modules/material.module';
 import { SignChangePasswordComponent } from './sign-change-password.component';
+import { CustomDirectivesModule } from '../../directives/custom-directives.module';
 
 
 
@@ -15,6 +16,7 @@ import { SignChangePasswordComponent } from './sign-change-password.component';
     CommonModule,
     FormsModule,
     MaterialModule,
+    CustomDirectivesModule,
     TranslateModule.forChild(),
   ]
 })

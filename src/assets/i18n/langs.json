@@ -169,10 +169,11 @@
     "confirm-password-placeholder": "Type same password again",
     "confirm-password-error": "Confirm password is required",
     "confirm-password-notmatch": "Password not match",
-    "usuario-hint": "The username must contain minimun of 8 characters",
+    "usuario-hint": "Minimun of 8 alphanumeric characters",
     "datos-sesion-titulo": "Access credentials",
     "datos-personales-titulo": "Personal information",
-    "email-invalid": "The email format is invalid"
+    "email-invalid": "The email format is invalid",
+    "usuario-hint-mobile": "Min. 8 alphanumeric chars"
   },
   "sign-recovery-account": {
     "mensaje": "An message has been sended to your email inbox. Check them to recovery your password.",
