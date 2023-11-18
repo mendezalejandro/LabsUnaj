@@ -347,7 +347,9 @@
     "user-error": "El nombre de usuario es requerido",
     "password-placeholder": "Escriba su contraseña",
     "password-error": "La contraseña es requerida",
-    "forgot-password": "¿Olvidaste tu contraseña?"
+    "forgot-password": "¿Olvidaste tu contraseña?",
+    "user-email": "Nombre de usuario o correo electrónico",
+    "user-email-placeholder": "Escriba su nombre de usuario o correo electrónico"
   },
   "logout": {
     "title": "Cerrar sesión",

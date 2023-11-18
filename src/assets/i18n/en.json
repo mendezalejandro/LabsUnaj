@@ -245,7 +245,9 @@
     "user-error": "The username is required",
     "password-placeholder": "Type your password",
     "password-error": "The password is required",
-    "forgot-password": "Forgot password?"
+    "forgot-password": "Forgot password?",
+    "user-email": "Username or email",
+    "user-email-placeholder": "Type your username or email"
   },
   "logout": {
     "title": "Sign out",

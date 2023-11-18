@@ -7,22 +7,18 @@
             <mat-card-content class="d-flex flex-column gap-2">
                 <div class="row mt-4">
                     <mat-form-field>
-                        <mat-label>{{ 'login.user' | translate }}</mat-label>
+                        <mat-label>{{ 'login.user-email' | translate }}</mat-label>
                         <input [(ngModel)]="usuario" matInput
-                            placeholder="{{ 'login.user-placeholder' | translate }}" name="usuario"
+                            placeholder="{{ 'login.user-email-placeholder' | translate }}" name="usuario"
                             autocomplete="off" required>
                     </mat-form-field>
                 </div>
                 <div class="row">
                     <mat-form-field>
                         <mat-label>{{ 'login.password' | translate }}</mat-label>
-                        <input [(ngModel)]="contrasena" type="password" matInput
+                        <input #passwordInput [(ngModel)]="contrasena" type="password" matInput alphaNumeric
                             placeholder="{{ 'login.password-placeholder' | translate }}" name="password"
                             autocomplete="off" required>
-
-                        <!-- <mat-error *ngIf="form.controls['password']?.invalid && form.controls['password']?.touched">
-                            {{ 'login.password-error' | translate }}
-                        </mat-error> -->
                         <mat-hint>
                             <a style="cursor: pointer;" (click)="toRecovery()">{{ 'login.forgot-password' | translate }}</a>
                         </mat-hint>

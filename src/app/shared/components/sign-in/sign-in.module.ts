@@ -6,6 +6,7 @@ import { MaterialModule } from 'src/app/core/modules/material.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { SignInComponent } from './sign-in.component';
 import { SignInRoutingModule } from './sign-in-routing.module';
+import { CustomDirectivesModule } from '../../directives/custom-directives.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { SignInRoutingModule } from './sign-in-routing.module';
     CommonModule,
     FormsModule,
     MaterialModule,
+    CustomDirectivesModule,
     TranslateModule.forChild(),
   ]
 })
