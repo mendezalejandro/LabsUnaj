@@ -104,8 +104,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   openLab(turno: ITurnoVigente) {
     this.operSuscription = this.turnosService.getTurnoHabilitado(turno.idTurno).pipe(
       tap((data) => {
-        console.log(data)
-        window.open("https://" + (data as string));
+        window.open(data as string);
       })
     ).subscribe();
   }
