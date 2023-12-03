@@ -50,7 +50,7 @@
                 </div>
                 <div class="row d-flex">
                     <div class="col d-flex justify-content-center"><mat-slide-toggle color="accent"
-                            [disabled]="readOnly || disabled" [(ngModel)]="laboratorio.disponible" name="disponible">{{
+                            [disabled]="readOnly || disabled || !laboratorio.url" [(ngModel)]="laboratorio.disponible" name="disponible">{{
                             'general.disponible' | translate
                             }}</mat-slide-toggle></div>
                 </div>

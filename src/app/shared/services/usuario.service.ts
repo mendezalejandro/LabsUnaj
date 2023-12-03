@@ -63,7 +63,8 @@ export class UsuarioService {
   agregarUsuario(usuario: IUsuario) {
     usuario.esAdmin = true;
     const endpoint = `${this.apiEndpoint}/usuario`;
-    return this.httpClient.post<IUsuario>(endpoint, usuario);
+    const requestOptions = { withToken: true} as RequestOptions;
+    return this.httpClient.post<IUsuario>(endpoint, usuario, requestOptions);
   }
 
   /**
@@ -121,8 +122,9 @@ export class UsuarioService {
    * @returns usuario editado
    */
   editarUsuario(usuario: IUsuario) {
-    const endpoint = `${this.apiEndpoint}/usuario/${usuario.id}`;
-    return this.httpClient.put<IUsuario>(endpoint, usuario);
+    const endpoint = `${this.apiEndpoint}/usuario/datos-personales/${usuario.id}`;
+    const requestOptions = { withToken: true} as RequestOptions;
+    return this.httpClient.put<IUsuario>(endpoint, usuario,requestOptions);
   }
 
   /**

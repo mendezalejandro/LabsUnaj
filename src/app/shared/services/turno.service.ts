@@ -82,8 +82,8 @@ export class TurnoService {
   getTurnos(p: ITurnoBusqueda) {
     let queryParams={} as any;
     if(p.disponible!=null) queryParams.disponible=p.disponible;
-    if(p.fechaDesde!=null) queryParams.fechaDesde=p.fechaDesde;
-    if(p.fechaHasta!=null) queryParams.fechaHasta=p.fechaHasta;
+    if(p.fechaDesde!=null) queryParams.fechaDesde= DateTime.fromJSDate(p.fechaDesde).toISO({ includeOffset: false });
+    if(p.fechaHasta!=null) queryParams.fechaHasta= DateTime.fromJSDate(p.fechaHasta).toISO({ includeOffset: false });
     if(p.idUsuario!=null) queryParams.idUsuario=p.idUsuario;
     if(p.idLaboratorio!=null) queryParams.idLaboratorio=p.idLaboratorio;
 

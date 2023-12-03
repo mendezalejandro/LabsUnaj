@@ -17,6 +17,10 @@ services:
     
   web:
     image: nicomansotti/labunaj-web
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db/labunaj?serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: labunaj2023
     ports:
       - 8080:80
     depends_on:
