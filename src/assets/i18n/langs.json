@@ -136,7 +136,9 @@
     "password-error": "The password is required",
     "forgot-password": "Forgot passowrd?",
     "user-email": "Username or email",
-    "user-email-placeholder": "Type your username or email"
+    "user-email-placeholder": "Type your username or email",
+    "open-login": "Open login",
+    "logout": "Logout"
   },
   "logout": {
     "message": "Are you sure do you want close this session?"
@@ -187,5 +189,8 @@
     "password-error": "A new password is required"
   },
   "TOKEN-ERR-002": "You not have permissions to realize this operation. Contact with your administrator.",
-  "TOKEN-ERR-003": "Sessión has expired. Sign in again."
+  "TOKEN-ERR-003": "Sessión has expired. Sign in again.",
+  "menu": {
+    "desplegate": "Open menu"
+  }
 }

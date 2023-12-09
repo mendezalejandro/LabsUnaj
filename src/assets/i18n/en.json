@@ -81,7 +81,8 @@
     "laboratorios": "Laboratories",
     "turnos": "Schedules",
     "perfil": "Profile",
-    "dashboard": "My appointments"
+    "dashboard": "My appointments",
+    "desplegate": "Open menu"
   },
   "features": {
     "usuarios": {
@@ -247,7 +248,9 @@
     "password-error": "The password is required",
     "forgot-password": "Forgot password?",
     "user-email": "Username or email",
-    "user-email-placeholder": "Type your username or email"
+    "user-email-placeholder": "Type your username or email",
+    "open-login": "Open login",
+    "logout": "Logout"
   },
   "logout": {
     "title": "Sign out",

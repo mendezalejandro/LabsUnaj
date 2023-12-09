@@ -12,7 +12,7 @@
 <ng-container *ngIf="userIsLogged; else loggedOutTemplate">
   <mat-toolbar color="primary">
     <!-- menu button-->
-    <button mat-icon-button (click)="sideNav.toggle()">
+    <button mat-icon-button (click)="sideNav.toggle()" [ariaLabel]="'menu.desplegate' | translate">
       <mat-icon>menu</mat-icon>
     </button>
 
@@ -22,7 +22,7 @@
     <!-- login button -->
     <span class="spacer"></span>
     
-    <button mat-icon-button (click)="openLogout()">
+    <button mat-icon-button (click)="openLogout()" [ariaLabel]="'login.logout' | translate">
       <mat-icon>login</mat-icon>
     </button>
     
@@ -77,18 +77,18 @@
     <span class="spacer"></span>
 
     <ng-container *ngIf="isMobile| async;else loginDesktop">
-      <button mat-icon-button (click)="openLogin()">
+      <button mat-icon-button (click)="openLogin()" [ariaLabel]="'login.open-login' | translate">
         <mat-icon>login</mat-icon>
       </button>
-      <button mat-icon-button (click)="openSignUp()">
+      <button mat-icon-button (click)="openSignUp()" [ariaLabel]="'login.signup' | translate">
         <mat-icon>badge</mat-icon>
       </button>
     </ng-container>
     <ng-template #loginDesktop>
-      <button mat-button (click)="openLogin()">
+      <button mat-button (click)="openLogin()"  [ariaLabel]="'login.button' | translate">
         {{'login.button' | translate}}
       </button>
-      <button mat-button (click)="openSignUp()">{{'login.signup' | translate}}</button>
+      <button mat-button (click)="openSignUp()" [ariaLabel]="'login.signup' | translate">{{'login.signup' | translate}}</button>
     </ng-template>
     <!--  -->
   </mat-toolbar>
