@@ -60,8 +60,8 @@ export class TurnosComponent implements OnInit, OnDestroy, AfterViewInit {
 
   //#region eventos del componente
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
   }
   /* destruccion */
   ngOnDestroy(): void {

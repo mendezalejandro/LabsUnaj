@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ErrorComponent } from './error.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { MaterialModule } from '../../modules/material.module';
+import { TestModule } from '../../modules/test.module';
 
 describe('ErrorComponent', () => {
   let component: ErrorComponent;
@@ -8,6 +11,7 @@ describe('ErrorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ TestModule, TranslateModule.forRoot(), MaterialModule ],
       declarations: [ ErrorComponent ]
     })
     .compileComponents();

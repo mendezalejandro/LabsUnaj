@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   /* flag que indica si el formulario esta abierto */
   opened!: boolean;
   /* usuario logueado */
-  usuarioLogueado: IUsuarioSesion = this.usuarioService.getUsuarioLogueado();
+  usuarioLogueado!: IUsuarioSesion;
   /* lista de turnos vigentes */
   turnosVigentes$!: Observable<ITurnoVigente[]>;
   /* idioma del usuario */
@@ -54,6 +54,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
    * metodo que inicializa el componente
    */
   ngOnInit(): void {
+    this.usuarioLogueado = this.usuarioService.getUsuarioLogueado();
     this.turnosVigentes$ = this.turnosService.getTurnosVigentes(this.usuarioLogueado.id);
   }
 
